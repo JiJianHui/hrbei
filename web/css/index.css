@@ -1,0 +1,75 @@
+/*内容控制*/
+#content {width:860px;margin-top:5px;float:left;height: auto;}
+
+.left_content {width:550px; border:0px; float:left;}
+
+.left_content .item {
+    font-size:13px;
+    color:#9c9c9c;
+    margin-left:13px;
+    height:25px;
+    line-height:25px;
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.left_content .item a {
+    color: #a9a9a9;
+    text-decoration: none;
+}
+
+.left_content .item a:hover{
+    color: #008b8b;
+    text-decoration: none;
+    border-bottom: thin dotted #008b8b;
+}
+
+.right_content {
+    width:300px; margin-left:10px; border:0px; float:left;
+}
+
+#scrollAd {width:300px; height:185px; border:0px; float:left;}
+
+/*右侧切换广告*/
+.loading{
+    width:300px; border:0px; background-color:#000000; color:#FFCC00;
+    font-size:12px; height:179px; text-align:center; padding-top:30px;
+    font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:bold;
+}
+
+.d1{
+    width:300px;height:auto; overflow:hidden;
+    border:0px; background-color:#000000; position:relative;
+}
+
+.num_list{
+    position:absolute; width:100%; left:0px; bottom:-1px;
+    background-color:#000000; color:#FFFFFF;
+    font-size:12px; padding:4px 0px; height:20px; overflow:hidden;
+}
+
+.button{
+    position:absolute; z-index:1000; right:0px; bottom:2px; font-size:13px; font-weight:bold; font-family:Arial, Helvetica, sans-serif;}
+.b1,.b2{background-color:#666666; display:block; float:left;padding:2px 6px; margin-right:3px; color:#FFFFFF; text-decoration:none; cursor:pointer;}
+.b2{color:#FFCC33; background-color:#FF6633;}
+#login {width:300px; height:72px; margin-top:15px; float:left;}
+
+/*首页滚动广告控制*/
+#container2 {
+    width:1024px; height:145px;
+    padding-top:10px; padding-bottom:3px;
+
+    border-bottom: 2px solid #6895c9; clear:both;
+}
+
+.scrollImg{
+    width:220px;
+    height:145px;
+    border:0;
+}
+
+/***************************************************************/
+/*实际内容控制css*/
+

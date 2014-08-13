@@ -1,0 +1,24 @@
+.verticalADRight{
+
+}
+
+.verticalADHead{
+    background-color: red;
+    color: white;
+    width:220px;
+}
+
+.verticalADHead a{
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Microsoft Yahei', 'Î¢ÈíÑÅºÚ', 'ËÎÌå', sans-serif;;
+    letter-spacing: 2px;
+    height: 35px;
+    line-height: 35px;
+}
+
+.verticalAD{
+    width:220px;
+    height: 150px;
+}

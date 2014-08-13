@@ -1,0 +1,27 @@
+<action name="indexBiJiBen"><result name="success" type="tiles">.indexBiJiBen</result>
+</action>
+
+<action name="indexDianNao"><result name="success" type="tiles">.indexBiJiBen</result></action>
+
+<action name="indexBanGong"><result name="success" type="tiles">.indexBiJiBen</result></action>
+
+<action name="indexZuZhuangJi"><result name="success" type="tiles">.indexBiJiBen</result></action>
+
+<action name="indexWangLuo"><result name="success" type="tiles">.indexBiJiBen</result></action>
+
+<action name="indexHaoCai"><result name="success" type="tiles">.indexBiJiBen</result></action>
+
+<action name="indexShuMa"><result name="success" type="tiles">.indexBiJiBen</result>
+</action>
+
+<action name="indexDianZiJianKong"><result name="success" type="tiles">.indexBiJiBen</result></action>
+
+<action name="indexSoftware"><result name="success" type="tiles">.indexBiJiBen</result></action>
+
+<action name="indexJiShuFuWu"><result name="success" type="tiles">.indexBiJiBen</result>
+</action>
+
+<action name="indexMobile"><result name="success" type="tiles">.indexBiJiBen</result></action>
+
+<action name="indexWaiShe"><result name="success" type="tiles">.indexBiJiBen</result>
+</action>

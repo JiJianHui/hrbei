@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+    <!--********************************框架********************************-->
+
+    <!--基本框架：包含了头部、中部和底部Footer-->
+    <definition name=".layout" template="/jsp/layout/Layout.jsp">
+        <put-attribute name="title" value="哈尔滨电子企业报价网"/>
+        <put-attribute name="header"   value="/jsp/layout/Head.jsp"/>
+        <put-attribute name="footer" value="/jsp/layout/footer.jsp"/>
+    </definition>
+
+    <!--导航框架：包含了头部、左侧导航、中部顶端菜单和底部Footer-->
+    <definition name=".baseLayout" template="/jsp/layout/LayoutBase.jsp">
+        <put-attribute name="title" value="哈尔滨电子企业报价网"/>
+        <put-attribute name="header"   value="/jsp/layout/Head.jsp"/>
+        <put-attribute name="leftMenu"  value="/jsp/layout/leftMenu.jsp"/>
+        <put-attribute name="navigator" value="/jsp/layout/navigator.jsp"/>
+        <put-attribute name="footer" value="/jsp/layout/footer.jsp"/>
+    </definition>
+
+    <!--底部广告框架：在基本框架的基础上添加了底部的底部滚动广告-->
+    <definition name=".indexLayout" template="/jsp/layout/LayoutIndex.jsp">
+        <put-attribute name="title" value="哈尔滨电子企业报价网"/>
+        <put-attribute name="header"   value="/jsp/layout/Head.jsp"/>
+        <put-attribute name="leftMenu"  value="/jsp/layout/leftMenu.jsp"/>
+        <put-attribute name="navigator" value="/jsp/layout/navigator.jsp"/>
+        <put-attribute name="scrollADs" value="/jsp/indexScrollADs.jsp"/>
+        <put-attribute name="footer" value="/jsp/layout/footer.jsp"/>
+    </definition>
+
+    <!--垂直广告框架：在基本框架的基础上位内容框架分割为两列显式-->
+    <definition name=".twoCloumnLayout" template="/jsp/layout/LayoutTwoColumn.jsp">
+        <put-attribute name="title" value="哈尔滨电子企业报价网"/>
+        <put-attribute name="header"   value="/jsp/layout/Head.jsp"/>
+        <put-attribute name="leftMenu"  value="/jsp/layout/leftMenu.jsp"/>
+        <put-attribute name="navigator" value="/jsp/layout/navigator.jsp"/>
+        <put-attribute name="footer" value="/jsp/layout/footer.jsp"/>
+    </definition>
+
+    <!--企业主页框架：包含了头部、中部和底部Footer-->
+    <definition name=".companyLayout" template="/jsp/layout/LayoutCompany.jsp">
+        <put-attribute name="title" value="哈尔滨电子企业报价网"/>
+        <put-attribute name="header"   value="/jsp/layout/HeadCompany.jsp"/>
+        <put-attribute name="companyTop"   value="/jsp/category/companyTop.jsp"/>
+        <put-attribute name="footer" value="/jsp/layout/footer.jsp"/>
+    </definition>
+
+    <!--*******************************首页********************************************-->
+    <definition name=".index" extends=".indexLayout">
+        <put-attribute name="content" value="/jsp/indexContent.jsp"/>
+    </definition>
+
+    <definition name=".register" extends=".layout">
+        <put-attribute name="content" value="/jsp/security/register.jsp"/>
+    </definition>
+
+
+    <!--********************************首页左边的类别导航菜单的选择********************************-->
+    <definition name=".indexBiJiBen" extends=".baseLayout">
+        <put-attribute name="title" value="笔记本"/>
+        <put-attribute name="content" value="/jsp/category/categoryList.jsp"/>
+    </definition>
+
+    <!--********************************搜索展示界面********************************-->
+    <definition name=".searchCompany" extends=".baseLayout">
+        <put-attribute name="title" value="公司查询"/>
+        <put-attribute name="content" value="/jsp/search/searchCompany.jsp"/>
+    </definition>
+
+    <definition name=".searchProduct" extends=".baseLayout">
+        <put-attribute name="title" value="产品查询"/>
+        <put-attribute name="content" value="/jsp/search/searchProduct.jsp"/>
+    </definition>
+
+    <!--********************************娱乐等杂七杂八界面**********************************************-->
+    <definition name=".findJob" extends=".twoCloumnLayout">
+        <put-attribute name="title" value="招聘信息"/>
+        <put-attribute name="leftContent" value="/jsp/entertainment/findJob.jsp"/>
+        <put-attribute name="rightContent" value="/jsp/layout/verticalAD.jsp"/>
+    </definition>
+
+    <definition name=".rentList" extends=".twoCloumnLayout">
+        <put-attribute name="title" value="出租出兑"/>
+        <put-attribute name="leftContent" value="/jsp/entertainment/rentList.jsp"/>
+        <put-attribute name="rightContent" value="/jsp/layout/verticalAD.jsp"/>
+    </definition>
+
+    <definition name=".technicalList" extends=".twoCloumnLayout">
+        <put-attribute name="title" value="技术交流"/>
+        <put-attribute name="leftContent" value="/jsp/entertainment/technicalList.jsp"/>
+        <put-attribute name="rightContent" value="/jsp/layout/verticalAD.jsp"/>
+    </definition>
+
+    <definition name=".articleList" extends=".twoCloumnLayout">
+        <put-attribute name="title" value="美文美景"/>
+        <put-attribute name="leftContent" value="/jsp/entertainment/articleList.jsp"/>
+        <put-attribute name="rightContent" value="/jsp/layout/verticalAD.jsp"/>
+    </definition>
+
+
+    <definition name=".jokeList" extends=".twoCloumnLayout">
+        <put-attribute name="title" value="开心一刻"/>
+        <put-attribute name="leftContent" value="/jsp/entertainment/jokeList.jsp"/>
+        <put-attribute name="rightContent" value="/jsp/layout/verticalAD.jsp"/>
+    </definition>
+
+    <definition name=".jobContent" extends=".twoCloumnLayout">
+        <put-attribute name="title" value="招聘信息"/>
+        <put-attribute name="leftContent" value="/jsp/entertainment/jobContent.jsp"/>
+        <put-attribute name="rightContent" value="/jsp/layout/verticalAD.jsp"/>
+    </definition>
+
+    <!--********************************公司主页等**********************************************-->
+    <definition name=".companyBlog" extends=".companyLayout">
+        <put-attribute name="companyInfo" value="/jsp/category/companyBlog.jsp"/>
+    </definition>
+
+
+
+    <!--********************************网站介绍等相关静态页面**********************************************-->
+    <definition name=".aboutUs" extends=".layout">
+        <put-attribute name="content" value="/jsp/security/aboutUs.jsp"/>
+    </definition>
+
+
+
+</tiles-definitions>

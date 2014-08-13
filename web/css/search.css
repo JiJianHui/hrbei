@@ -1,0 +1,128 @@
+/*********************Search Company**********************/
+.query {
+    width:480px;
+    height:50px;
+    margin-top: 15px;
+}
+
+.queryCategory{
+    height: 40px;
+}
+
+.query #searchField, .query #searchSubmit{
+    font-size:14px;
+    border:1px solid #6895c9;
+    height:30px;
+}
+
+.query #searchField {
+    width:280px;
+    /*line-height:40px;*/
+    background:#fff;
+    text-align:left;
+    margin-right: 0px;
+    vertical-align: text-bottom;
+}
+
+.query #searchSubmit {
+    font-weight:bold;
+    background:#6895c9;
+    color:#fff;
+    width:70px;
+    margin-left: 10px;
+    vertical-align: text-bottom;
+}
+
+/******************展示查询结果界面**********************/
+.companys{min-height: 600px; height: auto;}
+
+.comanyLine{
+    border-top:2px #dcdcdc solid;
+    height: 150px;
+}
+
+.companyLineLeft, .companyLineRight{
+    margin-top: 15px;
+    float: left;
+    font-family: 'Microsoft Yahei', '微软雅黑', '宋体', sans-serif;;
+}
+
+.basicLogo, .basicInfo{float: left;}
+
+.basicLogo{width: 160px; height: 100px;}
+
+.basicInfo{
+    width: 200px;
+    color:#9c9c9c;
+    font-size: 13px;
+    word-wrap: break-word;word-break: break-all;
+    margin-left: 13px;
+}
+
+.hotProduct{
+    float:left;margin-left: 30px;
+}
+.hotProduct img{width: 95px; height: 70px;}
+
+.hotProductInfo{
+    margin-top: 5px;
+    clear: both;width: 95px;
+    font-size: 12px;
+    color: #2b66b6;
+    word-wrap: break-word;word-break: break-all;
+}
+
+.hotProductPrice{font-size: 13px;}
+
+.priceNum{
+    color: red;
+    font-weight: bold;
+}
+
+
+/*********************Search product**********************/
+.productLines{
+    height: auto;
+    min-height: 220px;
+    margin-bottom: 5px;
+}
+
+.productCategory{
+    width: 70px;
+    text-align: center;
+    color:white;;
+    height: 25px;
+    line-height: 25px;
+    font-size: 13px;
+    font-weight: bold;
+    background-color:#6895c9;
+}
+
+.productItem{
+    float: left;
+    margin-right:15px;
+    text-align: left;
+}
+
+.productItem img{
+    width: 180px; height: 140px;
+    /*border:1px dotted red;*/
+    vertical-align: middle;
+    text-align: left;
+    border: 1px solid #f5f5f5;
+}
+
+.productBrand, .productOwner, .productPrice{
+    width: 175px;
+    font-size: 10px;
+    word-wrap: break-word;word-break: break-all;
+}
+
+.productBrand,.productOwner, .productPrice{color: #808080;}
+
+.productBrand{
+    color: #2b66b6;
+    margin-bottom: 5px;
+}
+
+.productOwner{font-size: 8px;}

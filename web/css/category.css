@@ -1,0 +1,206 @@
+
+
+#list .lines{
+    width: 100%;
+    height: 100px;
+    clear: both;
+    font-size: 13px;
+    /*border: 1px solid #4169e1;*/
+    text-align: center;
+}
+
+#list .item{
+    float: left;
+    width:141px;
+    text-align: center;
+    color: #a9a9a9;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline;
+    /*border: 1px dotted #ff4500;*/
+    margin-left: 8px;
+    margin-right: 10px;
+    padding-top: 7px;
+    /*cursor: pointer;*/
+}
+
+.itemImg{
+    width:141px;
+    height: 72px;
+    cursor: pointer;
+}
+
+.item span{
+    max-width: 141px;
+    font-size: 12px;
+    text-align: center;
+    font-family: microsoft yahei,sans-serif;
+}
+
+/*------------------------------弹出企业窗口------------------------------------*/
+.white_content {
+    display: none;  position: absolute;
+    top: 10%;  left: 25%;  width: 660px;  height: 500px;
+    /*border: 1px solid;*/
+    background-color: white;  z-index:1002;  overflow: auto;
+
+    border-bottom: 20px solid #2b66b6;
+}
+
+.briefInfo{
+    width: 100%;
+    font-family: 'Microsoft Yahei', '微软雅黑', '宋体', sans-serif;
+}
+
+.briefHead, .briefIntro, .briefPrice, .briefPriceTable, .briefFooter{
+    padding-left: 25px;
+    padding-right: 30px;
+    width: 660px;
+    max-width: 660px;
+    font-size: 12px;
+}
+
+.briefHead{
+    background-color: #2b66b6;
+    color: white;
+    font-size: 24px;
+    height: 50px; line-height: 50px;
+    font-family: 'Times New Roman','Microsoft Yahei', '微软雅黑', '宋体', sans-serif;
+    margin-bottom: 5px;
+    padding-right: 0px;
+}
+
+.briefHeadLeft{
+    float: left;
+    width:300px;
+}
+.briefHeadRight{
+    float: left;
+    text-align: right;
+    width:300px;
+    font-size: 13px;
+}
+.briefHeadRight a{
+    font-weight:bold;
+}
+
+.briefHeadRight img{
+    width: 30px;height: 30px;
+    line-height: 50px;
+    margin-left: 300px;
+}
+
+.briefHeadRight a:hover{
+    color: white;
+    text-decoration: none;
+}
+
+.briefIntro{
+    font-size: 12px;
+    color: #9c9c9c;
+}
+
+.beiefIntroItem{
+    white-space:nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.briefIntro span{
+    color: #2b66b6;
+    width: 60px;
+    text-align: left;
+    letter-spacing: 1px;
+    margin-right: 10px;
+}
+
+.companyName{
+    color: green;
+    font-weight: bold;
+}
+
+.briefPrice{
+    margin-top: 15px;
+}
+
+.briefPriceLeft{
+    text-align: left;
+    width: 300px;
+    float: left;
+}
+
+.briefPriceRight{
+    text-align: right;
+    width: 300px;
+    float: left;
+}
+
+.briefPriceRight img{
+    width: 17px;
+    height: 17px;
+    vertical-align: text-bottom;
+    margin-right: 10px;
+}
+
+.priceTable{
+    width: 100%;
+    border: 0px;
+    font-size: 13px;
+    color: #9c9c9c;
+    border-bottom: 2px solid #2b66b6;
+}
+
+.priceTable .head{
+    border-bottom: 2px solid #2b66b6;
+    border-top: 2px solid #2b66b6;
+}
+
+.priceTable th{
+    color: #2b66b6;
+    height: 30px;
+}
+.priceTable td{
+    height: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.briefFooter{
+    font-size: 12px;
+    color: #9c9c9c;
+}
+
+.briefFooter .footerItem{
+    white-space:nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.footerItem span{
+    color: #2b66b6;
+    width: 30px;
+    min-width: 30px;
+    text-align: left;
+    margin-right: 10px;
+}
+
+/*.commonLinks{*/
+    /*text-align: right;width: 100%;*/
+    /*clear: both;*/
+/*}*/
+
+.briefPriceTable a:hover{
+    text-decoration: dotted;
+}
+
+/*.emptyFooter{*/
+    /*width: 100%;*/
+    /*height: 20px;*/
+    /*background-color: #2b66b6;*/
+    /*margin-bottom: 0px;*/
+/*}*/
+
+/*------------------End of 弹出企业信息窗口---------------------------*/

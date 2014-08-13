@@ -1,0 +1,143 @@
+<project name="hrbei" default="all" basedir=".">
+
+    <!-- ===================== Property Definitions =========================== -->
+
+    <!-- ===================== Need you config youself ===================== -->
+    <!--<property name="tomcat.home" value="D:\dev\apache-tomcat-7.0.21"/>-->
+    <property name="tomcat.home" value="D:\Software\WebServer\tomcat7.0"/>
+
+
+
+    <property name="web.home" value="./web"/>
+    <property name="verbose.value" value="true"/>
+
+
+    <property name="src.home" value="./src"/>
+    <property name="myConfig.home" value="./MyConfig"/>
+    <property name="lib.home" value="${web.home}/WEB-INF/lib"/>
+    <property name="classes.home" value="${web.home}/WEB-INF/classes"/>
+    <property name="META.home" value="${web.home}/META-INF"/>
+    <property name="deploy.home" value="${tomcat.home}/webapps/hrbei.war"/>
+
+
+    <macrodef name="git">
+        <attribute name="command"/>
+        <attribute name="dir" default=""/>
+        <element name="args" optional="true"/>
+        <sequential>
+            <echo message="git @{command}"/>
+            <exec executable="git" dir="@{dir}">
+                <arg value="@{command}"/>
+                <args/>
+            </exec>
+        </sequential>
+    </macrodef>
+    <macrodef name="git-clone-pull">
+        <attribute name="repository"/>
+        <attribute name="dest"/>
+        <sequential>
+            <git command="clone">
+                <args>
+                    <arg value="@{repository}"/>
+                    <arg value="@{dest}"/>
+                </args>
+            </git>
+            <git command="pull" dir="@{dest}"/>
+        </sequential>
+    </macrodef>
+
+    <!-- ==================== Copy Files =========================== -->
+
+    <target name="all" depends="native">
+    </target>
+
+    <target name="native" depends="copyConfigeuration">
+        <native2ascii encoding="UTF-8" src="${web.home}/WEB-INF/properties" dest="${classes.home}"
+                      includes="**/*.properties"/>
+    </target>
+
+
+    <target name="copyAllFiles" depends="native">
+        <copy verbose="${verbose.value}" todir="${deploy.home}">
+            <fileset dir="${web.home}">
+                <include name="**/*"/>
+            </fileset>
+        </copy>
+    </target>
+
+
+    <target name="renameMyConfigBaseOnNeed">
+        <available file="${web.home}/WEB-INF/config/myConfig.properties" property="myConfig.exist"/>
+        <antcall target="renameMyConfig"></antcall>
+    </target>
+
+    <target name="renameMyConfig" if="myConfig.exist">
+        <copy tofile="${web.home}/WEB-INF/config/Config.properties"
+              file="${web.home}/WEB-INF/config/myConfig.properties" overwrite="true"/>
+    </target>
+
+    <target name="copyConfigeuration" depends="renameMyConfigBaseOnNeed">
+
+
+    <copy verbose="${verbose.value}" todir="${classes.home}">
+            <fileset dir="${web.home}/WEB-INF/config">
+                <include name="**/*"/>
+            </fileset>
+        </copy>
+        <echo message="${META.home}"/>
+        <copy verbose="${verbose.value}" todir="${META.home}">
+            <fileset dir="${myConfig.home}/META-INF">
+                <include name="**/*"/>
+            </fileset>
+        </copy>
+
+    </target>
+
+    <target name="copyAllFilesAndDeploy" depends="copyAllFiles,native">
+        <touch file="${deploy.home}/WEB-INF/web.xml"/>
+        <rename src="${deploy.home}/../hrbei.war.deployed" dest="${deploy.home}/../hrbei.war.dodeploy"/>
+    </target>
+
+    <target name="copyJsp">
+        <copy verbose="${verbose.value}" todir="${deploy.home}">
+            <fileset dir="${web.home}">
+                <include name="*.jsp"/>
+                <include name="**/*.jsp"/>
+                <include name="*.js"/>
+                <include name="**/*.js"/>
+                <include name="*.html"/>
+                <include name="**/*.html"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="beforeBuild" depends="all">
+    </target>
+    <target name="svnUpdate">
+
+        <echo>start download</echo>
+        <exec executable="svn">
+            <arg line="update ${basedir}"/>
+        </exec>
+
+        <echo>echo to svn</echo>
+        <delete file="svn.txt"/>
+        <exec executable="cmd">
+            <arg line="/c"/>
+            <arg line="svnversion ${basedir} >>svn.txt"/>
+        </exec>
+
+    </target>
+    <!--<target name="gitClonePull">-->
+    <!--<git-clone-pull repository="git://github.com/zhangBenson/zy.git" dest="."/>-->
+    <!--</target>-->
+    <!--<target name="gitPull">-->
+    <!--<git command="pull" dir="."/>-->
+    <!--</target>-->
+    <!--<git command = "clone">-->
+    <!--<args>-->
+    <!--<arg value = "git://github.com/zhangBenson/zy.git" />-->
+    <!--<arg value = "." />-->
+    <!--</args>-->
+    <!--</git>-->
+</project>
