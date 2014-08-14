@@ -64,6 +64,10 @@
 <script type="text/javascript" src="js/jquery1.83.js"></script>
 <script type="text/javascript" src="js/jquery.SuperSlide.2.1.js"></script>
 
+<%--公司主页框架，因为公司主页的特殊性，特别为其设置了单独的一个框架来展示。
+和基本框架不同的是为其增减了单独的Head以及对内容的控制。但是底部的common links和footer基本保持不变。
+--%>
+
 <body style="margin-top: 0px" id="mainBoady">
 
 <div id="main">

@@ -66,7 +66,7 @@ public class UserAction extends BasicAction
     }
 
     /******转到的需要登录的正式登录页面*******/
-    @Action(value = "login", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".personPage"),
+    @Action(value = "login", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".userCenter"),
             @Result(name = "redirect", type = Constants.RESULT_NAME_REDIRECT_ACTION, location = "${reDirectUrl}")})
     public String login() {
         User user = userDao.findByEmail(this.getUser().getEmail());
@@ -95,6 +95,20 @@ public class UserAction extends BasicAction
             type = Constants.RESULT_NAME_REDIRECT_ACTION, params = {"actionName", "index"})})
     public String exitSystem() {
         ActionContext.getContext().getSession().clear();
+        return SUCCESS;
+    }
+
+    /**********************************************用户中心相关函数*********************************/
+
+    @Action(value = "myFirstPage", results = {@Result(name = SUCCESS,type = Constants.RESULT_NAME_TILES, location = ".userCenter")})
+    public String myFirstPage(){
+
+        return SUCCESS;
+    }
+
+    @Action(value = "myCompany", results = {@Result(name = SUCCESS,type = Constants.RESULT_NAME_TILES, location = ".myCompany")})
+    public String myCompany(){
+
         return SUCCESS;
     }
 

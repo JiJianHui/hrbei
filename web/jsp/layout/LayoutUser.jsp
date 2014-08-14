@@ -28,6 +28,7 @@
     <%@ include file="includeForLayout.jsp" %>
 </head>
 
+<link href="/css/user/userLayout.css" rel="stylesheet" type="text/css" />
 
 <body style="margin-top: 0px" id="mainBoady">
 
@@ -38,7 +39,9 @@
 
     <%--网页中部，用于展示信息--%>
     <div id="container">
-        <tiles:insertAttribute name="content"/>
+        <div class="leftMenu"><tiles:insertAttribute name="leftMenu" ignore="true"/></div>
+        <div class="rightContent"><tiles:insertAttribute name="rightContent"/></div>
+        <div style="clear: both;"></div>
     </div>
 
     <div class="commonLinks">

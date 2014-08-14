@@ -29,6 +29,7 @@ public class News extends AbstractPersistence
     @ManyToOne
     private Category category;  //发布类别
 
+    @ManyToOne
     private User pubUser;  //注意，根据不同的用户类型去不同的表中查询。
     private Integer pubUserType; //发布者类型，默认0为公司，1为普通用户
 

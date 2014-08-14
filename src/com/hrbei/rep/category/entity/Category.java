@@ -18,7 +18,6 @@ import java.util.List;
 public class Category extends AbstractPersistence
 {
     private String name;    //类别名称
-    private Integer subjectNum;  //属于这个类别的商品的数目
 
     @Column(columnDefinition = "longtext")
     private String description; //类别简介
@@ -34,14 +33,6 @@ public class Category extends AbstractPersistence
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Integer getSubjectNum() {
-        return subjectNum;
-    }
-
-    public void setSubjectNum(Integer subjectNum) {
-        this.subjectNum = subjectNum;
     }
 
     public String getDescription() {

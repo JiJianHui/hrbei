@@ -67,6 +67,10 @@
 
 <body style="margin-top: 0px" id="mainBoady">
 
+<%--广告框架：该框架将在base框架的基础上对其中的content进行了更加细分：
+将内容分为了两列：左侧是显示内容，右侧是显示垂直广告。或者也可以用于显示别的东西。
+--%>
+
 <div id="main">
 
     <%--网页顶部，包括了登陆menubar和top展示--%>

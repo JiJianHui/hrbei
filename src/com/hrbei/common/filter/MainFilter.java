@@ -24,9 +24,9 @@ public class MainFilter implements Filter {
 
 
     static {
-        NEED_LOGIN.add("/myfirstPage.html");
         NEED_LOGIN.add("/openPrivateChannel.html");
         NEED_LOGIN.add("/myForcastClass.html");
+        NEED_LOGIN.add("/myFirstPage.html");
 
     }
 
@@ -48,7 +48,7 @@ public class MainFilter implements Filter {
 
             for (String url : NEED_LOGIN) {
                 if (StringUtils.startsWithIgnoreCase(requestUrl, url) && session.getAttribute(Constants.SESSION_USER_ID) == null) {
-                    response.sendRedirect("easyLogon.html?reDirectUrl=" + request.getServletPath() + "?" +
+                    response.sendRedirect("login.html?reDirectUrl=" + request.getServletPath() + "?" +
                             java.net.URLEncoder.encode(Utils.getEmptyString(request.getQueryString()), "utf-8"));
                     return;
                 }

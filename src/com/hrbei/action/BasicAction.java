@@ -99,6 +99,7 @@ public class BasicAction extends ActionSupport
         ActionContext.getContext().getSession().put(Constants.SESSION_USER_NANE, user.getNickName());
         ActionContext.getContext().getSession().put(Constants.SESSION_USER_EMAIL, user.getEmail());
         ActionContext.getContext().getSession().put(Constants.SESSION_USER_LOGO_URL, user.getLogo());
+        ActionContext.getContext().getSession().put(Constants.SESSION_USER_ROLE_TYPE, user.getUserRoleType());
     }
 
 

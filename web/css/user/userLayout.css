@@ -1,0 +1,77 @@
+.leftMenu{
+    width:150px;
+    float:left;
+    /*border: 1px dotted #4169e1;*/
+    /*text-align: center;*/
+    border-right: 1px solid #bebebe;
+    margin-bottom: 50px;
+}
+
+.portrait{float:left;width: 100%; margin-bottom: 10px;}
+
+.portrait .nick{
+    height: 50px;
+    line-height: 50px;
+    max-width: 90px;
+}
+.portrait .por img{
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ebebeb;
+}
+
+.portrait a:hover{text-decoration: none;}
+
+
+.linksGroup{
+    float: left;
+    width: 100%;
+    padding-left: 10px;
+    border-bottom: 1px solid #bebebe;
+}
+.linksGroup ul{
+    display: block;
+    float: left;
+    list-style: none;
+    padding-left: 20px;
+}
+
+.linksGroup ul li{
+    float: left;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.linksGroup ul li a{
+    float: left;
+    display: block;
+}
+
+.linksGroup ul li a:hover{
+    text-decoration: none;
+    background:#FFF5DA;
+}
+
+.h3_title{
+    float: left;
+    height: 16px;
+    line-height: 16px;
+    padding: 0 20px;
+    background: url(/images/lead_img.png) 2px 3px no-repeat;
+    font-size: 14px;
+    /*color:#033333;*/
+    color: #333;
+    font-family: Tahoma, Geneva,"\5FAE\8F6F\96C5\9ED1","\5b8b\4f53",sans-serif;
+    letter-spacing: 1px;
+    width: 100%;
+}
+/*右侧内容控制*/
+.rightContent{
+    width:860px;
+    margin-left:14px;
+    float:left;
+    height: auto;
+    border: 1px dotted green;
+}
+
+

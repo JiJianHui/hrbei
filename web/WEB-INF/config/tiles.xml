@@ -51,6 +51,13 @@
         <put-attribute name="footer" value="/jsp/layout/footer.jsp"/>
     </definition>
 
+    <definition name=".userLayout" template="/jsp/layout/LayoutUser.jsp">
+        <put-attribute name="title" value="哈尔滨电子企业报价网"/>
+        <put-attribute name="header"   value="/jsp/layout/Head.jsp"/>
+        <put-attribute name="leftMenu" value="/jsp/layout/leftMenuofUser.jsp"/>
+        <put-attribute name="footer" value="/jsp/layout/footer.jsp"/>
+    </definition>
+
     <!--*******************************首页********************************************-->
     <definition name=".index" extends=".indexLayout">
         <put-attribute name="content" value="/jsp/indexContent.jsp"/>
@@ -58,6 +65,16 @@
 
     <definition name=".register" extends=".layout">
         <put-attribute name="content" value="/jsp/security/register.jsp"/>
+    </definition>
+
+    <definition name=".userCenter" extends=".userLayout">
+        <put-attribute name="title" value="个人中心-Hrbei.com"/>
+        <put-attribute name="rightContent" value="/jsp/user/myFirstPage.jsp"/>
+    </definition>
+
+    <definition name=".myCompany" extends=".userLayout">
+        <put-attribute name="title" value="我的公司"/>
+        <put-attribute name="rightContent" value="/jsp/user/myCompany.jsp"/>
     </definition>
 
 

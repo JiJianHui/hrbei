@@ -5,6 +5,7 @@ import com.hrbei.rep.category.entity.Category;
 import com.hrbei.rep.company.entity.Company;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import java.util.List;
@@ -33,7 +34,7 @@ public class Product extends AbstractPersistence
     private Integer status; //产品的状态，有时候会停止
     private Boolean isDeleted = false;  //是否删除
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany
     private List<Category> categorys;  //产品类别
 
     public Company getCompany() {

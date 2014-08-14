@@ -36,7 +36,6 @@ public class Company extends AbstractPersistence
     private Integer status;    //该商家所处的状态，比如：审核中，运行中，关门停业
 
     @OneToMany(mappedBy = "company")
-    @OrderBy("date asc")
     private List<Product> products;  //本公司的产品
 
     public String getName() {

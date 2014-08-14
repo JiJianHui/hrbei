@@ -26,7 +26,7 @@ public class User extends AbstractPersistence
     private String address;    //地址
     private String description; //用户简介
 
-    private Integer userRoleType;   //用户权限
+    private Integer userRoleType = Constants.User_RoleType_Normal;   //用户权限,默认是0正常用户
     private Boolean isDeleted = false;
 
     public String getNickName() {

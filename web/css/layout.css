@@ -1,5 +1,10 @@
 * {margin:0px; padding:0px;}
-body {margin:0px auto; width:1024px;margin-top: 0px;background-color: white;}
+
+body {width:1024px;
+    margin: 0px auto;
+    background-color: white;
+}
+
 img {border:0px;}
 ul {display:none;}
 /*a {color:#000; text-decoration:none;}*/
@@ -199,7 +204,7 @@ a:visited {color:#333333; text-decoration:none;}
 }
 #container1 {width:1024px; clear:both;min-height:500px;height: auto;}
 
-/*��ർ���˵�����*/
+/*左侧导航栏*/
 #left {width:150px; float:left;}
 
 #enterprise {width:150px; height:40px; background-image:url("/images/enterprise.jpg"); float:left;}
@@ -223,7 +228,7 @@ a:visited {color:#333333; text-decoration:none;}
     /*border-left: 1px solid #6895c9; border-bottom: 1px solid #6895c9; border-top:1px solid #6895c9*/
 }
 
-/*�Ҳർ���˵�����*/
+/*右侧导航栏目*/
 #right {width:860px; margin-left:14px; border:0px; float:left;height: auto;}
 
 #navigator {width:860px; height:37px; border-bottom:3px solid #6895c9;}
@@ -281,7 +286,7 @@ a:visited {color:#333333; text-decoration:none;}
 }
 
 
-/***********************˫��Ŀ���ֿ���**************************/
+/*******************垂直广告的时候将content分为两列时候的左右内容控制*****************************/
 #leftContent{
     width:580px; border:0px; float:left;
 }
@@ -293,7 +298,7 @@ a:visited {color:#333333; text-decoration:none;}
 
 
 
-/***************************��½**************************************/
+/***************************登陆控制*************************************/
 .black_overlay{
     display: none;
     position: absolute;
