@@ -72,11 +72,24 @@
         <put-attribute name="rightContent" value="/jsp/user/myFirstPage.jsp"/>
     </definition>
 
+    <definition name=".userInfo" extends=".userLayout">
+        <put-attribute name="title" value="个人信息"/>
+        <put-attribute name="rightContent" value="/jsp/user/userInfo.jsp"/>
+    </definition>
+
+    <definition name=".userPortraitCrop" template="/jsp/user/userPortraitCrop.jsp">
+        <put-attribute name="title" value="选择图片"/>
+    </definition>
+
     <definition name=".myCompany" extends=".userLayout">
         <put-attribute name="title" value="我的公司"/>
         <put-attribute name="rightContent" value="/jsp/user/myCompany.jsp"/>
     </definition>
 
+    <definition name=".initCreateCompany" extends=".userLayout">
+        <put-attribute name="title" value="创建公司"/>
+        <put-attribute name="rightContent" value="/jsp/company/initCreateCompany.jsp"/>
+    </definition>
 
     <!--********************************首页左边的类别导航菜单的选择********************************-->
     <definition name=".indexBiJiBen" extends=".baseLayout">

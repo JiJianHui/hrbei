@@ -7,6 +7,7 @@ import com.hrbei.rep.user.dao.UserDao;
 import com.hrbei.rep.user.entity.User;
 import com.opensymphony.xwork2.ActionContext;
 import org.apache.commons.lang.StringUtils;
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
@@ -14,6 +15,7 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import java.io.PrintWriter;
 import java.util.Calendar;
 
 /**
@@ -33,6 +35,8 @@ public class UserAction extends BasicAction
 
     private String reDirectUrl;
     private String loginMessage;
+
+    private String newPassword;
 
     /**工具条上弹出的简易登录窗口控制函数。**/
     @Action(value = "ajaxLogin",results = {@Result(name = SUCCESS,type = "json")})
@@ -108,9 +112,55 @@ public class UserAction extends BasicAction
 
     @Action(value = "myCompany", results = {@Result(name = SUCCESS,type = Constants.RESULT_NAME_TILES, location = ".myCompany")})
     public String myCompany(){
-
         return SUCCESS;
     }
+
+    @Action(value = "userInfo", results = {@Result(name = SUCCESS,type = Constants.RESULT_NAME_TILES, location = ".userInfo")})
+    public String userInfo(){
+        user = userDao.findById(this.getSessionUserId());
+        return SUCCESS;
+    }
+
+    @Action(value = "updatePassword")
+    public void updatePassword()
+    {
+        User user = userDao.findByEmail(this.getSessionUserEmail());
+
+        if (user.getPassword().equals(MD5.endCode(this.user.getPassword())))
+        {
+            user.setPassword(MD5.endCode(this.getNewPassword()));
+            userDao.persist(user);
+            try{
+                PrintWriter out = ServletActionContext.getResponse().getWriter();
+                out.print("success");
+                out.close();
+            }
+            catch (Exception e){ e.printStackTrace(); }
+        }
+    }
+
+    @Action(value = "updateBasicInfo")
+    public void updateBasicInfo(){
+        User _user = userDao.findById(getSessionUserId());
+        _user.setNickName(user.getNickName());
+        _user.setDescription(user.getDescription());
+        _user.setSexy(user.getSexy());
+
+        //持久化
+        userDao.persistAbstract(_user);
+        this.setUser(_user);
+        //设置session数据
+        this.setUserToSession(_user);
+
+        try{
+            PrintWriter out = ServletActionContext.getResponse().getWriter();
+            out.print("success");
+            out.close();
+        }
+        catch (Exception e){ e.printStackTrace(); }
+    }
+
+
 
     public UserDao getUserDao() {
         return userDao;
@@ -142,5 +192,13 @@ public class UserAction extends BasicAction
 
     public void setLoginMessage(String loginMessage) {
         this.loginMessage = loginMessage;
+    }
+
+    public String getNewPassword() {
+        return newPassword;
+    }
+
+    public void setNewPassword(String newPassword) {
+        this.newPassword = newPassword;
     }
 }

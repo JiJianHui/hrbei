@@ -1,3 +1,4 @@
+/**********************左侧菜单条控制***********************/
 .leftMenu{
     width:150px;
     float:left;
@@ -5,14 +6,23 @@
     /*text-align: center;*/
     border-right: 1px solid #bebebe;
     margin-bottom: 50px;
+    font-family: Tahoma, Geneva,"\5FAE\8F6F\96C5\9ED1","\5b8b\4f53",sans-serif;
 }
 
-.portrait{float:left;width: 100%; margin-bottom: 10px;}
+.portrait{
+    float:left;width: 100%; margin-bottom: 10px;
+    /*white-space: pre-wrap;*/
+    /*overflow: hidden;*/
+    /*text-overflow: ellipsis;*/
+    overflow: hidden;
+    text-overflow:ellipsis;
+    word-wrap: break-word;
+}
 
 .portrait .nick{
     height: 50px;
-    line-height: 50px;
-    max-width: 90px;
+    /*max-width: 90px;*/
+    font-weight: bold;
 }
 .portrait .por img{
     width: 50px;
@@ -65,13 +75,99 @@
     letter-spacing: 1px;
     width: 100%;
 }
+
+
+/*****************个人中心相关CSS控制*****************/
+
 /*右侧内容控制*/
 .rightContent{
     width:860px;
     margin-left:14px;
     float:left;
     height: auto;
-    border: 1px dotted green;
+    /*border: 1px dotted green;*/
 }
 
+#basicInfo{
+    float: left;
+    width: 400px;
+    /*border-right: 1px solid #bebebe;*/
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.updateLine{
+    margin-top: 10px;
+    font-size: 15px;
+    font-family: '宋体', 'Microsoft Yahei', '微软雅黑', sans-serif;;
+    /*border: 1px dotted red;*/
+}
+
+.updateLine .warning{
+    color: red;
+    font-size: 13px;
+}
+
+
+.updateLine .input{
+    width: 300px;
+}
+
+/*.updateLine button{float: right;}*/
+
+#basicInfo .updateLine .submitButton{
+    color: #3e5706;
+    background-color: #a5cd4e;
+    border: none;
+    display: inline-block;
+    font: bold 14px/25px Arial, sans-serif;
+    padding: 0 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 10px;
+    text-shadow: 1px 1px 1px rgba(255,255,255, .22);
+
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+
+    -webkit-box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);
+    -moz-box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);
+    box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);
+
+    -webkit-transition: all 0.15s ease;
+    -moz-transition: all 0.15s ease;
+    -o-transition: all 0.15s ease;
+    -ms-transition: all 0.15s ease;
+    transition: all 0.15s ease;
+}
+
+
+#passAndLogo{
+    float: left;
+    width: 400px;
+    margin-left: 20px;
+}
+
+.changePortrait{
+    width: 100%;
+    background-color: #f8f8ff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.changePortrait img{
+    width: 100px;
+    height: 100px;
+}
+
+#change_portrait{
+    color: white;
+    margin-top: 15px;
+}
+
+.updateLine .input_msg{
+    color: red;
+    font-size: 13px;
+}
 

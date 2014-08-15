@@ -21,6 +21,11 @@
 <script type="text/javascript" src="js/jquery1.83.js"></script>
 <script type="text/javascript" src="js/jquery.SuperSlide.2.1.js"></script>
 
+<link rel="stylesheet" type="text/css" href="/js/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+<script type="text/javascript" src="/js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<script type="text/javascript" src="/js/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+
+
 <script language="javascript" type="text/javascript">
     var s=function(){
         var interv=2000; //切换间隔时间

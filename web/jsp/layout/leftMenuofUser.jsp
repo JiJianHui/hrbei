@@ -26,8 +26,8 @@
     <div class="linksGroup">
         <h3 class="h3_title">个人</h3>
         <ul>
-            <li><a href="indexWaiShe.html" title="电脑外设专区">个人信息</a></li>
-            <li><a href="indexWaiShe.html" title="电脑外设专区">个人收藏</a></li>
+            <li><a href="userInfo.html" title="电脑外设专区">个人信息</a></li>
+            <li><a href="userInfo.html" title="电脑外设专区">个人收藏</a></li>
         </ul>
     </div>
 
@@ -35,7 +35,7 @@
         <h3 class="h3_title">商店</h3>
         <ul>
             <li><a href="indexWaiShe.html" title="电脑外设专区">我的公司</a></li>
-            <li><a href="indexWaiShe.html" title="电脑外设专区">创建公司</a></li>
+            <li><a href="initCreateCompany.html" title="电脑外设专区">创建公司</a></li>
             <li><a href="indexWaiShe.html" title="电脑外设专区">我的商品</a></li>
         </ul>
     </div>

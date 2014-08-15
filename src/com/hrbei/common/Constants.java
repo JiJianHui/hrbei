@@ -13,6 +13,9 @@ public class Constants
 
     public static final Integer Page_Size = 8;
 
+    public static final String Upload_File_Tmp_Path = "/upload/file/tmp";
+    public static final String Upload_User_Path = "/upload/user";
+
     /*******************产品类别*********************/
     public static final Integer CategoryBiJiBen     = 0;
     public static final Integer CategoryDianNao     = 1;
