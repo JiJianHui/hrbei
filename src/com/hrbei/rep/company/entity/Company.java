@@ -1,13 +1,14 @@
 package com.hrbei.rep.company.entity;
 
+import com.hrbei.common.Constants;
 import com.hrbei.rep.AbstractPersistence;
+import com.hrbei.rep.category.entity.Category;
 import com.hrbei.rep.product.entity.Product;
 import com.hrbei.rep.user.entity.User;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OrderBy;
 import java.util.List;
 
 /**
@@ -20,8 +21,7 @@ import java.util.List;
 public class Company extends AbstractPersistence
 {
     private String name;    //企业名称
-    private String nickName;    //企业登录昵称
-    private String logo;        //企业小型Logo
+    private String logo = Constants.Company_Default_Portrait;        //企业小型Logo
     private String homeImage;   //企业个人主页图片展示
     private String address;
     private String qq;
@@ -29,22 +29,23 @@ public class Company extends AbstractPersistence
     private String mobilePhone;
 
     @ManyToOne
-    private User responsiblePerson;  //负责人，必须要负责人才能管理
+    private User responsiblePerson;  //负责人，必须要负责人才能创建和管理
     private String description; //企业简介
+
+    private String contactName;    //联系人，是该公司的联系人
 
     private Boolean isDeleted = false;
     private Integer status;    //该商家所处的状态，比如：审核中，运行中，关门停业
 
+    private String email;
+//    private String homeBackgroundColor;
+    private String webSite;
+
     @OneToMany(mappedBy = "company")
     private List<Product> products;  //本公司的产品
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    @OneToMany
+    private List<Category> categorys;
 
 
     public String getLogo() {
@@ -111,14 +112,6 @@ public class Company extends AbstractPersistence
         this.description = description;
     }
 
-    public String getNickName() {
-        return nickName;
-    }
-
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
-    }
-
     public Boolean getDeleted() {
         return isDeleted;
     }
@@ -141,5 +134,45 @@ public class Company extends AbstractPersistence
 
     public void setProducts(List<Product> products) {
         this.products = products;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getContactName() {
+        return contactName;
+    }
+
+    public void setContactName(String contacts) {
+        this.contactName = contacts;
+    }
+
+    public List<Category> getCategorys() {
+        return categorys;
+    }
+
+    public void setCategorys(List<Category> categorys) {
+        this.categorys = categorys;
+    }
+
+    public String getWebSite() {
+        return webSite;
+    }
+
+    public void setWebSite(String webSite) {
+        this.webSite = webSite;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

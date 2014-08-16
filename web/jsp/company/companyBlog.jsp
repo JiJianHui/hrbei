@@ -10,7 +10,7 @@
 
 <div style="background-color: #08419c; border-bottom: 5px solid #08419c">
     <div class="companyBig"><img src="/images/company/companyBig.png"/></div>
-    <div class="companyBig"><img src="/images/company/companyBigAD.png"/></div>
+    <div class="companyAd"><img src="/images/company/companyBigAD.png"/></div>
 
     <div class="companyNews">
         <div class="title">公司新闻</div>

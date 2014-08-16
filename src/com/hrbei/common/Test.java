@@ -1,5 +1,9 @@
 package com.hrbei.common;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Ji JianHui
@@ -9,8 +13,7 @@ package com.hrbei.common;
 
 public class Test
 {
-    public static void main(String args[])
-    {
+    public static void main(String args[]) throws IOException {
         /**
         Company s = new Company();
         s.setId(1L);
@@ -28,5 +31,34 @@ public class Test
         session.save(s);
         session.getTransaction().commit();
          **/
+        run();
+    }
+
+    public static void run() throws IOException {
+
+        System.out.println("小猫我爱你！");
+        getFromKeybord();
+
+        printFiveTimes("大鱼521");
+        printFiveTimes("小猫521");
+    }
+
+    private static String printFiveTimes(String content){
+        for( int index = 0; index < 5; index++)
+        {
+            System.out.println(content);
+        }
+
+        System.out.println("************");
+
+        return null;
+    }
+
+    private static void getFromKeybord() throws IOException {
+        String str = "";
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in) );
+        str = br.readLine();
+
+        System.out.println(str);
     }
 }

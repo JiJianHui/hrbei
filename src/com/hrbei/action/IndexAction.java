@@ -85,8 +85,9 @@ public class IndexAction extends BasicAction
         return SUCCESS;
     }
 
-    /************************��ѯ�����************************/
+    /***********************搜索界面相关************************/
 
+    @Action(value = "searchCompany", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".searchCompany")})
     public String searchCompany(){
         return SUCCESS;
     }
@@ -97,7 +98,7 @@ public class IndexAction extends BasicAction
     }
 
 
-    /************************��Ƹ�����ġ�����������************************/
+    /************************导航栏里面工作、招聘等栏目************************/
 
     @Action(value = "findJob", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".findJob")})
     public String jobList(){
@@ -137,10 +138,7 @@ public class IndexAction extends BasicAction
     }
 
     @Action(value = "aboutUs", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".aboutUs")})
-    /**��˾���ܵȾ�̬ҳ��***/
     public String aboutUs(){
         return SUCCESS;
     }
-
-
 }

@@ -3,6 +3,8 @@ package com.hrbei.rep.company.dao;
 import com.hrbei.rep.ModelDao;
 import com.hrbei.rep.company.entity.Company;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Ji JianHui
@@ -11,5 +13,5 @@ import com.hrbei.rep.company.entity.Company;
  */
 public interface CompanyDao extends ModelDao<Company>
 {
-
+    public List<Company> findMyCompany(Integer userID);
 }

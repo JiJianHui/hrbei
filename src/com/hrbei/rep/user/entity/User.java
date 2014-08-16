@@ -18,7 +18,7 @@ public class User extends AbstractPersistence
     private String nickName;
     private String email;   //登陆邮箱
     private String password;    //登陆密码
-    private String logo = Constants.User_Defaule_Portrait;        //个人头像
+    private String logo = Constants.User_Default_Portrait;        //个人头像
 
     private Boolean sexy = true;    //默认性别,true为男
     private String mobilePhone; //移动电话

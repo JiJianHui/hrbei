@@ -40,7 +40,9 @@
     <%--网页中部，用于展示信息--%>
     <div id="container">
         <div class="leftMenu"><tiles:insertAttribute name="leftMenu" ignore="true"/></div>
-        <div class="rightContent"><tiles:insertAttribute name="rightContent"/></div>
+        <div class="rightContent">
+            <tiles:insertAttribute name="rightContent"/>
+        </div>
         <div style="clear: both;"></div>
     </div>
 

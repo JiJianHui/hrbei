@@ -47,7 +47,7 @@
     <definition name=".companyLayout" template="/jsp/layout/LayoutCompany.jsp">
         <put-attribute name="title" value="哈尔滨电子企业报价网"/>
         <put-attribute name="header"   value="/jsp/layout/HeadCompany.jsp"/>
-        <put-attribute name="companyTop"   value="/jsp/category/companyTop.jsp"/>
+        <put-attribute name="companyTop"   value="/jsp/company/companyTop.jsp"/>
         <put-attribute name="footer" value="/jsp/layout/footer.jsp"/>
     </definition>
 
@@ -148,7 +148,7 @@
 
     <!--********************************公司主页等**********************************************-->
     <definition name=".companyBlog" extends=".companyLayout">
-        <put-attribute name="companyInfo" value="/jsp/category/companyBlog.jsp"/>
+        <put-attribute name="companyInfo" value="/jsp/company/companyBlog.jsp"/>
     </definition>
 
 

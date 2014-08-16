@@ -4,6 +4,8 @@ import com.hrbei.rep.ModelDaoImpl;
 import com.hrbei.rep.company.entity.Company;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Ji JianHui
@@ -12,4 +14,13 @@ import org.springframework.stereotype.Repository;
  */
 @Repository("companyDao")
 public class CompanyDaoImpl extends ModelDaoImpl<Company> implements CompanyDao {
+
+    public static final String DeletedFalse = " com.isDeleted=false ";
+
+    @Override
+    public List<Company> findMyCompany(Integer userID)
+    {
+        String hql = "select com from Company com where com.responsiblePerson.id = ?  and " + DeletedFalse;
+        return this.find(hql, userID);
+    }
 }

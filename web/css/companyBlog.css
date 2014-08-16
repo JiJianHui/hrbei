@@ -1,9 +1,9 @@
-/***************修正前面的控制****************/
+/*******************************/
 .header{
     height: 70px;
 }
 
-/**************最顶部的通用本网站的菜单条目**************/
+/**************鍏徃涓婚〉涓婅竟鐨凾op瀵艰埅**************/
 .companyHeadLogo{
     line-height: 20px;
     float:left;
@@ -30,7 +30,7 @@
     font-size: 18px;
     font-weight: bold;
     color: #000000;
-    font-family: '宋体','Microsoft Yahei', sans-serif;
+    font-family: 'Microsoft Yahei', sans-serif;
     width: 520px;
     text-align: left;
 }
@@ -50,7 +50,7 @@
     font-size: 15px;
     font-weight: normal;
     color: #2b66b6;
-    font-family: '宋体', sans-serif;
+    font-family: '寰蒋闆呴粦', sans-serif;
 }
 .companyHeadInfo a:hover{
     text-decoration: none;
@@ -98,7 +98,7 @@
 
 
 
-/***********************company的头部菜单控制****************************/
+/***********************company涓婚〉****************************/
 .companyDisplay{
     color: white;
     background-color: #08419c;
@@ -107,7 +107,7 @@
 .companyDisplayName{
     font-size: 28px;
     font-weight: bold;
-    font-family: '微软雅黑','Microsoft Yahei', sans-serif;
+    font-family: 'Microsoft Yahei', sans-serif;
     color: white;
     padding-top: 20px;
     padding-left: 90px;
@@ -127,7 +127,7 @@
     font-size: 15px;
     background-color: #000000;
     padding-left: 90px;
-    font-family: '微软雅黑','Microsoft Yahei', sans-serif;
+    font-family: 'Microsoft Yahei', sans-serif;
 }
 
 .companyMenu{
@@ -146,12 +146,20 @@
     background-color:#08419c;
 }
 
-/***********************company的实际内容控制****************************/
+/***********************company鏂伴椈鎷涜仒鍙婃姤浠风瓑****************************/
 
+.companyBig{
+    width: 1024px;
+    height: 340px;
+}
+.companyAd{
+    width: 1024px;
+    height: 430px;
+}
 
 .companyNews,.companyProductPriceTable,.companyHire{
     margin-top: 20px;
-    font-family: '微软雅黑','Microsoft Yahei', sans-serif;
+    font-family: Microsoft Yahei', sans-serif;
     margin-left: 10px;
     margin-right: 10px;
     background-color: white;
@@ -178,7 +186,7 @@
 }
 .companyProductPriceTable{
     margin-top: 20px;
-    font-family: '微软雅黑','Microsoft Yahei', sans-serif;
+    font-family: 'Microsoft Yahei', sans-serif;
 }
 
 .companyProductPriceTable .title{
