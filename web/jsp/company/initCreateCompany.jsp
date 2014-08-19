@@ -8,11 +8,13 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="/WEB-INF/tld/tiles-jsp.tld" prefix="tiles" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
+<%@ include file="createCompany.js.jsp" %>
 
 <link rel="stylesheet" type="text/css" href="/css/company/createCompany.css"/>
 
+<s:form id="companyBasicInfo" method="post" cssClass="form-horizontal" action="saveCompany">
+
 <div class="companyInfo">
-    <s:form id="companyBasicInfo" method="post" cssClass="form-horizontal">
 
     <div class="basicInfo">
 
@@ -59,35 +61,65 @@
             <s:textfield type="text" name="company.webSite" id="webSite" cssClass="input inputShort"/>
         </div>
 
-        <div class="companyLines">
-            <button type="button" class="btn btn-primary btn-success" style="margin-left: 20px;" id="chgPwdBtn">提交商店基本信息</button>
-            <span style="color:red; font-weight: bold;" id="submit_msg1"></span>
-            <span style="color:green; font-weight: bold;" id="submit_msg2"></span>
-        </div>
+        <%--<div class="companyLines">--%>
+            <%--<button type="button" class="btn btn-primary btn-success" style="margin-left: 20px;" id="chgPwdBtn">提交商店基本信息</button>--%>
+            <%--<span style="color:red; font-weight: bold;" id="submit_msg1"></span>--%>
+            <%--<span style="color:green; font-weight: bold;" id="submit_msg2"></span>--%>
+        <%--</div>--%>
 
     </div>
 
-    </s:form>
+
 </div>
 
 <div class="companyPics">
     <div class="companyLogo">
         <div class="picTips">1:在线商铺的商标Logo图像。(160*100)</div>
-        <div style="vertical-align: text-bottom;">
-        <img src="/images/company/defaultCompanyLogo.jpg"/>
-        <a class="btn btn-success" id="change_portrait" href="userPortraitCrop.html">更改</a>
-        </div>
+        <img src="/images/company/company_head2.jpg" id="logoImg"/>
+        <%--<a class="btn btn-success" id="change_portrait" href="#">更改</a>--%>
+        <br/>
+        <input type="file" name="fileupload" id="change_logo" class="fileInput"/>
+        <p id="warning1" class="input_msg"></P>
+        <s:hidden name="company.logo" id="logoURL"/>
+        <div id="fileQueue"></div>
     </div>
 
+
     <div class="companyHomePic">
-        <div class="picTips">2:在线商铺主页上的巨幅图片介绍(1024*340)</div>
-        <img src="/images/company/company_head.jpg"/>
-        <a class="btn btn-success" id="change_profile" href="userPortraitCrop.html">更改</a>
+        <div class="picTips">2:在线商铺主页上的图片介绍(1024*340)</div>
+        <img src="/images/company/companyDefaultHead.png" id="homeImage"/>
+        <%--<a class="btn btn-success" id="change_profile" href="userPortraitCrop.html">更改</a>--%>
+        <input type="file" name="fileupload" id="change_profile" class="fileInput"/>
+        <p id="warning2" class="input_msg"></P>
+        <s:hidden name="company.homeImage" id="homeImgURL"/>
+        <div id="fileQueueProfile"></div>
     </div>
 
     <div class="companyBigAd">
-        <div class="picTips">3:在线商铺主页上的广告(1024*430)</div>
-        <img src="/images/company/defaultCompanyAD.jpg"/>
-        <a class="btn btn-success" id="change_ad" href="userPortraitCrop.html">更改</a>
+        <div class="picTips">3:在线商铺主页上的图片广告(1024*430)</div>
+        <img src="/images/company/company_head2.jpg" id="adImage"/>
+        <%--<a class="btn btn-success" id="change_ad" href="userPortraitCrop.html">更改</a>--%>
+        <input type="file" name="fileupload" id="change_AD" class="fileInput"/>
+        <p id="warning3" class="input_msg"></P>
+        <s:hidden name="company.adImage" id="adImgURL"/>
+        <div id="fileQueueAD"></div>
     </div>
 </div>
+
+<div class="companyLines" style="width: 100%; text-align: center">
+    <input type="submit" class="btn btn-primary btn-success" style=""
+           id="submitCompany" value="提交创建的商店" onclick="return checkCompanyForm()"/>
+    <span style="color:red; font-weight: bold;" id="submit_msg1"></span>
+    <span style="color:green; font-weight: bold;" id="submit_msg2"></span>
+</div>
+
+</s:form>
+
+<script type="text/javascript">
+
+    function checkCompanyForm(){
+        return true;
+    }
+
+
+</script>

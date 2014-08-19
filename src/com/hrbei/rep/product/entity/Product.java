@@ -4,10 +4,7 @@ import com.hrbei.rep.AbstractPersistence;
 import com.hrbei.rep.category.entity.Category;
 import com.hrbei.rep.company.entity.Company;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 /**
@@ -29,6 +26,7 @@ public class Product extends AbstractPersistence
     private Integer price;      //市场价格
     private Integer vipPrice;   //会员价格
     private Integer quanty;     //存货量
+    @Column(columnDefinition = "longtext")
     private String description; //描述
 
     private Integer status; //产品的状态，有时候会停止

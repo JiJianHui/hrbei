@@ -3,6 +3,8 @@ package com.hrbei.action.user;
 import com.hrbei.action.BasicAction;
 import com.hrbei.common.Constants;
 import com.hrbei.common.utils.MD5;
+import com.hrbei.rep.company.dao.CompanyDao;
+import com.hrbei.rep.company.entity.Company;
 import com.hrbei.rep.user.dao.UserDao;
 import com.hrbei.rep.user.entity.User;
 import com.opensymphony.xwork2.ActionContext;
@@ -17,6 +19,7 @@ import org.springframework.stereotype.Controller;
 
 import java.io.PrintWriter;
 import java.util.Calendar;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -37,6 +40,9 @@ public class UserAction extends BasicAction
     private String loginMessage;
 
     private String newPassword;
+
+    private CompanyDao companyDao;
+    private List<Company> companys;
 
     /**工具条上弹出的简易登录窗口控制函数。**/
     @Action(value = "ajaxLogin",results = {@Result(name = SUCCESS,type = "json")})
@@ -112,6 +118,8 @@ public class UserAction extends BasicAction
 
     @Action(value = "myCompany", results = {@Result(name = SUCCESS,type = Constants.RESULT_NAME_TILES, location = ".myCompany")})
     public String myCompany(){
+        user = userDao.findById(this.getSessionUserId());
+        companys = companyDao.findMyCompany( user.getId() );
         return SUCCESS;
     }
 
@@ -200,5 +208,21 @@ public class UserAction extends BasicAction
 
     public void setNewPassword(String newPassword) {
         this.newPassword = newPassword;
+    }
+
+    public CompanyDao getCompanyDao() {
+        return companyDao;
+    }
+
+    public void setCompanyDao(CompanyDao companyDao) {
+        this.companyDao = companyDao;
+    }
+
+    public List<Company> getCompanys() {
+        return companys;
+    }
+
+    public void setCompanys(List<Company> companys) {
+        this.companys = companys;
     }
 }

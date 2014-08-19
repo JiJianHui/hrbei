@@ -41,7 +41,8 @@ public class Constants
     public static final Integer NewsHire     = 1; //招聘新闻
     public static final Integer NewsFindJob  = 2;  //找工作新闻
 
-
+    public static final String Company_Default_Portrait = "images/company/defaultCompanyLogo.jpg";
+    public static final String Company_Default_Image = "images/company/company_head2.jpg";
 
     /* ----------------------Session variable-----------------------------*/
     public static final String SESSION_USER_ID = "userID";
@@ -56,9 +57,5 @@ public class Constants
     public static final Integer User_RoleType_Maintain = 2;
     public static final Integer User_RoleType_Admin = 3;
     public static final String User_Default_Portrait = "images/user/defaultPortrait.png";
-
-
-    /**************公司相关：头像、权限等********************/
-    public static final String Company_Default_Portrait = "images/company/defaultCompanyLogo.jpg";
 
 }

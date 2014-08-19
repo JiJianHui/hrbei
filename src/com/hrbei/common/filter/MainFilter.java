@@ -27,7 +27,8 @@ public class MainFilter implements Filter {
         NEED_LOGIN.add("/userInfo.html");
         NEED_LOGIN.add("/myForcastClass.html");
         NEED_LOGIN.add("/myFirstPage.html");
-
+        NEED_LOGIN.add("/initCreateCompany.html");
+        NEED_LOGIN.add("/myCompany.html");
     }
 
     public void destroy() {

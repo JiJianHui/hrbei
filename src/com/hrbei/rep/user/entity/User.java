@@ -3,6 +3,7 @@ package com.hrbei.rep.user.entity;
 import com.hrbei.common.Constants;
 import com.hrbei.rep.AbstractPersistence;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import java.util.Calendar;
 
@@ -24,6 +25,7 @@ public class User extends AbstractPersistence
     private String mobilePhone; //移动电话
     private Calendar birthday;  //生日
     private String address;    //地址
+    @Column(columnDefinition = "longtext")
     private String description; //用户简介
 
     private Integer userRoleType = Constants.User_RoleType_Normal;   //用户权限,默认是0正常用户

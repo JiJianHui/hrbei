@@ -6,6 +6,7 @@ import com.hrbei.rep.category.entity.Category;
 import com.hrbei.rep.product.entity.Product;
 import com.hrbei.rep.user.entity.User;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -20,29 +21,31 @@ import java.util.List;
 @Entity
 public class Company extends AbstractPersistence
 {
-    private String name;    //ÆóÒµÃû³Æ
-    private String logo = Constants.Company_Default_Portrait;        //ÆóÒµĞ¡ĞÍLogo
-    private String homeImage;   //ÆóÒµ¸öÈËÖ÷Ò³Í¼Æ¬Õ¹Ê¾
-    private String address;
+    private String name;    //ä¼ä¸šåç§°
+    private String logo = Constants.Company_Default_Portrait;        //ä¼ä¸šå°å‹Logo
+    private String homeImage = Constants.Company_Default_Image;   //ä¼ä¸šä¸ªäººä¸»é¡µå›¾ç‰‡å±•ç¤º
+    private String adImage = Constants.Company_Default_Image;
+    private String address = Constants.Company_Default_Image;
     private String qq;
     private String phone;
     private String mobilePhone;
 
     @ManyToOne
-    private User responsiblePerson;  //¸ºÔğÈË£¬±ØĞëÒª¸ºÔğÈË²ÅÄÜ´´½¨ºÍ¹ÜÀí
-    private String description; //ÆóÒµ¼ò½é
+    private User responsiblePerson;  //è´Ÿè´£äººï¼Œå¿…é¡»è¦è´Ÿè´£äººæ‰èƒ½åˆ›å»ºå’Œç®¡ç†
+    @Column(columnDefinition = "longtext")
+    private String description; //ä¼ä¸šç®€ä»‹
 
-    private String contactName;    //ÁªÏµÈË£¬ÊÇ¸Ã¹«Ë¾µÄÁªÏµÈË
+    private String contactName;    //è”ç³»äººï¼Œæ˜¯è¯¥å…¬å¸çš„è”ç³»äºº
 
     private Boolean isDeleted = false;
-    private Integer status;    //¸ÃÉÌ¼ÒËù´¦µÄ×´Ì¬£¬±ÈÈç£ºÉóºËÖĞ£¬ÔËĞĞÖĞ£¬¹ØÃÅÍ£Òµ
+    private Integer status = Constants.Company_Status_Review;    //è¯¥å•†å®¶æ‰€å¤„çš„çŠ¶æ€ï¼Œæ¯”å¦‚ï¼šå®¡æ ¸ä¸­ï¼Œè¿è¡Œä¸­ï¼Œå…³é—¨åœä¸š
 
     private String email;
-//    private String homeBackgroundColor;
+    //    private String homeBackgroundColor;
     private String webSite;
 
     @OneToMany(mappedBy = "company")
-    private List<Product> products;  //±¾¹«Ë¾µÄ²úÆ·
+    private List<Product> products;  //æœ¬å…¬å¸çš„äº§å“
 
     @OneToMany
     private List<Category> categorys;
@@ -174,5 +177,13 @@ public class Company extends AbstractPersistence
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getAdImage() {
+        return adImage;
+    }
+
+    public void setAdImage(String adImage) {
+        this.adImage = adImage;
     }
 }
