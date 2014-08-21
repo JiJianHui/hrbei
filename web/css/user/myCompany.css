@@ -1,0 +1,98 @@
+.companyItem {
+    float: left;
+    width: 850px;
+    padding: 20px 0 10px 5px;
+    clear:both;
+    border-bottom: 1px dotted #adadad;
+    /*font-family: Tahoma, Geneva,"\5FAE\8F6F\96C5\9ED1","\5b8b\4f53",sans-serif;*/
+}
+
+.companyItem  .infoWrap{
+    float: left;
+    width: 670px;
+    overflow: hidden;
+}
+
+.companyItem  .companyLogo{
+    float:left;
+    display: inline;
+    margin-right: 15px;
+}
+
+.companyItem .companyLogo img{
+    width:160px;
+    height: 100px;
+    padding: 1px;
+    border: 1px solid #ebebeb;
+}
+
+.companyItem h4{
+    float:left;
+    font-family: Tahoma, Geneva,"\5FAE\8F6F\96C5\9ED1","\5b8b\4f53",sans-serif;
+}
+.companyItem h4 a {
+    color: orange;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 16px;
+}
+.companyItem h4 a:hover{
+    text-decoration: none;
+    border-bottom: 1px dotted orange;
+}
+
+.companyItem .date{
+    color:#888;
+    line-height: 16px;
+    margin-left: 15px;
+    font-size: 13px;
+}
+
+.companyItem .maintenance{
+    float: left;
+    margin-top: 3px;
+    width: 645px;
+    line-height: 16px;
+}
+.companyItem .maintenance span{
+    margin-right: 15px;
+}
+
+.companyItem .maintenance .bar{
+    font-weight: bold;
+    margin-right: 0px;
+    color: #69C;
+}
+
+.companyItem .details{
+    width:635px;
+    max-height:100px;
+    _height:100px;
+    margin-top: 5px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    word-wrap: break-word;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-family: Tahoma, Geneva,"\5FAE\8F6F\96C5\9ED1","\5b8b\4f53",sans-serif;
+}
+
+.companyItem .details a:hover{
+    text-decoration: underline;
+}
+
+
+
+.manage_links {
+    color: #3e8fda;
+    margin-right: 15px;
+}
+
+.manage_links:visited{
+    color: #3e8fda;
+}
+
+.manage_links:hover{
+    text-decoration: none;
+    border-bottom: 1px dotted orange;
+}

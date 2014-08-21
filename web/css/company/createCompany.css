@@ -29,14 +29,16 @@
     border-radius: 3px;
     border: 1px solid #cccccc;
     /*height: 30px;*/
+
 }
 
-.input, .inputShort{height: 30px;}
+.input, .inputShort{height: 30px;    padding-left: 5px;}
 
 .inputLong{
     border-radius: 3px;
     border: 1px solid #cccccc;
     width: 400px;
+    padding-left: 5px;
 }
 .inputShort{width: 150px;}
 

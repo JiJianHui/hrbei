@@ -63,6 +63,7 @@
     <div class="changePortrait">
         <input type="hidden" id="picHidden"/>
         <img src="<s:property value='#session.userLogoUrl'/>" id="reImg"/>
+        <br/>
         <a class="btn btn-success" id="change_portrait" href="userPortraitCrop.html">更改头像</a>
     </div>
 

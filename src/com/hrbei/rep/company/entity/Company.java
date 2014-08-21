@@ -10,6 +10,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -25,10 +26,11 @@ public class Company extends AbstractPersistence
     private String logo = Constants.Company_Default_Portrait;        //企业小型Logo
     private String homeImage = Constants.Company_Default_Image;   //企业个人主页图片展示
     private String adImage = Constants.Company_Default_Image;
-    private String address = Constants.Company_Default_Image;
+    private String address;
     private String qq;
     private String phone;
     private String mobilePhone;
+    private Calendar createDate;
 
     @ManyToOne
     private User responsiblePerson;  //负责人，必须要负责人才能创建和管理
@@ -185,5 +187,13 @@ public class Company extends AbstractPersistence
 
     public void setAdImage(String adImage) {
         this.adImage = adImage;
+    }
+
+    public Calendar getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Calendar createDate) {
+        this.createDate = createDate;
     }
 }

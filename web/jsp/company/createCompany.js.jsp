@@ -119,5 +119,8 @@ $(document).ready(function () {
 
 });
 
+    function checkCompanyForm(){
+        return true;
+    }
 
 </script>

@@ -31,14 +31,14 @@ public class CompanyAction extends BasicAction{
     private CompanyDao companyDao;
 
     @Action(value = "initCreateCompany", results = {@Result(name = SUCCESS,type = Constants.RESULT_NAME_TILES, location = ".initCreateCompany")})
-    public String userInfo()
+    public String initCreateCompany()
     {
         user = userDao.findById(this.getSessionUserId());
         if( company == null ) company = new Company();
         return SUCCESS;
     }
 
-    @Action(value = "saveCompany", results={@Result(name=SUCCESS, type = Constants.RESULT_NAME_REDIRECT_ACTION,location = ".myCompany")})
+    @Action(value = "saveCompany", results={@Result(name=SUCCESS, type = Constants.RESULT_NAME_REDIRECT_ACTION,params = {"actionName", "myCompany"})})
     public String ajaxSaveCompanyLogo()
     {
         user = userDao.findById(this.getSessionUserId());
@@ -46,10 +46,50 @@ public class CompanyAction extends BasicAction{
         company.setResponsiblePerson(user);
         companyDao.persist(company);
 
+        //TODO 将图片拷贝到对应的公司文件夹目录下
+
         return SUCCESS;
     }
 
 
+    @Action(value = "initUpdateCompany", results = {@Result(name = SUCCESS,type = Constants.RESULT_NAME_TILES, location = ".initUpdateCompany")})
+    public String initUpdateCompany()
+    {
+        user = userDao.findById(this.getSessionUserId());
+        company = companyDao.findById( this.getCompany().getId() );
+        return SUCCESS;
+    }
+
+    @Action(value = "updateCompanyInfo", results = {@Result(name = SUCCESS,type = Constants.RESULT_NAME_REDIRECT_ACTION, params = {"actionName", "myCompany"})})
+    public String updateCompanyInfo()
+    {
+        Company oldCompany = companyDao.findById(this.getCompany().getId());
+        oldCompany.setName( company.getName() );
+        oldCompany.setAddress( company.getAddress() );
+        oldCompany.setDescription( company.getDescription() );
+        oldCompany.setContactName( company.getContactName() );
+        oldCompany.setQq( company.getQq() );
+        oldCompany.setPhone( company.getPhone() );
+        oldCompany.setMobilePhone( company.getMobilePhone() );
+        oldCompany.setEmail( company.getEmail() );
+        oldCompany.setWebSite( company.getWebSite() );
+        oldCompany.setLogo( company.getLogo() );
+        oldCompany.setHomeImage( company.getHomeImage() );
+        oldCompany.setAdImage( company.getAdImage() );
+
+        //TODO 将图片拷贝到对应的公司文件夹目录下
+
+        companyDao.persistAbstract(oldCompany);
+
+        return SUCCESS;
+    }
+
+    @Action(value = "initAddProduct", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".initAddProduct")})
+    public String initAddProduct()
+    {
+        company = companyDao.findById(this.getCompany().getId());
+        return SUCCESS;
+    }
 
     public User getUser() {
         return user;
