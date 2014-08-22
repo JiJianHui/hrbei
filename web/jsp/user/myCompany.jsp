@@ -27,10 +27,10 @@
             </h4>
 
             <p class="maintenance">
-                <span><strong>•</strong><span class="bar">产品:</span>200种</span>
-                <span><strong>•</strong><span class="bar">销量:</span>156</span>
-                <span><strong>•</strong><span class="bar">评论:</span>200条</span>
-                <span><strong>•</strong><span class="bar">状态:</span>审核中</span>
+                <span><strong>•</strong><span class="bar">产品:&nbsp;&nbsp;</span>200种</span>
+                <span><strong>•</strong><span class="bar">销量:&nbsp;&nbsp;</span>156</span>
+                <span><strong>•</strong><span class="bar">评论:&nbsp;&nbsp;</span>200条</span>
+                <span><strong>•</strong><span class="bar">状态:&nbsp;&nbsp;</span>审核中</span>
             </p>
 
             <p class="details cf">

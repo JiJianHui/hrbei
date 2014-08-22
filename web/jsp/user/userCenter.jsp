@@ -8,3 +8,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="/WEB-INF/tld/tiles-jsp.tld" prefix="tiles" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
+
+This page is for the notification and news for the personal~!

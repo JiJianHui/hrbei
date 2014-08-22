@@ -25,8 +25,7 @@ public class MainFilter implements Filter {
 
     static {
         NEED_LOGIN.add("/userInfo.html");
-        NEED_LOGIN.add("/myForcastClass.html");
-        NEED_LOGIN.add("/myFirstPage.html");
+        NEED_LOGIN.add("/userCenter.html");
         NEED_LOGIN.add("/initCreateCompany.html");
         NEED_LOGIN.add("/myCompany.html");
     }

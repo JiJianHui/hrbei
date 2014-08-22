@@ -58,10 +58,15 @@
         <put-attribute name="footer" value="/jsp/layout/footer.jsp"/>
     </definition>
 
-    <!--*******************************首页********************************************-->
+    <!--*******************************首页及个人中心********************************************-->
     <definition name=".index" extends=".indexLayout">
         <put-attribute name="content" value="/jsp/indexContent.jsp"/>
     </definition>
+
+    <definition name=".login" extends=".layout">
+        <put-attribute name="content" value="/jsp/security/login.jsp"/>
+    </definition>
+
 
     <definition name=".register" extends=".layout">
         <put-attribute name="content" value="/jsp/security/register.jsp"/>
@@ -69,7 +74,7 @@
 
     <definition name=".userCenter" extends=".userLayout">
         <put-attribute name="title" value="个人中心-Hrbei.com"/>
-        <put-attribute name="rightContent" value="/jsp/user/myFirstPage.jsp"/>
+        <put-attribute name="rightContent" value="/jsp/user/userCenter.jsp"/>
     </definition>
 
     <definition name=".userInfo" extends=".userLayout">
@@ -81,6 +86,7 @@
         <put-attribute name="title" value="选择图片"/>
     </definition>
 
+    <!--********************************公司相关********************************-->
     <definition name=".myCompany" extends=".userLayout">
         <put-attribute name="title" value="我的公司"/>
         <put-attribute name="rightContent" value="/jsp/user/myCompany.jsp"/>
@@ -100,6 +106,8 @@
         <put-attribute name="title" value="更新公司"/>
         <put-attribute name="rightContent" value="/jsp/company/initAddProduct.jsp"/>
     </definition>
+
+
 
     <!--********************************首页左边的类别导航菜单的选择********************************-->
     <definition name=".indexBiJiBen" extends=".baseLayout">

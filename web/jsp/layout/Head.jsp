@@ -16,7 +16,7 @@
             <dd class="loginSuccessName">
                 <a href="myFirstPage.html">欢迎您，<s:property value="#session.nickName"/><img src="images/contact.jpg" /></a>
                 <ul>
-                    <li><a href="myFirstPage.html">个人中心</a></li>
+                    <li><a href="userCenter.html">个人中心</a></li>
                     <li><a href="userInfo.html">账号设置</a></li>
                     <li><a href="exitSystem.html">退出登录</a></li>
                 </ul>

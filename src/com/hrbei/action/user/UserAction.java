@@ -75,11 +75,28 @@ public class UserAction extends BasicAction
 
     }
 
+    @Action(value = "login", results = {@Result(name = SUCCESS,type = Constants.RESULT_NAME_TILES, location = ".login")})
+    public String login()
+    {
+        Integer userId = this.getSessionUserId();
+        return SUCCESS;
+    }
+
     /******转到的需要登录的正式登录页面*******/
-    @Action(value = "login", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".userCenter"),
-            @Result(name = "redirect", type = Constants.RESULT_NAME_REDIRECT_ACTION, location = "${reDirectUrl}")})
-    public String login() {
+    @Action(value = "loginProcess", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_REDIRECT_ACTION, params = {"actionName", "userCenter"}),
+            @Result(name = "redirect", type = "redirect", location = "${reDirectUrl}"),
+            @Result(name = INPUT, type = Constants.RESULT_NAME_TILES, location = ".login")})
+    public String loginProcess() {
+
         User user = userDao.findByEmail(this.getUser().getEmail());
+
+        if (user == null) {
+            addFieldError("user.email", "账号不存在！");
+            return INPUT;
+        } else if (!user.getPassword().equals(MD5.endCode(this.user.getPassword()))) {
+            addFieldError("user.password", "密码错误！");
+            return INPUT;
+        }
 
         setUserToSession(user);
         userDao.persistAbstract(user);
@@ -91,14 +108,14 @@ public class UserAction extends BasicAction
         return SUCCESS;
     }
 
-    public void validateLogin(){
-        User user = userDao.findByEmail(this.getUser().getEmail());
-        if (user == null) {
-            addFieldError("user.email", "该用户不存在！");
-        } else if (!user.getPassword().equals(MD5.endCode(this.user.getPassword()))) {
-            addFieldError("user.password", "密码不正确！");
-        }
-    }
+//    public void validateLogin(){
+//        User user = userDao.findByEmail(this.getUser().getEmail());
+//        if (user == null) {
+//            addFieldError("user.email", "该用户不存在！");
+//        } else if (!user.getPassword().equals(MD5.endCode(this.user.getPassword()))) {
+//            addFieldError("user.password", "密码不正确！");
+//        }
+//    }
 
     /*******退出登录函数**********/
     @Action(value = "exitSystem", results = {@Result(name = SUCCESS,
@@ -110,7 +127,7 @@ public class UserAction extends BasicAction
 
     /**********************************************用户中心相关函数*********************************/
 
-    @Action(value = "myFirstPage", results = {@Result(name = SUCCESS,type = Constants.RESULT_NAME_TILES, location = ".userCenter")})
+    @Action(value = "userCenter", results = {@Result(name = SUCCESS,type = Constants.RESULT_NAME_TILES, location = ".userCenter")})
     public String myFirstPage(){
 
         return SUCCESS;
