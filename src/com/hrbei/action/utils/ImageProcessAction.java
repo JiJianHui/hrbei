@@ -2,6 +2,8 @@ package com.hrbei.action.utils;
 
 import com.hrbei.action.BasicAction;
 import com.hrbei.common.Constants;
+import com.hrbei.rep.company.dao.CompanyDao;
+import com.hrbei.rep.company.entity.Company;
 import com.hrbei.rep.user.dao.UserDao;
 import com.hrbei.rep.user.entity.User;
 import org.apache.commons.lang.StringUtils;
@@ -40,6 +42,9 @@ public class ImageProcessAction extends BasicAction{
     private int imgHeight;
     private String userPortraitName;
 
+    private Company company;
+    private CompanyDao companyDao;
+
     @Action(value = "cropUserPortrait")
     public void cropUserPortrait() throws IOException {
         if (StringUtils.isNotBlank(this.getUserPortraitName())) {
@@ -74,10 +79,44 @@ public class ImageProcessAction extends BasicAction{
     }
 
 
+    @Action(value = "cropProductPortrait")
+    public void cropProductPortrait() throws IOException {
+//        company = companyDao.findById(this.getCompany().getId());
+        if (StringUtils.isNotBlank(this.getUserPortraitName())) {
+            String srcPath = ServletActionContext.getServletContext().getRealPath(Constants.Upload_File_Tmp_Path
+                    + File.separator + this.getUserPortraitName());
+            String toPath = ServletActionContext.getServletContext().getRealPath("")+
+                    Constants.Upload_Company_Path + File.separator + company.getId() + "/product/" + this.getUserPortraitName();
+
+            //获取拓展名
+            String extName="";
+            if (userPortraitName.lastIndexOf(".") >= 0) {
+                extName = userPortraitName.substring(userPortraitName.lastIndexOf(".")+1);
+            }
+
+            BufferedImage tag = getBufferImage(srcPath);
+
+            createFiles(toPath);
+
+            ImageIO.write(tag,extName,new FileOutputStream(toPath));
+
+            PrintWriter out = ServletActionContext.getResponse().getWriter();
+            out.print(Constants.Upload_Company_Path + "/" + company.getId() + "/product/");
+            out.close();
+        }
+    }
+
     @Action(value = "userPortraitCrop", results = {@Result(name = SUCCESS,type = Constants.RESULT_NAME_TILES, location = ".userPortraitCrop")})
     public String userPortraitCrop(){
         return SUCCESS;
     }
+
+    @Action(value = "productCrop", results = {@Result(name = SUCCESS,type = Constants.RESULT_NAME_TILES, location = ".productCrop")})
+    public String productCrop(){
+        company = companyDao.findById(this.getCompany().getId());
+        return SUCCESS;
+    }
+
 
     private void createFiles(String toPath){
         File toFile = new File(toPath);
@@ -167,5 +206,21 @@ public class ImageProcessAction extends BasicAction{
 
     public void setUserPortraitName(String userPortraitName) {
         this.userPortraitName = userPortraitName;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    public CompanyDao getCompanyDao() {
+        return companyDao;
+    }
+
+    public void setCompanyDao(CompanyDao companyDao) {
+        this.companyDao = companyDao;
     }
 }

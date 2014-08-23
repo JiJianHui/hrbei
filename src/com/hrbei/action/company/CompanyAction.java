@@ -2,16 +2,22 @@ package com.hrbei.action.company;
 
 import com.hrbei.action.BasicAction;
 import com.hrbei.common.Constants;
+import com.hrbei.rep.Pagination;
 import com.hrbei.rep.company.dao.CompanyDao;
 import com.hrbei.rep.company.entity.Company;
+import com.hrbei.rep.product.dao.ProductDao;
+import com.hrbei.rep.product.entity.Product;
 import com.hrbei.rep.user.dao.UserDao;
 import com.hrbei.rep.user.entity.User;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -29,6 +35,13 @@ public class CompanyAction extends BasicAction{
     private UserDao userDao;
     private Company company;
     private CompanyDao companyDao;
+
+    private Product product;
+    private List<Product> products;
+    @Autowired
+    private ProductDao productDao;
+
+    private Pagination pagination;
 
     @Action(value = "initCreateCompany", results = {@Result(name = SUCCESS,type = Constants.RESULT_NAME_TILES, location = ".initCreateCompany")})
     public String initCreateCompany()
@@ -84,10 +97,33 @@ public class CompanyAction extends BasicAction{
         return SUCCESS;
     }
 
+
+    /*******************************************产品相关***************************************************/
     @Action(value = "initAddProduct", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".initAddProduct")})
     public String initAddProduct()
     {
         company = companyDao.findById(this.getCompany().getId());
+        return SUCCESS;
+    }
+
+    @Action(value = "saveNewProduct", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_REDIRECT_ACTION,
+            params = {"actionName", "companyProducts","company.id","${company.id}"})})
+    public String saveNewProduct()
+    {
+        company = companyDao.findById(this.getCompany().getId());
+
+        product.setCompany(company);
+
+        productDao.persistAbstract(product);
+
+        return SUCCESS;
+    }
+
+    @Action(value = "companyProducts", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".companyProducts")})
+    public String companyProducts()
+    {
+        company = companyDao.findById(this.getCompany().getId());
+        products = productDao.findByCompany( company.getId(), pagination);
         return SUCCESS;
     }
 
@@ -121,5 +157,29 @@ public class CompanyAction extends BasicAction{
 
     public void setCompanyDao(CompanyDao companyDao) {
         this.companyDao = companyDao;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
+    public Pagination getPagination() {
+        return pagination;
+    }
+
+    public void setPagination(Pagination pagination) {
+        this.pagination = pagination;
     }
 }

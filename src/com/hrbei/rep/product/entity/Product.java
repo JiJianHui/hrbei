@@ -21,15 +21,16 @@ public class Product extends AbstractPersistence
 
     private String name;        //名称
     private String logo;        //图标
-    private String xinghao;     //型号
-    private String zhibiao;     //指标
+    private String brand;       //品牌
+    private String xingHao;     //型号
+    private String zhiBiao;     //指标
     private Integer price;      //市场价格
     private Integer vipPrice;   //会员价格
     private Integer quanty;     //存货量
     @Column(columnDefinition = "longtext")
     private String description; //描述
 
-    private Integer status; //产品的状态，有时候会停止
+    private Integer status; //产品的状态，有时候会停止销售
     private Boolean isDeleted = false;  //是否删除
 
     @OneToMany
@@ -59,20 +60,20 @@ public class Product extends AbstractPersistence
         this.logo = logo;
     }
 
-    public String getXinghao() {
-        return xinghao;
+    public String getXingHao() {
+        return xingHao;
     }
 
-    public void setXinghao(String xinghao) {
-        this.xinghao = xinghao;
+    public void setXingHao(String xinghao) {
+        this.xingHao = xinghao;
     }
 
-    public String getZhibiao() {
-        return zhibiao;
+    public String getZhiBiao() {
+        return zhiBiao;
     }
 
-    public void setZhibiao(String zhibiao) {
-        this.zhibiao = zhibiao;
+    public void setZhiBiao(String zhibiao) {
+        this.zhiBiao = zhibiao;
     }
 
     public Integer getPrice() {
@@ -129,5 +130,13 @@ public class Product extends AbstractPersistence
 
     public void setCategorys(List<Category> categorys) {
         this.categorys = categorys;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 }

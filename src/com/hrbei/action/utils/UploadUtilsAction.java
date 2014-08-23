@@ -122,7 +122,7 @@ public class UploadUtilsAction extends BasicAction {
         HttpServletResponse response = ServletActionContext.getResponse();
         response.setCharacterEncoding("utf-8");
 //        response.getWriter().print(newFileName);
-        this.setGenFileName(savePath + newFileName);
+        this.setGenFileName(newFileName);
         return "json";
     }
 

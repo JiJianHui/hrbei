@@ -40,13 +40,13 @@
             <p class="time">
                 <a class="manage_links" href="initUpdateCompany.html?company.id=<s:property value="id"/>">
                     基本信息</a>
-                <a class="manage_links" href="/makeCourseVideo.html?course.id=<s:property value="id"/>">
+                <a class="manage_links" href="/makeCourseVideo.html?company.id=<s:property value="id"/>">
                     公司商品</a>
 
-                <a class="manage_links" href="/makeCourseVideo.html?course.id=<s:property value="id"/>">
+                <a class="manage_links" href="/initAddProduct.html?company.id=<s:property value="id"/>">
                     增加商品</a>
 
-                <a class="manage_links" href="/designGame.html?course.id=<s:property value="id"/>">
+                <a class="manage_links" href="/deleteCompany.html?company.id=<s:property value="id"/>">
                     删除商店</a>
             </p>
         </div>

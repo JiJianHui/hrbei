@@ -103,11 +103,18 @@
     </definition>
 
     <definition name=".initAddProduct" extends=".userLayout">
-        <put-attribute name="title" value="更新公司"/>
+        <put-attribute name="title" value="创建产品"/>
         <put-attribute name="rightContent" value="/jsp/company/initAddProduct.jsp"/>
     </definition>
 
+    <definition name=".productCrop" template="/jsp/company/productCrop.jsp">
+        <put-attribute name="title" value="选择图片"/>
+    </definition>
 
+    <definition name=".companyProducts" extends=".userLayout">
+        <put-attribute name="title" value="公司产品"/>
+        <put-attribute name="rightContent" value="/jsp/company/companyProducts.jsp"/>
+    </definition>
 
     <!--********************************首页左边的类别导航菜单的选择********************************-->
     <definition name=".indexBiJiBen" extends=".baseLayout">

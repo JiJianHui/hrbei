@@ -1,0 +1,88 @@
+.stepBar{
+    /*border: 1px dotted #008b8b;*/
+    height: 30px;
+    padding-left: 15px;
+    width: 100%;
+    /*border-bottom: 1px dotted #b8860b;*/
+}
+.stepBar a{
+    color: #3E8FDA;;
+    font-family: Tahoma, Geneva,"\5FAE\8F6F\96C5\9ED1","\5b8b\4f53",sans-serif;;
+    font-size: 13px;
+    margin-right: 5px;
+}
+
+.stepBar .sepeator{
+    margin-right: 5px;
+}
+
+.addProduct{
+    margin-top: 15px;
+    float: left;
+    /*border: 1px dotted #008b8b;*/
+}
+
+.input{
+    width: 400px;
+    border-radius: 3px;
+    border: 1px solid #cccccc;
+    /*height: 30px;*/
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.input, .inputShort{
+    height: 30px;
+}
+
+.inputShort{
+    width: 80px;
+}
+.inputLong{
+    height: 100px;
+}
+
+.productLine{
+    /*line-height: 40px;*/
+    margin-bottom: 15px;
+}
+
+.productLine .text{
+    width: 80px;
+    text-align: right;
+    margin-right: 5px;
+    font-weight: normal;
+}
+
+.addProductPic{
+    width: 300px;
+    float: left;
+    /*border: 1px dotted green;*/
+    margin-left: 20px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.productLogo img{
+    /*display:block;*/
+    /*padding:3px;*/
+    /*border:1px solid #dedede;*/
+    /*box-shadow: 0 1px 1px rgba(0,0,0,.3);*/
+    /*border-radius: 4px;*/
+    width: 240px;
+    height: 150px;
+}
+
+.productLogo a{
+    margin-top: 15px;
+}
+
+.submitDiv{
+    margin-top: 10px;
+    border-top: 1px dotted #b8860b;
+    padding-top: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+    text-align: center;
+}
