@@ -195,3 +195,7 @@
 .stepBar .sepeator{
     margin-right: 5px;
 }
+
+.manage_links:visited{
+    color: #3e8fda;
+}
