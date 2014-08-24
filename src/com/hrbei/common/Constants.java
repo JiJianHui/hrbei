@@ -40,6 +40,9 @@ public class Constants
     public static final Integer Company_Status_Suspend  = 2;   //公司处于暂停状态
     public static final Integer Company_Status_Close    = 3;   //公司处于关门整修状态
 
+    public static final Integer News_Company = 0;
+    public static final Integer News_User    = 1;
+
     public static final Integer NewsDefault  = 0; //默认新闻
     public static final Integer NewsHire     = 1; //招聘新闻
     public static final Integer NewsFindJob  = 2;  //找工作新闻

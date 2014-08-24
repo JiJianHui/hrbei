@@ -29,6 +29,7 @@
 </head>
 
 <link href="/css/user/userLayout.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/ckeditor/ckeditor.js"></script>
 
 <body>
 

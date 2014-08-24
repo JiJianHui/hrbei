@@ -43,8 +43,8 @@
     <div class="linksGroup">
         <h3 class="h3_title">新闻</h3>
         <ul>
-            <li><a href="myNews.html" title="我的新闻">我的新闻</a></li>
-            <li><a href="initCreateNews.html" title="发布新闻">发布新闻</a></li>
+            <li><a href="userNews.html" title="我的新闻">我的新闻</a></li>
+            <li><a href="initCreateUserNews.html" title="发布新闻">发布新闻</a></li>
         </ul>
     </div>
 

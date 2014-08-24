@@ -30,12 +30,6 @@
             <s:textarea name="company.address" rows="2"  id="address" cssClass="inputLong"/>
         </div>
 
-        <div class="companyLines">
-            <label class="control-label text">公司简介:</label>
-            <%--<span class="errorinfo" id="yzemail"></span>--%>
-            <s:textarea name="company.description" rows="3"  id="description" cssClass="inputLong"/>
-        </div>
-
     <%--</div>--%>
 
     <%--<div class="companyNum">--%>
@@ -66,6 +60,12 @@
             <%--<span style="color:red; font-weight: bold;" id="submit_msg1"></span>--%>
             <%--<span style="color:green; font-weight: bold;" id="submit_msg2"></span>--%>
         <%--</div>--%>
+
+        <div class="companyLines">
+            <label class="control-label text">公司简介:</label>
+                <%--<span class="errorinfo" id="yzemail"></span>--%>
+            <s:textarea name="company.description" rows="4"  id="description" cssClass="inputLong"/>
+        </div>
 
     </div>
 

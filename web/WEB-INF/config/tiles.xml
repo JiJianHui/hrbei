@@ -109,10 +109,10 @@
 
     <definition name=".initAddProduct" extends=".userLayout">
         <put-attribute name="title" value="创建产品"/>
-        <put-attribute name="rightContent" value="/jsp/company/initAddProduct.jsp"/>
+        <put-attribute name="rightContent" value="/jsp/product/initAddProduct.jsp"/>
     </definition>
 
-    <definition name=".productCrop" template="/jsp/company/productCrop.jsp">
+    <definition name=".productCrop" template="/jsp/product/productCrop.jsp">
         <put-attribute name="title" value="选择图片"/>
     </definition>
 
@@ -123,7 +123,32 @@
 
     <definition name=".initUpdateProduct" extends=".userLayout">
         <put-attribute name="title" value="更新产品"/>
-        <put-attribute name="rightContent" value="/jsp/company/updateProductInfo.jsp"/>
+        <put-attribute name="rightContent" value="/jsp/product/updateProductInfo.jsp"/>
+    </definition>
+
+    <definition name=".initCreateCompanyNews" extends=".userLayout">
+        <put-attribute name="title" value="发布公司新闻"/>
+        <put-attribute name="rightContent" value="/jsp/news/initCreateCompanyNews.jsp"/>
+    </definition>
+
+    <definition name=".initCreateUserNews" extends=".userLayout">
+        <put-attribute name="title" value="发布个人新闻"/>
+        <put-attribute name="rightContent" value="/jsp/news/initCreateUserNews.jsp"/>
+    </definition>
+
+    <definition name=".userNews" extends=".userLayout">
+        <put-attribute name="title" value="用户新闻"/>
+        <put-attribute name="rightContent" value="/jsp/news/userNews.jsp"/>
+    </definition>
+
+    <definition name=".companyNews" extends=".userLayout">
+        <put-attribute name="title" value="公司新闻"/>
+        <put-attribute name="rightContent" value="/jsp/news/companyNews.jsp"/>
+    </definition>
+
+    <definition name=".initUpdateUserNews" extends=".userLayout">
+        <put-attribute name="title" value="用户新闻"/>
+        <put-attribute name="rightContent" value="/jsp/news/initUpdateUserNews.jsp"/>
     </definition>
 
     <!--********************************首页左边的类别导航菜单的选择********************************-->

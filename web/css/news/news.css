@@ -1,0 +1,124 @@
+.newsBody{
+    margin-top: 15px;
+    float: left;
+    font-family: Tahoma, Geneva,"\5FAE\8F6F\96C5\9ED1","\5b8b\4f53",sans-serif;
+    width: 100%;;
+    margin-left: 10px;
+}
+
+.input{
+    width: 400px;
+    border-radius: 3px;
+    border: 1px solid #cccccc;
+    /*height: 30px;*/
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.input, .inputShort{
+    height: 30px;
+}
+
+.inputShort{
+    width: 120px;
+}
+.inputLong{
+    height: 100px;
+}
+
+
+.newsLine{
+    margin-bottom: 15px;
+}
+
+.newsLine .text{
+    width: 50px;
+    text-align: right;
+    margin-right: 5px;
+    font-weight: normal;
+}
+.newsLine .textLong{
+    width: 100px;
+    margin-bottom: 5px;
+}
+
+.longtext{
+    margin-top: 30px;
+}
+
+.longEditor{
+    margin-left: 15px;
+}
+
+.submitDiv{
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/***************************user news list**********************************/
+
+.newsItem{
+    width: 100%;
+    border-bottom: 1px dotted orange;
+    /*border-top: 1px dotted orange;*/
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+}
+
+.newsItem .title{
+    width: 800px;
+    font-size: 15px;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+
+    float: left;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+
+.newsItem .maintenance{
+    /*float: left;*/
+    margin-left: 25px;
+    margin-top: 3px;
+    width: 300px;
+    line-height: 16px;
+    font-size: 13px;
+    font-weight: normal;
+    float: right;
+}
+.newsItem .maintenance span{
+    margin-right: 15px;
+}
+
+.newsItem .maintenance .bar{
+    font-weight: bold;
+    margin-right: 0px;
+    color: #69C;
+}
+
+.newsItem .details{
+    max-height:100px;
+    _height:100px;
+    margin-top: 5px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    word-wrap: break-word;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-family: Tahoma, Geneva,"\5FAE\8F6F\96C5\9ED1","\5b8b\4f53",sans-serif;
+}
+
+.time{
+    margin-top: 15px;
+}
+
+.time a{
+    margin-right: 15px;
+}

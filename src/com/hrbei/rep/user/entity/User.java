@@ -31,6 +31,8 @@ public class User extends AbstractPersistence
     private Integer userRoleType = Constants.User_RoleType_Normal;   //用户权限,默认是0正常用户
     private Boolean isDeleted = false;
 
+
+
     public String getNickName() {
         return nickName;
     }

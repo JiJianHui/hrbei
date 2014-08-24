@@ -2,12 +2,15 @@ package com.hrbei.rep.news.entity;
 
 import com.hrbei.rep.AbstractPersistence;
 import com.hrbei.rep.category.entity.Category;
+import com.hrbei.rep.company.entity.Company;
 import com.hrbei.rep.user.entity.User;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import java.util.Calendar;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -26,11 +29,14 @@ public class News extends AbstractPersistence
     @Column(columnDefinition = "longtext")
     private String content;
 
-    @ManyToOne
-    private Category category;  //发布类别
+    @OneToMany
+    private List<Category> categorys;  //新闻类别
 
     @ManyToOne
     private User pubUser;  //注意，根据不同的用户类型去不同的表中查询。
+    @ManyToOne
+    private Company company;
+
     private Integer pubUserType; //发布者类型，默认0为公司，1为普通用户
 
     private Boolean isDeleted = false;  //是否删除
@@ -75,12 +81,12 @@ public class News extends AbstractPersistence
         this.content = content;
     }
 
-    public Category getCategory() {
-        return category;
+    public List<Category> getCategorys() {
+        return categorys;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setCategorys(List<Category> categorys) {
+        this.categorys = categorys;
     }
 
     public User getPubUser() {
@@ -107,4 +113,11 @@ public class News extends AbstractPersistence
         isDeleted = deleted;
     }
 
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
 }
