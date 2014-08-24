@@ -178,3 +178,20 @@
     font-size: 13px;
 }
 
+.stepBar{
+    /*border: 1px dotted #008b8b;*/
+    height: 30px;
+    padding-left: 15px;
+    width: 100%;
+    /*border-bottom: 1px dotted #b8860b;*/
+}
+.stepBar a{
+    color: #3E8FDA;;
+    font-family: Tahoma, Geneva,"\5FAE\8F6F\96C5\9ED1","\5b8b\4f53",sans-serif;;
+    font-size: 13px;
+    margin-right: 5px;
+}
+
+.stepBar .sepeator{
+    margin-right: 5px;
+}

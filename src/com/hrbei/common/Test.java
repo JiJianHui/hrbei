@@ -1,6 +1,7 @@
 package com.hrbei.common;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -36,11 +37,8 @@ public class Test
 
     public static void run() throws IOException {
 
-        System.out.println("小猫我爱你！");
-        getFromKeybord();
-
-        printFiveTimes("大鱼521");
-        printFiveTimes("小猫521");
+        System.out.println(File.separator);
+        System.out.println(File.separatorChar);
     }
 
     private static String printFiveTimes(String content){

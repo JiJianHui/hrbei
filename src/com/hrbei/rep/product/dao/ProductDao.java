@@ -14,5 +14,6 @@ import java.util.List;
  */
 public interface ProductDao  extends ModelDao<Product>
 {
-    public List findByCompany(Integer cID, Pagination pagination);
+    public List<Product> findByCompany(Integer cID, Pagination pagination);
+    public List<Product> findByUserId(Integer uID, Pagination pagination);
 }

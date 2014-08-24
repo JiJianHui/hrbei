@@ -8,7 +8,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="/WEB-INF/tld/tiles-jsp.tld" prefix="tiles" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
-<%@ include file="createCompany.js.jsp" %>
+<%@ include file="initCreateCompany.js.jsp" %>
 
 <link rel="stylesheet" type="text/css" href="/css/company/createCompany.css"/>
 
@@ -22,19 +22,16 @@
 
             <div class="companyLines">
                 <label class="control-label text"> 公司名称:</label>
-                <span class="errorinfo" id="yzName"></span>
                 <s:textfield name="company.name" id="name" cssClass="input"/>
             </div>
 
             <div class="companyLines">
                 <label class="control-label text">公司地址:</label>
-                <span class="errorinfo" id="yzemail"></span>
                 <s:textarea name="company.address" rows="2"  id="address" cssClass="inputLong"/>
             </div>
 
             <div class="companyLines">
                 <label class="control-label text">公司简介:</label>
-                <span class="errorinfo" id="yzemail"></span>
                 <s:textarea name="company.description" rows="3"  id="description" cssClass="inputLong"/>
             </div>
 

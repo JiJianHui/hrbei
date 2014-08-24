@@ -32,12 +32,12 @@ $(document).ready(function () {
         onComplete: function (event, queueID, fileObj, response, data) {
             uploading = false;
             var jsonRep = $.parseJSON(response)
-            document.getElementById('logoURL').value = jsonRep.genFileName;
 //            $('<li></li>').appendTo('.files').text(jsonRep.genFileName);
             //alert(jsonRep.genFileName);
 //            document.getElementById('warning1').innerHTML = jsonRep.genFileName;
             var real_path = fileObj.filePath.replace(fileObj.name, jsonRep.genFileName);
-            $("#logoImg").attr("src", jsonRep.genFileName);
+            $("#logoImg").attr("src", "/upload/file/tmp/" + jsonRep.genFileName);
+            document.getElementById('logoURL').value = jsonRep.genFileName;
         },
         onError: function (event, queueID, fileObj) {
             alert("file:" + fileObj.name + "upload failed");
@@ -66,12 +66,9 @@ $(document).ready(function () {
         onComplete: function (event, queueID, fileObj, response, data) {
             uploading = false;
             var jsonRep = $.parseJSON(response)
-            document.getElementById('homeImgURL').value = jsonRep.genFileName;
-//            $('<li></li>').appendTo('.files').text(jsonRep.genFileName);
-            //alert(jsonRep.genFileName);
-//            document.getElementById('warning1').innerHTML = jsonRep.genFileName;
             var real_path = fileObj.filePath.replace(fileObj.name, jsonRep.genFileName);
-            $("#homeImage").attr("src", jsonRep.genFileName);
+            $("#homeImage").attr("src", "/upload/file/tmp/" + jsonRep.genFileName);
+            document.getElementById('homeImgURL').value = jsonRep.genFileName;
         },
         onError: function (event, queueID, fileObj) {
             alert("file:" + fileObj.name + "upload failed");
@@ -100,12 +97,12 @@ $(document).ready(function () {
         onComplete: function (event, queueID, fileObj, response, data) {
             uploading = false;
             var jsonRep = $.parseJSON(response)
-            document.getElementById('adImgURL').value = jsonRep.genFileName;
 //            $('<li></li>').appendTo('.files').text(jsonRep.genFileName);
             //alert(jsonRep.genFileName);
 //            document.getElementById('warning1').innerHTML = jsonRep.genFileName;
             var real_path = fileObj.filePath.replace(fileObj.name, jsonRep.genFileName);
-            $("#adImage").attr("src", jsonRep.genFileName);
+            $("#adImage").attr("src", "/upload/file/tmp/" + jsonRep.genFileName);
+            document.getElementById('adImgURL').value = jsonRep.genFileName;
         },
         onError: function (event, queueID, fileObj) {
             alert("file:" + fileObj.name + "upload failed");

@@ -92,6 +92,11 @@
         <put-attribute name="rightContent" value="/jsp/user/myCompany.jsp"/>
     </definition>
 
+    <definition name=".myProducts" extends=".userLayout">
+        <put-attribute name="title" value="我的公司"/>
+        <put-attribute name="rightContent" value="/jsp/user/myProducts.jsp"/>
+    </definition>
+
     <definition name=".initCreateCompany" extends=".userLayout">
         <put-attribute name="title" value="创建公司"/>
         <put-attribute name="rightContent" value="/jsp/company/initCreateCompany.jsp"/>
@@ -114,6 +119,11 @@
     <definition name=".companyProducts" extends=".userLayout">
         <put-attribute name="title" value="公司产品"/>
         <put-attribute name="rightContent" value="/jsp/company/companyProducts.jsp"/>
+    </definition>
+
+    <definition name=".initUpdateProduct" extends=".userLayout">
+        <put-attribute name="title" value="更新产品"/>
+        <put-attribute name="rightContent" value="/jsp/company/updateProductInfo.jsp"/>
     </definition>
 
     <!--********************************首页左边的类别导航菜单的选择********************************-->

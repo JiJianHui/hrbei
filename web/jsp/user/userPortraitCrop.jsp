@@ -167,7 +167,7 @@
                     window.parent.window.document.getElementById("reImg").src = real_path;
 //                    window.parent.window.document.getElementById("usermenu_user_img").src = real_path;
                     window.parent.window.document.getElementById("usermenu_user_img").src = real_path;
-                    window.parent.window.document.getElementById("picHidden").value = real_path;
+                    window.parent.window.document.getElementById("picHidden").value = userPortraitName;
                     parent.$.fancybox.close();
                 },"text");
             });

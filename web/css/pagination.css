@@ -29,13 +29,14 @@
 }
 .pagination tr td a.page_pre{
     background-position:0 0;
-    width:58px;
+    width:70px;
     text-align: right;
     padding-right: 5px;
 }
 .pagination tr td a.page_next{
     background-position: -115px 0px;
-    width: 58px;
+    width:70px;
     text-align: left;
     padding-left: 5px;
+    padding-right: 5px;
 }

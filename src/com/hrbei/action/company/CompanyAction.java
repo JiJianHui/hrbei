@@ -2,6 +2,7 @@ package com.hrbei.action.company;
 
 import com.hrbei.action.BasicAction;
 import com.hrbei.common.Constants;
+import com.hrbei.common.utils.Utils;
 import com.hrbei.rep.Pagination;
 import com.hrbei.rep.company.dao.CompanyDao;
 import com.hrbei.rep.company.entity.Company;
@@ -9,6 +10,8 @@ import com.hrbei.rep.product.dao.ProductDao;
 import com.hrbei.rep.product.entity.Product;
 import com.hrbei.rep.user.dao.UserDao;
 import com.hrbei.rep.user.entity.User;
+import org.apache.commons.lang.StringUtils;
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
@@ -17,6 +20,7 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -41,7 +45,7 @@ public class CompanyAction extends BasicAction{
     @Autowired
     private ProductDao productDao;
 
-    private Pagination pagination;
+    private Pagination pagination = new Pagination();
 
     @Action(value = "initCreateCompany", results = {@Result(name = SUCCESS,type = Constants.RESULT_NAME_TILES, location = ".initCreateCompany")})
     public String initCreateCompany()
@@ -57,9 +61,41 @@ public class CompanyAction extends BasicAction{
         user = userDao.findById(this.getSessionUserId());
         companyDao.persist(company);
         company.setResponsiblePerson(user);
-        companyDao.persist(company);
 
-        //TODO 将图片拷贝到对应的公司文件夹目录下
+        // copy jpg
+        if (StringUtils.isNotBlank(company.getLogo()) && !StringUtils.startsWithIgnoreCase(company.getLogo(), "upload/")) {
+            String companyDir = ServletActionContext.getServletContext().getRealPath(Constants.Upload_Company_Path);
+            companyDir = companyDir + File.separator + company.getId();
+
+            File temp = new File(companyDir);
+            if (!temp.exists()) temp.mkdirs();
+
+            Utils.notReplaceFileFromTmpModified(temp.getAbsolutePath(), company.getLogo());
+            company.setLogo(Constants.Upload_Company_Path + File.separator + company.getId() + File.separator + company.getLogo());
+        }
+
+        if (StringUtils.isNotBlank(company.getHomeImage()) && !StringUtils.startsWithIgnoreCase(company.getHomeImage(), "upload/")) {
+            String companyDir = ServletActionContext.getServletContext().getRealPath(Constants.Upload_Company_Path);
+            companyDir = companyDir + File.separator + company.getId();
+
+            File temp = new File(companyDir);
+            if (!temp.exists()) temp.mkdirs();
+
+            Utils.notReplaceFileFromTmpModified(temp.getAbsolutePath(), company.getHomeImage());
+            company.setHomeImage(Constants.Upload_Company_Path + File.separator + company.getId() + File.separator + company.getHomeImage());
+        }
+
+        if (StringUtils.isNotBlank(company.getAdImage()) && !StringUtils.startsWithIgnoreCase(company.getAdImage(), "upload/")) {
+            String companyDir = ServletActionContext.getServletContext().getRealPath(Constants.Upload_Company_Path);
+            companyDir = companyDir + File.separator + company.getId();
+
+            File temp = new File(companyDir);
+            if (!temp.exists()) temp.mkdirs();
+
+            Utils.notReplaceFileFromTmpModified(temp.getAbsolutePath(), company.getAdImage());
+            company.setAdImage(Constants.Upload_Company_Path + File.separator + company.getId() + File.separator + company.getAdImage());
+        }
+        companyDao.persist(company);
 
         return SUCCESS;
     }
@@ -86,11 +122,42 @@ public class CompanyAction extends BasicAction{
         oldCompany.setMobilePhone( company.getMobilePhone() );
         oldCompany.setEmail( company.getEmail() );
         oldCompany.setWebSite( company.getWebSite() );
-        oldCompany.setLogo( company.getLogo() );
-        oldCompany.setHomeImage( company.getHomeImage() );
-        oldCompany.setAdImage( company.getAdImage() );
 
-        //TODO 将图片拷贝到对应的公司文件夹目录下
+        // copy jpg
+        if (StringUtils.isNotBlank(company.getLogo()) && !StringUtils.startsWithIgnoreCase(company.getLogo(), "upload/")  ) {
+            String companyDir = ServletActionContext.getServletContext().getRealPath(Constants.Upload_Company_Path);
+            companyDir = companyDir + File.separator + company.getId();
+
+            File temp = new File(companyDir);
+            if (!temp.exists()) temp.mkdirs();
+
+            Utils.notReplaceFileFromTmpModified(temp.getAbsolutePath(), company.getLogo());
+
+
+            oldCompany.setLogo(Constants.Upload_Company_Path + File.separator + company.getId() + File.separator + company.getLogo());
+        }
+
+        if (StringUtils.isNotBlank(company.getHomeImage())  && !StringUtils.startsWithIgnoreCase(company.getHomeImage(), "upload/") ) {
+            String companyDir = ServletActionContext.getServletContext().getRealPath(Constants.Upload_Company_Path);
+            companyDir = companyDir + File.separator + company.getId();
+
+            File temp = new File(companyDir);
+            if (!temp.exists()) temp.mkdirs();
+
+            Utils.notReplaceFileFromTmpModified(temp.getAbsolutePath(), company.getHomeImage());
+            oldCompany.setHomeImage(Constants.Upload_Company_Path + File.separator + company.getId() + File.separator + company.getHomeImage());
+        }
+
+        if (StringUtils.isNotBlank(company.getAdImage())  && !StringUtils.startsWithIgnoreCase(company.getAdImage(), "upload/")) {
+            String companyDir = ServletActionContext.getServletContext().getRealPath(Constants.Upload_Company_Path);
+            companyDir = companyDir + File.separator + company.getId();
+
+            File temp = new File(companyDir);
+            if (!temp.exists()) temp.mkdirs();
+
+            Utils.notReplaceFileFromTmpModified(temp.getAbsolutePath(), company.getAdImage());
+            oldCompany.setAdImage(Constants.Upload_Company_Path + File.separator + company.getId() + File.separator + company.getAdImage());
+        }
 
         companyDao.persistAbstract(oldCompany);
 
@@ -113,6 +180,18 @@ public class CompanyAction extends BasicAction{
         company = companyDao.findById(this.getCompany().getId());
 
         product.setCompany(company);
+
+        // copy jpg
+        if (StringUtils.isNotBlank(product.getLogo()) ) {
+            String companyDir = ServletActionContext.getServletContext().getRealPath(Constants.Upload_Company_Path);
+            companyDir = companyDir + File.separator + company.getId() + File.separator + "product";
+
+            File temp = new File(companyDir);
+            if (!temp.exists()) temp.mkdirs();
+
+            Utils.notReplaceFileFromTmpModified(temp.getAbsolutePath(), product.getLogo());
+            product.setLogo(Constants.Upload_Company_Path + File.separator + company.getId() + File.separator + "product" + File.separator + product.getLogo());
+        }
 
         productDao.persistAbstract(product);
 

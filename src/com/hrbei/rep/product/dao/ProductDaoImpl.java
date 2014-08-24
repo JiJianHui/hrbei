@@ -22,4 +22,10 @@ public class ProductDaoImpl extends ModelDaoImpl<Product> implements ProductDao
 
         return  this.find(hql,pagination,cID);
     }
+
+    public List<Product> findByUserId(Integer uID, Pagination pagination){
+
+        String hql = "From Product p where p.company.responsiblePerson.id=? and p.company.isDeleted=false and p.isDeleted = false";
+        return  this.find(hql,pagination,uID);
+    }
 }

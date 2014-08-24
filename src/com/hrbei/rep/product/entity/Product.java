@@ -5,6 +5,7 @@ import com.hrbei.rep.category.entity.Category;
 import com.hrbei.rep.company.entity.Company;
 
 import javax.persistence.*;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -35,6 +36,8 @@ public class Product extends AbstractPersistence
 
     @OneToMany
     private List<Category> categorys;  //产品类别
+
+    private Calendar createDate;  //创建日期
 
     public Company getCompany() {
         return company;
@@ -138,5 +141,13 @@ public class Product extends AbstractPersistence
 
     public void setBrand(String brand) {
         this.brand = brand;
+    }
+
+    public Calendar getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Calendar createDate) {
+        this.createDate = createDate;
     }
 }

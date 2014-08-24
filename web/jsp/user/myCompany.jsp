@@ -11,6 +11,11 @@
 
 <link rel="stylesheet" type="text/css" href="/css/user/myCompany.css">
 
+<div class="stepBar">
+    <a href="myCompany.html"> 我的公司</a>
+    <span class="sepeator">></span>公司列表
+</div>
+
 <div class="myCompanys">
     <s:iterator value="companys">
     <div class="companyItem">
@@ -40,7 +45,7 @@
             <p class="time">
                 <a class="manage_links" href="initUpdateCompany.html?company.id=<s:property value="id"/>">
                     基本信息</a>
-                <a class="manage_links" href="/makeCourseVideo.html?company.id=<s:property value="id"/>">
+                <a class="manage_links" href="/companyProducts.html?company.id=<s:property value="id"/>">
                     公司商品</a>
 
                 <a class="manage_links" href="/initAddProduct.html?company.id=<s:property value="id"/>">

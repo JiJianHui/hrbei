@@ -81,12 +81,9 @@ public class ImageProcessAction extends BasicAction{
 
     @Action(value = "cropProductPortrait")
     public void cropProductPortrait() throws IOException {
-//        company = companyDao.findById(this.getCompany().getId());
         if (StringUtils.isNotBlank(this.getUserPortraitName())) {
             String srcPath = ServletActionContext.getServletContext().getRealPath(Constants.Upload_File_Tmp_Path
                     + File.separator + this.getUserPortraitName());
-            String toPath = ServletActionContext.getServletContext().getRealPath("")+
-                    Constants.Upload_Company_Path + File.separator + company.getId() + "/product/" + this.getUserPortraitName();
 
             //获取拓展名
             String extName="";
@@ -95,14 +92,8 @@ public class ImageProcessAction extends BasicAction{
             }
 
             BufferedImage tag = getBufferImage(srcPath);
-
-            createFiles(toPath);
-
-            ImageIO.write(tag,extName,new FileOutputStream(toPath));
-
-            PrintWriter out = ServletActionContext.getResponse().getWriter();
-            out.print(Constants.Upload_Company_Path + "/" + company.getId() + "/product/");
-            out.close();
+            createFiles(srcPath);
+            ImageIO.write(tag,extName,new FileOutputStream(srcPath));
         }
     }
 

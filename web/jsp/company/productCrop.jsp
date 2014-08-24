@@ -170,10 +170,10 @@
                 $.post("cropProductPortrait.html",postStr,function(data){
                     //取得图片在服务器上的路径
                     //关闭窗口，并将图片显示在头像Div中
-                    real_path = real_path.replace("/upload/file/tmp",data);
+//                    real_path = real_path.replace("/upload/file/tmp",data);
                     window.parent.window.document.getElementById("productLogo").src = real_path;
 //                    window.parent.window.document.getElementById("usermenu_user_img").src = real_path;
-                    window.parent.window.document.getElementById("picHidden").value = real_path;
+                    window.parent.window.document.getElementById("picHidden").value = userPortraitName;
                     parent.$.fancybox.close();
                 },"text");
             });

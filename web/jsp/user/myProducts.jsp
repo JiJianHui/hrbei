@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Ji JianHui
-  Date: 14-8-23
-  Time: 下午9:46
+  Date: 14-8-24
+  Time: 下午2:26
   Email: jhji@ir.hit.edu.cn
 --%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
@@ -11,14 +11,10 @@
 <link rel="stylesheet" type="text/css" href="/css/user/myCompany.css">
 
 <div class="stepBar">
-    <a href="myCompany.html"> 我的公司</a>
-    <span class="sepeator">></span>
-    <a href="companyBlog.html?company.id=<s:property value='company.id'/>"><s:property value="company.name"/> </a>
+    <a href="myProducts.html"> 我的产品</a>
     <span class="sepeator">></span>商品列表
 </div>
 
-<s:form action="companyProducts" theme="css_xhtml" id="postPageForm">
-    <s:hidden name="company.id"></s:hidden>
 
 <div class="myCompanys">
     <s:iterator value="products">
@@ -26,7 +22,7 @@
 
             <p class="companyLogo">
                 <a href="productBlog.html?product.id=<s:property value="id"/>" title="<s:property value="name"/>">
-                <img src="<s:property value="logo"/>"/>
+                    <img src="<s:property value="logo"/>"/>
                 </a>
             </p>
 
@@ -47,10 +43,10 @@
 
                 <p class="time">
                     <a class="manage_links" href="initUpdateProduct.html?product.id=<s:property value="id"/>">
-                    更改信息</a>
+                        更改信息</a>
 
                     <a class="manage_links" href="/deleteProduct.html?product.id=<s:property value="id"/>">
-                    删除商品</a>
+                        删除商品</a>
                 </p>
             </div>
 
@@ -59,8 +55,6 @@
 
 </div>
 
-<tiles:insertTemplate template="/jsp/paginationPost.jsp">
+<tiles:insertTemplate template="/jsp/pagination.jsp">
     <tiles:putAttribute name="pagination" value="${pagination}"/>
 </tiles:insertTemplate>
-
-</s:form>

@@ -28,6 +28,7 @@ public class MainFilter implements Filter {
         NEED_LOGIN.add("/userCenter.html");
         NEED_LOGIN.add("/initCreateCompany.html");
         NEED_LOGIN.add("/myCompany.html");
+        NEED_LOGIN.add("/myProducts.html");
     }
 
     public void destroy() {

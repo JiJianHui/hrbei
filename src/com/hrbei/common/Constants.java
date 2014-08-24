@@ -11,7 +11,9 @@ public class Constants
     public static final String RESULT_NAME_TILES = "tiles";
     public static final String RESULT_NAME_REDIRECT_ACTION = "redirectAction";
 
-    public static final Integer Page_Size = 8;
+    public static final Integer Page_Size = 5;
+
+    public static final int BUFFER_SIZE = 4 * 1024 * 1024;
 
     public static final String Upload_File_Tmp_Path = "/upload/file/tmp";
     public static final String Upload_User_Path = "/upload/user";
