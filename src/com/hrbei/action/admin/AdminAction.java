@@ -58,6 +58,20 @@ public class AdminAction extends BasicAction {
         return SUCCESS;
     }
 
+    @Action(value = "initAdminManageUser",
+            results = {@Result(name = SUCCESS,type = Constants.RESULT_NAME_TILES, location = ".initAdminManageUser"),
+                    @Result(name = ERROR,type = Constants.RESULT_NAME_TILES, location = ".noPermission")})
+    public String initAdminManageUser(){
+
+        if( this.getSessionUserId() == null ) return ERROR;
+
+        user = userDao.findById(this.getSessionUserId());
+
+        if( !this.isAdmin(user) ) return ERROR;
+
+        return SUCCESS;
+    }
+
     public User getUser() {
         return user;
     }

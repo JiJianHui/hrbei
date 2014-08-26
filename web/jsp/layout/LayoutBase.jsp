@@ -29,9 +29,9 @@
 <%--该框架是前端展示给用户的基本框架。
 在基本的layout的基础上对中间的content内容进行了扩展，
 将content分为了左侧导航，右侧分为了顶部导航和中间content内容--%>
-<body style="margin-top: 0px" id="mainBoady">
+<body>
 
-    <div id="main">
+<div id="main" style="margin-top: 0px" id="mainBoady">
 
         <%--网页顶部，包括了登陆menubar和top展示--%>
         <div class="header"><tiles:insertAttribute name="header"/></div>

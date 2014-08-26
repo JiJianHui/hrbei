@@ -30,7 +30,7 @@
 
 <body>
 
-<div id="main" style="margin-top: 0px" id="mainBoady">
+<div id="main" style="margin-top: 0px;" id="mainBoady">
 
     <%--网页顶部，包括了登陆menubar和top展示--%>
     <div class="header"><tiles:insertAttribute name="header"/></div>
@@ -49,6 +49,7 @@
 
         <%--网页中部的底部用于展示广告灯--%>
         <div id="container2"><tiles:insertAttribute name="scrollADs"/></div>
+        <div style="clear: both;"></div>
     </div>
 
     <div id="footerDiv">

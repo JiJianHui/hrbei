@@ -29,9 +29,9 @@
 </head>
 
 
-<body style="margin-top: 0px" id="mainBoady">
+<body>
 
-<div id="main">
+<div id="main" style="margin-top: 0px" id="mainBoady">
 
     <%--网页顶部，包括了登陆menubar和top展示--%>
     <div class="header"><tiles:insertAttribute name="header"/></div>

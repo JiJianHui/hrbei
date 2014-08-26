@@ -33,7 +33,7 @@
 
 <body>
 
-<div id="main" style="margin-top: 0px;">
+<div id="main" style="margin-top: 0px" id="mainBoady">
 
     <%--网页顶部，包括了登陆menubar和top展示--%>
     <div class="header"><tiles:insertAttribute name="header"/></div>
@@ -56,7 +56,7 @@
         <a href="#">搜狐网</a>
         <a href="#">新浪微博</a>
         <a href="#">驱动之家</a>
-    </div>
+        </div>
 
     <%--网页底部用于展示版权信息等--%>
         <div id="footer"><tiles:insertAttribute name="footer"/></div>

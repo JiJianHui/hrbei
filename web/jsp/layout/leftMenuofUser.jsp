@@ -31,14 +31,23 @@
         </ul>
     </div>
 
+
+
     <div class="linksGroup">
         <h3 class="h3_title">商店</h3>
-        <ul>
-            <li><a href="myCompany.html" title="我的公司">我的公司</a></li>
-            <li><a href="initCreateCompany.html" title="创建公司">创建公司</a></li>
-            <li><a href="myProducts.html" title="我的商品">我的商品</a></li>
-        </ul>
+            <ul>
+                <s:if test="#session.roleType > 0">
+                    <li><a href="myCompany.html" title="我的公司">我的公司</a></li>
+                    <li><a href="initCreateCompany.html" title="创建公司">创建公司</a></li>
+                    <li><a href="myProducts.html" title="我的商品">我的商品</a></li>
+                </s:if>
+                <s:else>
+                    <li><a href="askToCreate.html" title="申请创建公司">申请公司</a></li>
+                    <li><a href="#" title=""></a></li>
+                </s:else>
+            </ul>
     </div>
+
 
     <div class="linksGroup">
         <h3 class="h3_title">新闻</h3>
@@ -47,5 +56,18 @@
             <li><a href="initCreateUserNews.html" title="发布新闻">发布新闻</a></li>
         </ul>
     </div>
+
+    <s:if test="#session.roleType == 3">
+
+        <div class="linksGroup">
+            <h3 class="h3_title">管理员</h3>
+            <ul>
+                <li><a href="initManageUser.html" title="创建公司">人员管理</a></li>
+                <li><a href="initCreateCompany.html" title="创建公司">申请开店管理</a></li>
+                <li><a href="initAdminManageCompany.html" title="公司审核管理">公司审核</a></li>
+            </ul>
+        </div>
+
+    </s:if>
 
 </div>

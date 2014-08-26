@@ -1,0 +1,12 @@
+.adminDiv{
+
+}
+
+.adminDiv td{
+    max-width: 100px;
+    width: 100px;
+    height: 30px;
+    white-space:nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
