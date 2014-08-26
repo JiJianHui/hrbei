@@ -66,6 +66,9 @@ public class CompanyAction extends BasicAction{
         companyDao.persist(company);
         company.setResponsiblePerson(user);
 
+        user.setUserRoleType(Constants.User_RoleType_Company);
+        userDao.persist(user);
+
         // copy jpg
         if (StringUtils.isNotBlank(company.getLogo()) && !StringUtils.startsWithIgnoreCase(company.getLogo(), "upload/")) {
             String companyDir = ServletActionContext.getServletContext().getRealPath(Constants.Upload_Company_Path);

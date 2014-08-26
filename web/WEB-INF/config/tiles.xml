@@ -72,6 +72,10 @@
         <put-attribute name="content" value="/jsp/security/register.jsp"/>
     </definition>
 
+    <definition name=".noPermission" extends=".layout">
+        <put-attribute name="content" value="/jsp/security/noPermission.jsp"/>
+    </definition>
+
     <definition name=".userRegImgCrop" template="/jsp/security/regUserCrop.jsp">
         <put-attribute name="title" value="选择图片"/>
     </definition>
