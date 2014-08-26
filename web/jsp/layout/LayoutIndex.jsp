@@ -50,7 +50,9 @@
         <%--网页中部的底部用于展示广告灯--%>
         <div id="container2"><tiles:insertAttribute name="scrollADs"/></div>
     </div>
-    <div class="commonLinks">
+
+    <div id="footerDiv">
+        <div class="commonLinks">
         <a href="#">中关村在线</a>
         <a href="#">百度</a>
         <a href="#">58同城</a>
@@ -60,8 +62,8 @@
         <a href="#">驱动之家</a>
     </div>
     <%--网页底部用于展示版权信息等--%>
-    <div id="footer"><tiles:insertAttribute name="footer"/></div>
-
+        <div id="footer"><tiles:insertAttribute name="footer"/></div>
+    </div>
 </div>
 <div id="fade" class="black_overlay"></div>
 </body>

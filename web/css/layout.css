@@ -26,6 +26,25 @@ input:-webkit-autofill {
     height:135px;
     font-size: 13px;
 }
+
+#main{
+    position: relative;   /*重要！保证footer是相对于wapper位置绝对*/
+    height: auto;          /* 保证页面能撑开浏览器高度时显示正常*/
+    min-height: 100%  /* IE6不支持，IE6要单独配置*/
+}
+#footerDiv{
+    position: absolute;  bottom: 0; /* 关键 */
+    left:0; /* IE下一定要记得 */
+    height: 120px;         /* footer的高度一定要是固定值*/
+    border-top: 1px solid #6895c9;
+}
+
+#container {
+    width:1024px;
+    height: auto;
+    min-height: 350px;
+    padding-bottom: 120px;
+}
 /*****************************顶部的工具条控制******************/
 .headerMenu {
     width:1024px;
@@ -203,12 +222,6 @@ input:-webkit-autofill {
     /*border:0*/
 /*}*/
 
-#container {
-    width:1024px;
-    height: auto;
-    min-height: 350px;
-    border-bottom: 2px solid #6895c9;
-}
 #container1 {width:1024px; clear:both;min-height:500px;height: auto;}
 
 /*左侧导航栏*/
@@ -278,6 +291,7 @@ input:-webkit-autofill {
 #main .commonLinks a:hover{
     border-bottom: 1px dotted #5f9ea0;
     text-decoration: none;
+    color: blue;
 }
 
 #footer {

@@ -88,10 +88,15 @@ public class UserAction extends BasicAction
 
     }
 
-    @Action(value = "login", results = {@Result(name = SUCCESS,type = Constants.RESULT_NAME_TILES, location = ".login")})
+    @Action(value = "login", results = {@Result(name = SUCCESS,type = Constants.RESULT_NAME_TILES, location = ".login"),
+    @Result(name = "UserCenter", type = Constants.RESULT_NAME_REDIRECT_ACTION, params = {"actionName", "userCenter"})})
     public String login()
     {
         Integer userId = this.getSessionUserId();
+        if( this.getSessionUserId() != null ){
+            return "UserCenter";
+        }
+
         return SUCCESS;
     }
 
@@ -138,8 +143,12 @@ public class UserAction extends BasicAction
         return SUCCESS;
     }
 
-    @Action(value = "register", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".register")})
+    @Action(value = "register", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".register"),
+            @Result(name = "UserCenter", type = Constants.RESULT_NAME_REDIRECT_ACTION, params = {"actionName", "userCenter"})})
     public String register(){
+        if(this.getSessionUserId() != null ){
+            return "UserCenter";
+        }
         return SUCCESS;
     }
 
