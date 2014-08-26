@@ -72,6 +72,11 @@
         <put-attribute name="content" value="/jsp/security/register.jsp"/>
     </definition>
 
+    <definition name=".userRegImgCrop" template="/jsp/security/regUserCrop.jsp">
+        <put-attribute name="title" value="选择图片"/>
+    </definition>
+
+
     <definition name=".userCenter" extends=".userLayout">
         <put-attribute name="title" value="个人中心-Hrbei.com"/>
         <put-attribute name="rightContent" value="/jsp/user/userCenter.jsp"/>
@@ -93,7 +98,7 @@
     </definition>
 
     <definition name=".myProducts" extends=".userLayout">
-        <put-attribute name="title" value="我的公司"/>
+        <put-attribute name="title" value="我的产品"/>
         <put-attribute name="rightContent" value="/jsp/user/myProducts.jsp"/>
     </definition>
 
@@ -150,6 +155,12 @@
         <put-attribute name="title" value="用户新闻"/>
         <put-attribute name="rightContent" value="/jsp/news/initUpdateUserNews.jsp"/>
     </definition>
+
+    <definition name=".initAdminManageCompany" extends=".userLayout">
+        <put-attribute name="title" value="公司深化"/>
+        <put-attribute name="rightContent" value="/jsp/security/adminManageCompany.jsp"/>
+    </definition>
+
 
     <!--********************************首页左边的类别导航菜单的选择********************************-->
     <definition name=".indexBiJiBen" extends=".baseLayout">

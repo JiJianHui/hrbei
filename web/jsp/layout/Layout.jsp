@@ -39,6 +39,7 @@
     <%--网页中部，用于展示信息--%>
     <div id="container">
         <tiles:insertAttribute name="content"/>
+        <div style="clear: both;"></div>
     </div>
 
     <div class="commonLinks">

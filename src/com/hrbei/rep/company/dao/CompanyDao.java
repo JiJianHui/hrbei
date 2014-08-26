@@ -1,6 +1,7 @@
 package com.hrbei.rep.company.dao;
 
 import com.hrbei.rep.ModelDao;
+import com.hrbei.rep.Pagination;
 import com.hrbei.rep.company.entity.Company;
 
 import java.util.List;
@@ -14,4 +15,5 @@ import java.util.List;
 public interface CompanyDao extends ModelDao<Company>
 {
     public List<Company> findMyCompany(Integer userID);
+    public List<Company> findAllCompanyInStatus(Integer status, Pagination pagination);
 }

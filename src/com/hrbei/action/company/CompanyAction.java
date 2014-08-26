@@ -21,6 +21,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 /**
@@ -46,6 +48,8 @@ public class CompanyAction extends BasicAction{
     private ProductDao productDao;
 
     private Pagination pagination = new Pagination();
+
+    private String resultMessage;
 
     @Action(value = "initCreateCompany", results = {@Result(name = SUCCESS,type = Constants.RESULT_NAME_TILES, location = ".initCreateCompany")})
     public String initCreateCompany()
@@ -165,10 +169,68 @@ public class CompanyAction extends BasicAction{
     }
 
 
+
+    @Action(value = "ajaxDeleteCompany")
+    public void ajaxDeleteCompany() throws IOException {
+
+        user = userDao.findById(this.getSessionUserId());
+        Company oldCompany = companyDao.findById(company.getId());
+
+        if( this.hasAccessToComapany(user, oldCompany) )
+        {
+            oldCompany.setDeleted(true);
+            companyDao.persist(oldCompany);
+
+            resultMessage = "success";
+        }
+        else
+        {
+            resultMessage = "error";
+        }
+
+        PrintWriter out = ServletActionContext.getResponse().getWriter();
+        out.print(resultMessage);
+        out.close();
+    }
+
+    @Action(value = "ajaxChangeCompanyStatus")
+    public void ajaxChangeCompanyStatus() throws IOException {
+
+        user = userDao.findById(this.getSessionUserId());
+        Company oldCompany = companyDao.findById(company.getId());
+
+        if( this.hasAccessToComapany(user, oldCompany) )
+        {
+            oldCompany.setStatus( company.getStatus() );
+            companyDao.persist(oldCompany);
+
+            resultMessage = "success";
+        }
+        else
+        {
+            resultMessage = "error";
+        }
+
+        PrintWriter out = ServletActionContext.getResponse().getWriter();
+        out.print(resultMessage);
+        out.close();
+    }
+
+    private Boolean hasAccessToComapany(User user, Company company){
+
+        if( company.getResponsiblePerson().getId().equals(user.getId()) || this.isAdmin(user) )
+        {
+            return true;
+        }
+        return false;
+    }
+
+
     /*******************************************产品相关***************************************************/
     @Action(value = "initAddProduct", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".initAddProduct")})
     public String initAddProduct()
     {
+        user = userDao.findById(this.getSessionUserId());
         company = companyDao.findById(this.getCompany().getId());
         return SUCCESS;
     }
@@ -201,6 +263,7 @@ public class CompanyAction extends BasicAction{
     @Action(value = "companyProducts", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".companyProducts")})
     public String companyProducts()
     {
+        user = userDao.findById(this.getSessionUserId());
         company = companyDao.findById(this.getCompany().getId());
         products = productDao.findByCompany( company.getId(), pagination);
         return SUCCESS;
@@ -260,5 +323,21 @@ public class CompanyAction extends BasicAction{
 
     public void setPagination(Pagination pagination) {
         this.pagination = pagination;
+    }
+
+    public ProductDao getProductDao() {
+        return productDao;
+    }
+
+    public void setProductDao(ProductDao productDao) {
+        this.productDao = productDao;
+    }
+
+    public String getResultMessage() {
+        return resultMessage;
+    }
+
+    public void setResultMessage(String resultMessage) {
+        this.resultMessage = resultMessage;
     }
 }

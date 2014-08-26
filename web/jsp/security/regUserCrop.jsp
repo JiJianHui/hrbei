@@ -166,7 +166,7 @@
                 }
                 //获取剪裁后图片的数据,X坐标，Y坐标，长宽，以及，已上传图片在服务器的路径
                 //将这些数据用Ajax方式送到后台，并对已上传的图片进行处理后保存，传回图片的路径
-                var postStr = {"imgX":imgX,"imgY":imgY,"imgWidth":imgWidth,"imgHeight":imgHeight,"userPortraitName":userPortraitName,"company.id":<s:property value="company.id"/> };
+                var postStr = {"imgX":imgX,"imgY":imgY,"imgWidth":imgWidth,"imgHeight":imgHeight,"userPortraitName":userPortraitName};
                 $.post("cropProductPortrait.html",postStr,function(data){
                     //取得图片在服务器上的路径
                     //关闭窗口，并将图片显示在头像Div中

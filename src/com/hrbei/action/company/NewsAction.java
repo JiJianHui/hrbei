@@ -17,6 +17,7 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
@@ -43,6 +44,8 @@ public class NewsAction extends BasicAction {
     private CompanyDao companyDao;
 
     private Pagination pagination = new Pagination();
+
+    private String resultMessage;
 
     @Action( value = "initCreateUserNews", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".initCreateUserNews")})
     public String initCreateNews(){
@@ -93,6 +96,35 @@ public class NewsAction extends BasicAction {
             out.close();
         }
         catch (Exception e){ e.printStackTrace(); }
+    }
+
+    @Action(value = "ajaxDeleteUserNews")
+    public void ajaxDeleteUserNews() throws IOException {
+
+        user = userDao.findById(this.getSessionUserId());
+        News oldNews = newsDao.findById(news.getId());
+
+        if( this.hasAccessToUserNews(user, oldNews)) {
+            oldNews.setDeleted(true);
+            newsDao.persist(oldNews);
+
+            resultMessage = "success";
+        }
+        else{
+            resultMessage = "error";
+        }
+
+        PrintWriter out = ServletActionContext.getResponse().getWriter();
+        out.print(resultMessage);
+        out.close();
+    }
+
+    private Boolean hasAccessToUserNews(User user, News news){
+
+        if( news.getPubUser().getId().equals(user.getId())|| this.isAdmin(user) ){
+            return true;
+        }
+        return false;
     }
 
     public User getUser() {
@@ -157,5 +189,13 @@ public class NewsAction extends BasicAction {
 
     public void setNewses(List<News> newses) {
         this.newses = newses;
+    }
+
+    public String getResultMessage() {
+        return resultMessage;
+    }
+
+    public void setResultMessage(String resultMessage) {
+        this.resultMessage = resultMessage;
     }
 }

@@ -26,7 +26,19 @@ public class MainFilter implements Filter {
     static {
         NEED_LOGIN.add("/userInfo.html");
         NEED_LOGIN.add("/userCenter.html");
+
         NEED_LOGIN.add("/initCreateCompany.html");
+        NEED_LOGIN.add("/initUpdateCompany.html");
+        NEED_LOGIN.add("/updateCompanyInfo.html");
+
+        NEED_LOGIN.add("/initAddProduct.html");
+        NEED_LOGIN.add("/initUpdateProduct.html");
+        NEED_LOGIN.add("/companyProducts.html");
+
+        NEED_LOGIN.add("/initCreateUserNews.html");
+        NEED_LOGIN.add("/userNews.html");
+        NEED_LOGIN.add("/initUpdateUserNews.html");
+
         NEED_LOGIN.add("/myCompany.html");
         NEED_LOGIN.add("/myProducts.html");
     }

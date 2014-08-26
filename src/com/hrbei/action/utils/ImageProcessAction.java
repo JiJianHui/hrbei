@@ -102,6 +102,12 @@ public class ImageProcessAction extends BasicAction{
         return SUCCESS;
     }
 
+    @Action(value = "userRegImgCrop", results = {@Result(name = SUCCESS,type = Constants.RESULT_NAME_TILES, location = ".userRegImgCrop")})
+    public String userRegImgCrop(){
+        return SUCCESS;
+    }
+
+
     @Action(value = "productCrop", results = {@Result(name = SUCCESS,type = Constants.RESULT_NAME_TILES, location = ".productCrop")})
     public String productCrop(){
         company = companyDao.findById(this.getCompany().getId());

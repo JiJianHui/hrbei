@@ -1,6 +1,7 @@
 package com.hrbei.rep.company.dao;
 
 import com.hrbei.rep.ModelDaoImpl;
+import com.hrbei.rep.Pagination;
 import com.hrbei.rep.company.entity.Company;
 import org.springframework.stereotype.Repository;
 
@@ -22,5 +23,10 @@ public class CompanyDaoImpl extends ModelDaoImpl<Company> implements CompanyDao 
     {
         String hql = "select com from Company com where com.responsiblePerson.id = ?  and " + DeletedFalse;
         return this.find(hql, userID);
+    }
+
+    public List<Company> findAllCompanyInStatus(Integer status, Pagination pagination){
+        String hql = "from Company com where com.status = ?  and " + DeletedFalse;
+        return this.find(hql, pagination, status);
     }
 }

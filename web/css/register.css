@@ -6,7 +6,7 @@
     text-align: left;
     margin-top: 100px;
     font-size: 15px;
-    font-family: '宋体', 'Microsoft Yahei', '微软雅黑', sans-serif;;
+    font-family: Tahoma, Geneva,"\5FAE\8F6F\96C5\9ED1","\5b8b\4f53",sans-serif;
     /*border: 1px dotted red;*/
 }
 
@@ -14,6 +14,7 @@
     height: 25px;
     line-height: 25px;
     margin-bottom: 20px;
+    letter-spacing: 1px;
 }
 
 .regLine .text{
@@ -21,16 +22,23 @@
     text-align: right;
     display: block;
     float: left;
+    font-weight: bold;
 }
 
-.regLine .warning{
+.warning{
     color: red;
     font-size: 13px;
 }
 
 .regLine .regLicenceLink{color: #d3d3d3;font-size: 13px;}
 
-.regLine .input{width: 200px;background-color: #ffffe0}
+.regLine .input{
+    width: 200px;
+    /*background-color: #ffffe0;*/
+    border-radius: 3px;
+    padding-left: 3px;
+    height: 30px;
+}
 
 .regSubmit{
     text-align: right;
@@ -91,4 +99,17 @@
 
 .licenceItem{
     margin-top: 10px;
+}
+
+.regContent{
+    /*border: 1px dotted blue;*/
+    margin-left: 150px;
+    margin-bottom: 20px;
+}
+
+.basicInfo{
+    /*border:1px dotted #008b8b;*/
+}
+.passAndLogo{
+    /*border:1px dotted #008b8b;*/
 }

@@ -20,6 +20,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
@@ -45,6 +46,8 @@ public class ProductAction extends BasicAction
     private List<Product> products;
 
     private Pagination pagination = new Pagination();
+
+    private String resultMessage;
 
     @Action(value = "initUpdateProduct", results = {@Result(name = SUCCESS,type = Constants.RESULT_NAME_TILES, location = ".initUpdateProduct")})
     public String initUpdateProduct()
@@ -90,6 +93,38 @@ public class ProductAction extends BasicAction
         }
         catch (Exception e){ e.printStackTrace(); }
 
+    }
+
+    @Action(value = "ajaxDeleteProduct")
+    public void ajaxDeleteProduct() throws IOException
+    {
+        user = userDao.findById(this.getSessionUserId());
+        Product oldProduct = productDao.findById(product.getId());
+
+        if( this.hasAccessToProduct(user, oldProduct) )
+        {
+            oldProduct.setDeleted(true);
+            productDao.persist(oldProduct);
+
+            resultMessage = "success";
+        }
+        else
+        {
+            resultMessage = "error";
+        }
+
+        PrintWriter out = ServletActionContext.getResponse().getWriter();
+        out.print(resultMessage);
+        out.close();
+    }
+
+    private Boolean hasAccessToProduct(User user, Product product){
+
+        if( product.getCompany().getResponsiblePerson().getId().equals(user.getId()) || this.isAdmin(user) )
+        {
+            return true;
+        }
+        return false;
     }
 
 
@@ -147,5 +182,13 @@ public class ProductAction extends BasicAction
 
     public void setCompany(Company company) {
         this.company = company;
+    }
+
+    public String getResultMessage() {
+        return resultMessage;
+    }
+
+    public void setResultMessage(String resultMessage) {
+        this.resultMessage = resultMessage;
     }
 }

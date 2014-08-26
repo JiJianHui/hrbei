@@ -25,10 +25,6 @@ public class IndexAction extends BasicAction
         return SUCCESS;
     }
 
-    @Action(value = "register", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".register")})
-    public String register(){
-        return SUCCESS;
-    }
 
     @Action(value = "error", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".error")})
     public String error(){

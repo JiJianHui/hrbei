@@ -46,6 +46,7 @@ public class UserAction extends BasicAction
     private String loginMessage;
 
     private String newPassword;
+    private String repeatPassword;
 
     private CompanyDao companyDao;
     private List<Company> companys;
@@ -137,11 +138,52 @@ public class UserAction extends BasicAction
         return SUCCESS;
     }
 
+    @Action(value = "register", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".register")})
+    public String register(){
+        return SUCCESS;
+    }
+
+    @Action(value = "reg",
+            results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_REDIRECT_ACTION, params = {"actionName", "userCenter"})
+            ,@Result(name = INPUT, type = Constants.RESULT_NAME_TILES, location = ".register")})
+    public String reg()
+    {
+        User localUser = userDao.findByEmail(this.getUser().getEmail());
+
+        if (localUser != null)
+        {
+            addFieldError("user.email", "该邮箱已经被注册!");
+            return INPUT;
+        }
+
+        user.setEmail(StringUtils.trim(user.getEmail()));
+        user.setNickName(StringUtils.trim(user.getNickName()));
+        user.setPassword(MD5.endCode(user.getPassword()));
+
+        userDao.persistAbstract(user);
+
+        // copy jpg
+        if (StringUtils.isNotBlank(user.getLogo()) ) {
+            String userDir = ServletActionContext.getServletContext().getRealPath(Constants.Upload_User_Path);
+            userDir = userDir + File.separator + user.getId() +  File.separator + "userPortrait" + File.separator  ;
+
+            File temp = new File(userDir);
+            if (!temp.exists()) temp.mkdirs();
+
+            Utils.notReplaceFileFromTmpModified(temp.getAbsolutePath(), user.getLogo());
+            user.setLogo(Constants.Upload_User_Path + File.separator + user.getId() + File.separator + "userPortrait" + File.separator + user.getLogo());
+        }
+
+        setUserToSession(user);
+
+        return SUCCESS;
+    }
+
     /**********************************************用户中心相关函数*********************************/
 
     @Action(value = "userCenter", results = {@Result(name = SUCCESS,type = Constants.RESULT_NAME_TILES, location = ".userCenter")})
     public String myFirstPage(){
-
+        user = userDao.findById(this.getSessionUserId());
         return SUCCESS;
     }
 
@@ -276,5 +318,21 @@ public class UserAction extends BasicAction
 
     public void setPagination(Pagination pagination) {
         this.pagination = pagination;
+    }
+
+    public String getRepeatPassword() {
+        return repeatPassword;
+    }
+
+    public void setRepeatPassword(String repeatPassword) {
+        this.repeatPassword = repeatPassword;
+    }
+
+    public ProductDao getProductDao() {
+        return productDao;
+    }
+
+    public void setProductDao(ProductDao productDao) {
+        this.productDao = productDao;
     }
 }

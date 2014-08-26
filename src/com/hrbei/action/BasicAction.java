@@ -118,4 +118,10 @@ public class BasicAction extends ActionSupport
         this.addActionError(this.getText(messageKey));
     }
 
+    public boolean isAdmin(User user){
+        if( user.getUserRoleType().equals(Constants.User_RoleType_Maintain) ) return true;
+        if( user.getUserRoleType().equals(Constants.User_RoleType_Admin) ) return true;
+        return false;
+    }
+
 }
