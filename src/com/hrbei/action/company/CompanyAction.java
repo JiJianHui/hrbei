@@ -243,38 +243,7 @@ public class CompanyAction extends BasicAction{
 
 
     /*******************************************产品相关***************************************************/
-    @Action(value = "initAddProduct", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".initAddProduct")})
-    public String initAddProduct()
-    {
-        user = userDao.findById(this.getSessionUserId());
-        company = companyDao.findById(this.getCompany().getId());
-        return SUCCESS;
-    }
 
-    @Action(value = "saveNewProduct", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_REDIRECT_ACTION,
-            params = {"actionName", "companyProducts","company.id","${company.id}"})})
-    public String saveNewProduct()
-    {
-        company = companyDao.findById(this.getCompany().getId());
-
-        product.setCompany(company);
-
-        // copy jpg
-        if (StringUtils.isNotBlank(product.getLogo()) ) {
-            String companyDir = ServletActionContext.getServletContext().getRealPath(Constants.Upload_Company_Path);
-            companyDir = companyDir + File.separator + company.getId() + File.separator + "product";
-
-            File temp = new File(companyDir);
-            if (!temp.exists()) temp.mkdirs();
-
-            Utils.notReplaceFileFromTmpModified(temp.getAbsolutePath(), product.getLogo());
-            product.setLogo(Constants.Upload_Company_Path + File.separator + company.getId() + File.separator + "product" + File.separator + product.getLogo());
-        }
-
-        productDao.persistAbstract(product);
-
-        return SUCCESS;
-    }
 
     @Action(value = "companyProducts", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".companyProducts")})
     public String companyProducts()
@@ -363,5 +332,13 @@ public class CompanyAction extends BasicAction{
 
     public void setNewses(List<News> newses) {
         this.newses = newses;
+    }
+
+    public NewsDao getNewsDao() {
+        return newsDao;
+    }
+
+    public void setNewsDao(NewsDao newsDao) {
+        this.newsDao = newsDao;
     }
 }
