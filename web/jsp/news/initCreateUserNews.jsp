@@ -36,7 +36,7 @@
     </div>
 
     <div class="newsLine longtext">
-        <label class="control-label text textLong"> 请输入新闻正文内容:</label>
+        <label class="control-label text textLong"> 请输入新闻内容:</label>
         <textarea rows="50" cols="50" name="news.content" class="longEditor"></textarea>
     </div>
 

@@ -51,6 +51,13 @@
                 <a class="manage_links" href="/initAddProduct.html?company.id=<s:property value="id"/>">
                     增加商品</a>
 
+
+                <a class="manage_links" href="/companyNews.html?company.id=<s:property value="id"/>">
+                    新闻列表</a>
+
+                <a class="manage_links" href="/initCreateCompanyNews.html?company.id=<s:property value="id"/>">
+                    发布新闻</a>
+
                 <a class="manage_links" href="/deleteCompany.html?company.id=<s:property value="id"/>">
                     删除商店</a>
             </p>

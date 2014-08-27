@@ -49,7 +49,8 @@
                     <a class="manage_links" href="initUpdateProduct.html?product.id=<s:property value="id"/>">
                     更改信息</a>
 
-                    <a class="manage_links" href="/deleteProduct.html?product.id=<s:property value="id"/>">
+                    <%--<a class="manage_links" href="/deleteProduct.html?product.id=<s:property value="id"/>">--%>
+                    <a class="manage_links" href="#" onclick="confirmDeleteProduct('<s:property value="id"/>', '<s:property value="name"/>')">
                     删除商品</a>
                 </p>
             </div>
@@ -64,3 +65,31 @@
 </tiles:insertTemplate>
 
 </s:form>
+
+<s:form id="deleteCompanyForm" action="ajaxDeleteProduct" method="post">
+    <s:hidden name="product.id" id="deleteCompanyId" />
+</s:form>
+
+<script type="text/javascript">
+
+    function confirmDeleteProduct (id,statusName) {
+        if(confirm("确定删除该商品: " + statusName))
+        {
+            document.getElementById("deleteCompanyId").value = id;
+
+            var url="ajaxDeleteProduct.html";
+            var userData = $("#deleteCompanyForm").serialize();
+
+            $.post(url,userData,function(data)
+            {
+                if(data=="success"){
+                    alert("删除成功");
+                    window.location.reload();
+                }else{
+                    alert("删除失败！");
+                }
+            },"text");
+        }
+    }
+
+</script>

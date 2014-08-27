@@ -4,6 +4,8 @@ import com.hrbei.rep.ModelDaoImpl;
 import com.hrbei.rep.category.entity.Category;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Ji JianHui
@@ -12,4 +14,9 @@ import org.springframework.stereotype.Repository;
  */
 @Repository("categoryDao")
 public class CategoryDaoImpl extends ModelDaoImpl<Category> implements CategoryDao {
+
+    public List<Category> findAllCategory(){
+        String hql = "from Category";
+        return this.findByHql(hql);
+    }
 }

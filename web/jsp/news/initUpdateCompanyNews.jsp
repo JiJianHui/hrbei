@@ -1,20 +1,26 @@
-<%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: Ji JianHui
   Date: 14-8-24
-  Time: 下午8:08
+  Time: 下午6:19
   Email: jhji@ir.hit.edu.cn
 --%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="/WEB-INF/tld/tiles-jsp.tld" prefix="tiles" %>
+<%@ taglib uri="/struts-tags" prefix="s" %>
+
 <link rel="stylesheet" type="text/css" href="/css/news/news.css"/>
 
 <a href="myCompany.html"> 我的公司</a>
 <span class="sepeator">></span>
 <a href="companyBlog.html?company.id=<s:property value='company.id'/>"><s:property value="company.name"/> </a>
 <span class="sepeator">></span>
-<a href="initCreateCompanyNews.html"> 发布新闻</a>
+<a href="newsBlog.html?news.id=<s:property value='news.id'/>"><s:property value="news.title"/> </a>
+<span class="sepeator">></span>
+<a href="initCreateCompanyNews.html"> 更改新闻</a>
 
-<s:form id="newNewsInfoForm" method="post" cssClass="form-horizontal" action="saveCompanyNews">
+<s:form id="updateNewsForm" method="post" cssClass="form-horizontal" action="updateCompanyNews">
+    <s:hidden name="news.id" id="news_id"/>
     <s:hidden name="company.id" id="company_id"/>
     <div class="newsBody">
         <div class="newsLine">
@@ -32,8 +38,8 @@
         </div>
 
         <div class="newsLine longtext">
-            <label class="control-label text textLong"> 请输入新闻内容:</label>
-            <textarea rows="50" cols="50" name="news.content" class="longEditor"></textarea>
+            <label class="control-label text textLong"> 新闻正文内容:</label>
+            <s:textarea rows="50" cols="50" name="news.content" class="longEditor"></s:textarea>
         </div>
 
 
@@ -41,10 +47,16 @@
 
     <div style="clear: both;"></div>
     <div class="submitDiv">
-        <input type="submit" id="pubProduct" class="btn btn-primary btn-success" value="发布该新闻"/>
-        <span id="submit_msg" style="color:red; font-weight: bold;font-size: 13px"></span>
+        <button type="button" id="changeNewsBtn" class="btn btn-primary btn-success">&nbsp;&nbsp;提交&nbsp;&nbsp;</button>
+        <span id="submit_msg_updateNews" style="color:red; font-weight: bold;font-size: 13px"></span>
     </div>
 
 </s:form>
-
+<script type="text/javascript">
+    CKEDITOR.replace('news.content',
+            {
+                customConfig : '/jsp/layout/myCkeditor.js'
+            }
+    );
+</script>
 <%@ include file="news.js.jsp" %>

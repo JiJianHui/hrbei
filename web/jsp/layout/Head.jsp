@@ -140,7 +140,7 @@
 
         <s:form class="form-horizontal" role="form" id="user_login_form" method="post">
 
-            <div class="text-warning" id="login_tip"></div>
+            <div class="errorinfo" id="login_tip" style="margin-left: 50px;margin-top: 20px;"></div>
             <div class="loginLine">
                <span class="text">邮箱(用户名):</span>
                <input name="user.email" type="text" id="inputEmail" value="" class="input" tabindex="1" />

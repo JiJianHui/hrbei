@@ -3,6 +3,7 @@ package com.hrbei.rep.company.entity;
 import com.hrbei.common.Constants;
 import com.hrbei.rep.AbstractPersistence;
 import com.hrbei.rep.category.entity.Category;
+import com.hrbei.rep.news.entity.News;
 import com.hrbei.rep.product.entity.Product;
 import com.hrbei.rep.user.entity.User;
 
@@ -52,6 +53,8 @@ public class Company extends AbstractPersistence
     @OneToMany
     private List<Category> categorys;
 
+    @OneToMany
+    private List<News> newses;
 
     public String getLogo() {
         return logo;
@@ -195,5 +198,13 @@ public class Company extends AbstractPersistence
 
     public void setCreateDate(Calendar createDate) {
         this.createDate = createDate;
+    }
+
+    public List<News> getNewses() {
+        return newses;
+    }
+
+    public void setNewses(List<News> newses) {
+        this.newses = newses;
     }
 }

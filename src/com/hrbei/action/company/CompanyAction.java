@@ -6,6 +6,8 @@ import com.hrbei.common.utils.Utils;
 import com.hrbei.rep.Pagination;
 import com.hrbei.rep.company.dao.CompanyDao;
 import com.hrbei.rep.company.entity.Company;
+import com.hrbei.rep.news.dao.NewsDao;
+import com.hrbei.rep.news.entity.News;
 import com.hrbei.rep.product.dao.ProductDao;
 import com.hrbei.rep.product.entity.Product;
 import com.hrbei.rep.user.dao.UserDao;
@@ -46,6 +48,9 @@ public class CompanyAction extends BasicAction{
     private List<Product> products;
     @Autowired
     private ProductDao productDao;
+
+    private List<News> newses;
+    private NewsDao newsDao;
 
     private Pagination pagination = new Pagination();
 
@@ -228,6 +233,14 @@ public class CompanyAction extends BasicAction{
         return false;
     }
 
+    @Action( value = "companyBlog", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".companyBlog") })
+    public String companyBlog(){
+        company = companyDao.findById(this.getCompany().getId());
+        newses = newsDao.findByCompanyId(company.getId(),pagination);
+        products = productDao.findByCompany(company.getId(), pagination);
+        return SUCCESS;
+    }
+
 
     /*******************************************产品相关***************************************************/
     @Action(value = "initAddProduct", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".initAddProduct")})
@@ -342,5 +355,13 @@ public class CompanyAction extends BasicAction{
 
     public void setResultMessage(String resultMessage) {
         this.resultMessage = resultMessage;
+    }
+
+    public List<News> getNewses() {
+        return newses;
+    }
+
+    public void setNewses(List<News> newses) {
+        this.newses = newses;
     }
 }

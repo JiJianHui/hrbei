@@ -35,4 +35,18 @@
 
     });
 
+    $("#changeCompanyNewsBtn").click(function(){
+        if(!checkNewsForm()) return;
+
+        var url="updateCompanyNews.html";
+        var userData = $("#updateNewsForm").serialize();
+        $.post(url,userData,function(data)
+        {
+            $("#submit_msg_updateNews").html("");
+            if(data.length != 0){$("#submit_msg_updateNews").html("新闻信息更新成功，请返回！");
+            }else{$("#submit_msg_updateNews").html("新闻信息更新错误！");}
+        },"text");
+
+    });
+
 </script>

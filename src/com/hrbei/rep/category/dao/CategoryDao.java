@@ -3,6 +3,8 @@ package com.hrbei.rep.category.dao;
 import com.hrbei.rep.ModelDao;
 import com.hrbei.rep.category.entity.Category;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Ji JianHui
@@ -11,5 +13,5 @@ import com.hrbei.rep.category.entity.Category;
  */
 public interface CategoryDao extends ModelDao<Category>
 {
-
+    public List<Category> findAllCategory();
 }

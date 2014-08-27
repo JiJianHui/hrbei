@@ -22,4 +22,9 @@ public class NewsDaoImpl extends ModelDaoImpl<News> implements NewsDao
         String hql = "From News n where n.pubUser.id=? and n.pubUserType=" + Constants.News_User + " and n.isDeleted = false";
         return this.find(hql, pagination,uId);
     }
+
+    public List<News> findByCompanyId(Integer cId, Pagination pagination){
+        String hql = "From News n where n.company.id=? and n.pubUserType=" + Constants.News_Company + " and n.isDeleted = false";
+        return this.find(hql, pagination,cId);
+    }
 }

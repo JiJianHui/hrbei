@@ -165,6 +165,13 @@
         <put-attribute name="rightContent" value="/jsp/security/adminManageCompany.jsp"/>
     </definition>
 
+    <definition name=".newsBlog" extends=".twoCloumnLayout">
+        <put-attribute name="title" value="新闻"/>
+        <put-attribute name="leftContent" value="/jsp/news/newsBlog.jsp"/>
+        <put-attribute name="rightContent" value="/jsp/layout/verticalAD.jsp"/>
+    </definition>
+
+
 
     <!--********************************首页左边的类别导航菜单的选择********************************-->
     <definition name=".indexBiJiBen" extends=".baseLayout">

@@ -17,24 +17,24 @@
 
 <div class="newsBody">
 
-<s:iterator value="newses" status="#status">
+    <s:iterator value="newses" status="#status">
 
-    <div class="newsItem">
+        <div class="newsItem">
 
-        <div class="newsTitle">
-            <div class="title">
-                <img src="/images/lead_img.png"/>
-                <a href="newsBlog.html?news.id=<s:property value="id"/>"title="<s:property value="title"/>"><s:property value="title"/></a>
-                <%--<span class="date"><s:property value="pubTime.toString()"/></span>--%>
+            <div class="newsTitle">
+                <div class="title">
+                    <img src="/images/lead_img.png"/>
+                    <a href="newsBlog.html?news.id=<s:property value="id"/>"title="<s:property value="title"/>"><s:property value="title"/></a>
+                        <%--<span class="date"><s:property value="pubTime.toString()"/></span>--%>
+                </div>
+
             </div>
 
-        </div>
+            <div class="details" style="clear: both">
+                <s:property value="content" escape="false"/>
+            </div>
 
-        <div class="details" style="clear: both">
-            <s:property value="content" escape="false"/>
-        </div>
-
-        <p class="time">
+            <p class="time">
 
             <span class="maintenance">
                 <span><strong>•</strong><span class="bar">浏览:&nbsp;&nbsp;</span>156</span>
@@ -42,12 +42,15 @@
                 <span><strong>•</strong><span class="bar">评论:&nbsp;&nbsp;</span>200条</span>
             </span>
 
-            <a class="manage_links" href="initUpdateUserNews.html?news.id=<s:property value="id"/>">更改</a>
+                <a class="manage_links" href="initUpdateUserNews.html?news.id=<s:property value="id"/>">更改</a>
 
-            <a class="manage_links" href="/deleteNews.html?news.id=<s:property value="id"/>">删除</a>
-        </p>
+                <a class="manage_links" href="#" onclick="confirmDeleteNews('<s:property value="id"/>', '<s:property value="title"/>')">
+                    删除</a>
+            </p>
 
-    </div>
-</s:iterator>
+        </div>
+    </s:iterator>
 
 </div>
+
+<%@ include file="deleteForms.jsp" %>

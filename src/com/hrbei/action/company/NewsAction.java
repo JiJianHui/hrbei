@@ -53,12 +53,35 @@ public class NewsAction extends BasicAction {
         return SUCCESS;
     }
 
+    @Action( value = "initCreateCompanyNews", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".initCreateCompanyNews")})
+    public String initCreateCompanyNews(){
+        user = userDao.findById( this.getSessionUserId() );
+        company = companyDao.findById(this.getCompany().getId());
+        return SUCCESS;
+    }
+
     @Action( value = "saveUserNews", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_REDIRECT_ACTION, params = {"actionName", "userNews"}) })
     public String saveUserNews(){
         user = userDao.findById( this.getSessionUserId() );
 
         news.setPubUser(user);
         news.setPubUserType(Constants.News_User);
+
+        newsDao.persistAbstract(news);
+
+        return SUCCESS;
+    }
+
+    @Action( value = "saveCompanyNews",
+            results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_REDIRECT_ACTION, params = {"actionName", "companyNews","company.id","${company.id}"}) })
+    public String saveCompanyNews(){
+        user = userDao.findById( this.getSessionUserId() );
+        company = companyDao.findById(this.getCompany().getId());
+
+        //news.setPubUser(user);
+        //news.setPubUserType(Constants.News_User);
+        news.setCompany(company);
+        news.setPubUserType(Constants.News_Company);
 
         newsDao.persistAbstract(news);
 
@@ -72,6 +95,14 @@ public class NewsAction extends BasicAction {
         return SUCCESS;
     }
 
+    @Action( value = "companyNews", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".companyNews") })
+    public String companyNews(){
+        //newses = newsDao.findByUserId(this.getCompany().getId(), pagination);
+        company = companyDao.findById(this.getCompany().getId());
+        newses = newsDao.findByCompanyId(this.getCompany().getId(),pagination);
+        return SUCCESS;
+    }
+
     @Action( value = "initUpdateUserNews", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".initUpdateUserNews") })
     public String initUpdateUserNews(){
         user = userDao.findById( this.getSessionUserId() );
@@ -79,8 +110,35 @@ public class NewsAction extends BasicAction {
         return SUCCESS;
     }
 
+    @Action( value = "initUpdateCompanyNews", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".initUpdateCompanyNews") })
+    public String initUpdateCompanyNews(){
+        user = userDao.findById( this.getSessionUserId() );
+        news = newsDao.findById(this.getNews().getId());
+        company = companyDao.findById(this.getCompany().getId());
+        return SUCCESS;
+    }
+
     @Action( value = "updateUserNews")
     public void updateUserNews(){
+        News oldNews = newsDao.findById(this.getNews().getId());
+        oldNews.setTitle(news.getTitle());
+        oldNews.setAuthor(news.getAuthor());
+        oldNews.setPubTime(news.getPubTime());
+        oldNews.setPubOrg(news.getPubOrg());
+        oldNews.setContent(news.getContent());
+
+        newsDao.persist(oldNews);
+
+        try{
+            PrintWriter out = ServletActionContext.getResponse().getWriter();
+            out.print("success");
+            out.close();
+        }
+        catch (Exception e){ e.printStackTrace(); }
+    }
+
+    @Action( value = "updateCompanyNews")
+    public void updateCompanyNews(){
         News oldNews = newsDao.findById(this.getNews().getId());
         oldNews.setTitle(news.getTitle());
         oldNews.setAuthor(news.getAuthor());
@@ -119,11 +177,26 @@ public class NewsAction extends BasicAction {
         out.close();
     }
 
+    @Action( value = "newsBlog", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".newsBlog") })
+    public String newsBlog(){
+        news = newsDao.findById(this.getNews().getId());
+        return SUCCESS;
+    }
+
+
     private Boolean hasAccessToUserNews(User user, News news){
 
-        if( news.getPubUser().getId().equals(user.getId())|| this.isAdmin(user) ){
-            return true;
+        if(news.getPubUser() != null )
+        {
+            if( news.getPubUser().getId().equals(user.getId())|| this.isAdmin(user) ){
+                return true;
+            }
+        }else{
+            if( news.getCompany().getResponsiblePerson().getId().equals(user.getId()) ){
+                return  true;
+            }
         }
+
         return false;
     }
 
