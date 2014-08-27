@@ -9,4 +9,6 @@
 <%@ taglib uri="/WEB-INF/tld/tiles-jsp.tld" prefix="tiles" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
 
-This page is for the notification and news for the personal~!
+<div>
+    对不起，您暂时没有通知！
+</div>

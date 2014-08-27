@@ -62,7 +62,7 @@
         <div class="linksGroup">
             <h3 class="h3_title">管理员</h3>
             <ul>
-                <li><a href="initManageUser.html" title="创建公司">人员管理</a></li>
+                <li><a href="initAdminManageUser.html" title="创建公司">管理人员管理</a></li>
                 <li><a href="initCreateCompany.html" title="创建公司">申请开店管理</a></li>
                 <li><a href="initAdminManageCompany.html" title="公司审核管理">公司审核</a></li>
             </ul>

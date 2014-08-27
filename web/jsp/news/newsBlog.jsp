@@ -12,13 +12,13 @@
 <link href="/css/entertainment.css" rel="stylesheet" type="text/css" />
 
 <div>
-    <div class="contentTitle"><s:property value="title"/></div>
+    <div class="contentTitle"><s:property value="news.title"/></div>
     <div class="contentInfo">
-        作者：<s:property value="author"/>&nbsp;&nbsp;&nbsp;&nbsp;
-        来源：<s:property value="pubOrg"/>&nbsp;&nbsp;&nbsp;&nbsp;
-        时间：<s:date name="pubTime" format="MM/dd/yyyy"/></div>
+        作者：<s:property value="news.author"/>&nbsp;&nbsp;&nbsp;&nbsp;
+        来源：<s:property value="news.pubOrg"/>&nbsp;&nbsp;&nbsp;&nbsp;
+        时间：<s:date name="news.pubTime" format="MM/dd/yyyy"/></div>
     <div class="contentPage">
-       <s:property value="content"/>
+       <s:property value="news.content" escape="false"/>
     </div>
 </div>
 

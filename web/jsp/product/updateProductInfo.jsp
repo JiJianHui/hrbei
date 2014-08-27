@@ -61,9 +61,14 @@
             <s:textarea rows="3" name="product.description" id="description" cssClass="input inputLong"/>
         </div>
 
-        <div class="productLine">
-            <label class="control-label text"> 状态:</label>
-            <s:textfield name="product.status" id="status" cssClass="input"/>
+        <%--<div class="productLine">--%>
+            <%--<label class="control-label text"> 状态:</label>--%>
+            <%--<s:textfield name="product.status" id="status" cssClass="input"/>--%>
+        <%--</div>--%>
+
+        <div class="productLine" style="width: 500px;font-weight: normal;">
+            <label class="control-label text"> 类别:</label><br/>
+            <s:checkboxlist name="categoryIds" list="categories" listKey="id" listValue="name"/>
         </div>
 
     </div>

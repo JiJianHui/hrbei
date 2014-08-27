@@ -20,5 +20,7 @@ public interface UserDao extends ModelDao<User>
     public User findByEmailAndName(String email, String name);
     public User logon(String email, String password);
 
+    public List<User> findByUserRoleType(Integer roleTypeId, Pagination pagination);
+
 //    public List<User> searchUsers(String searchStr , Pagination pagination);
 }

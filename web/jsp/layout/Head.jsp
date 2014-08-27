@@ -168,67 +168,6 @@
 
 </div>
 
-<%--登录ajax处理代码--%>
-<script type="text/javascript">
-    $("#log_btn").click(function ()
-    {
-        if (checkForm()) {
-            var userData = $("#user_login_form").serialize();
-            $.post("ajaxLogin.html", userData, function (data) {
-                handlePostResult(data);
-            });
-            }
-    });
-
-    function checkForm() {
-
-        return checkEmail() && checkPwd();
-    }
-
-    function checkEmail() {
-        $("#login_tip").text("");
-        if ($("#inputEmail").attr('value') != "") {
-            var pattern = /^(?:[a-z\d]+[_\-\+\.]?)*[a-z\d]+@(?:([a-z\d]+\-?)*[a-z\d]+\.)+([a-z]{2,})+$/i;
-            var email = $("#inputEmail").val();
-            if (!pattern.test(email)) {
-                $("#login_tip").text("电子邮件格式错误！");
-                return false;
-            }
-        } else {
-            $("#login_tip").text("电子邮件不能为空！");
-            return false;
-        }
-
-        return true;
-    }
-
-    function checkPwd() {
-        if ($("#inputPassword").val() == "") {
-            $("#login_tip").text("密码不能为空！");
-            return false;
-        }
-        return true;
-    }
-
-    function handlePostResult(data) {
-        if (data == "success") {
-            var currHref = window.location.href;
-            if (currHref.substring(currHref.lastIndexOf('/')) == '/exitSystem.html') {
-                currHref = currHref.substring(0, currHref.lastIndexOf('/') + 1);
-            }
-            var extension = currHref.substring( currHref.lastIndexOf("/") );
-            if (currHref.indexOf("index.html") > -1 || extension=="/" || extension =="#" ) {
-                window.location.href = "myfirstPage.html";
-                return;
-            }
-
-            window.location.reload();
-        } else {
-            $("#login_tip").text(data);
-        }
-    }
-
-</script>
 
 
 

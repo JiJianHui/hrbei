@@ -12,19 +12,24 @@
 <link href="/css/category.css" rel="stylesheet" type="text/css" />
 
 <div style="background-color: #08419c; border-bottom: 5px solid #08419c">
-    <div class="companyBig"><img src="<s:property value="homeImage"/>"/></div>
-    <div class="companyAd"><img src="<s:property value="adImage"/>"/></div>
+    <div class="companyBig"><img src="<s:property value="company.homeImage"/>"/></div>
+    <div class="companyAd"><img src="<s:property value="company.adImage"/>"/></div>
 
     <div class="companyNews">
         <div class="title">公司新闻</div>
         <div class="news">
-            <s:property value="newses">
-                <div class="companyNew">
-                    <a href="newsBlog.html?news.id=<s:property value="id"/>">
-                        【<s:date name="pubTime" format="MM/dd/yyyy"/>】<s:property value="title"/>
-                    </a>
-                </div>
-            </s:property>
+            <div class="companyNew"><a href="#">【2013-07-18】热烈庆祝哈尔滨众城电脑公司加盟哈尔滨电子报价网</a></div>
+            <div class="companyNew"><a href="#">【2014-05-19】哈工大附中今年高考再创佳绩，共80人考上清华</a></div>
+            <div class="companyNew"><a href="#">【2012-11-19】中国国家主席胡锦涛同志参观哈尔滨电子报价网</a></div>
+            <div class="companyNew"><a href="#">【2012-11-19】第十三次全国代表大会今日在北京召开，我司共派出两位代表参会</a></div>
+            <div class="companyNew"><a href="#">【2013-07-18】热烈庆祝哈尔滨众城电脑公司加盟哈尔滨电子报价网</a></div>
+            <div class="companyNew"><a href="#">【2014-05-19】哈工大附中今年高考再创佳绩，共80人考上清华</a></div>
+            <div class="companyNew"><a href="#">【2012-11-19】中国国家主席胡锦涛同志参观哈尔滨电子报价网</a></div>
+            <div class="companyNew"><a href="#">【2012-11-19】第十三次全国代表大会今日在北京召开，我司共派出两位代表参会</a></div>
+            <div class="companyNew"><a href="#">【2013-07-18】热烈庆祝哈尔滨众城电脑公司加盟哈尔滨电子报价网</a></div>
+            <div class="companyNew"><a href="#">【2014-05-19】哈工大附中今年高考再创佳绩，共80人考上清华</a></div>
+            <div class="companyNew"><a href="#">【2012-11-19】中国国家主席胡锦涛同志参观哈尔滨电子报价网</a></div>
+            <div class="companyNew"><a href="#">【2012-11-19】第十三次全国代表大会今日在北京召开，我司共派出两位代表参会</a></div>
 
         </div>
     </div>
@@ -40,13 +45,65 @@
                     <th>会员价</th><th>市场价</th><th>说明</th>
                 </tr>
 
-                <s:iterator value="products">
-                    <tr>
-                        <td><s:property value="name"/> </td><td><s:property value="brand"/></td>
-                        <td><s:property value="xingHao"/></td><td><s:property value="zhiBiao"/></td>
-                        <td><s:property value="vipPrice"/></td><td><s:property value="price"/></td>
-                    </tr>
-                </s:iterator>
+                <tr>
+                    <td>thinkpad u330p</td><td>联想电脑</td>
+                    <td>u330p-2312</td><td>酷睿i5二代</td>
+                    <td>3650</td><td>3850</td>
+                </tr>
+
+                <tr>
+                    <td>thinkpad u330p</td><td>联想电脑</td>
+                    <td>u330p-2312</td><td>酷睿i5二代</td>
+                    <td>3650</td><td>3850</td>
+                </tr>
+
+                <tr>
+                    <td>thinkpad u330p</td><td>联想电脑</td>
+                    <td>u330p-2312</td><td>酷睿i5二代</td>
+                    <td>3650</td><td>3850</td>
+                </tr>
+
+                <tr>
+                    <td>thinkpad u330p</td><td>联想电脑</td>
+                    <td>u330p-2312</td><td>酷睿i5二代</td>
+                    <td>3650</td><td>3850</td>
+                </tr>
+
+                <tr>
+                    <td>thinkpad u330p</td><td>联想电脑</td>
+                    <td>u330p-2312</td><td>酷睿i5二代</td>
+                    <td>3650</td><td>3850</td>
+                </tr>
+
+                <tr>
+                    <td>thinkpad u330p</td><td>联想电脑</td>
+                    <td>u330p-2312</td><td>酷睿i5二代</td>
+                    <td>3650</td><td>3850</td>
+                </tr>
+
+                <tr>
+                    <td>thinkpad u330p</td><td>联想电脑</td>
+                    <td>u330p-2312</td><td>酷睿i5二代</td>
+                    <td>3650</td><td>3850</td>
+                </tr>
+
+                <tr>
+                    <td>thinkpad u330p</td><td>联想电脑</td>
+                    <td>u330p-2312</td><td>酷睿i5二代</td>
+                    <td>3650</td><td>3850</td>
+                </tr>
+
+                <tr>
+                    <td>thinkpad u330p</td><td>联想电脑</td>
+                    <td>u330p-2312</td><td>酷睿i5二代</td>
+                    <td>3650</td><td>3850</td>
+                </tr>
+
+                <tr>
+                    <td>thinkpad u330p</td><td>联想电脑</td>
+                    <td>u330p-2312</td><td>酷睿i5二代</td>
+                    <td>3650</td><td>3850</td>
+                </tr>
 
             </table>
         </div>

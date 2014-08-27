@@ -5,6 +5,7 @@ import com.hrbei.rep.category.entity.Category;
 import com.hrbei.rep.company.entity.Company;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -128,6 +129,7 @@ public class Product extends AbstractPersistence
     }
 
     public List<Category> getCategorys() {
+        if( categorys == null ) categorys = new ArrayList<Category>();
         return categorys;
     }
 

@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: Ji JianHui
@@ -11,16 +12,28 @@
 <div class="headerMenu">
 
     <dl class="loginRegister">
-        <dd style="width:10px;margin-left: 0px;">&nbsp;</dd>
-        <dd><a href="#" id="loginButton">登录</a></dd>
-        <dd><a href="register.html">注册</a></dd>
+        <s:if test="#session.email != null">
+            <dd class="loginSuccessName">
+                <a href="myFirstPage.html">欢迎您，<s:property value="#session.nickName"/><img src="images/contact.jpg" /></a>
+                <ul>
+                    <li><a href="userCenter.html">个人中心</a></li>
+                    <li><a href="userInfo.html">账号设置</a></li>
+                    <li><a href="exitSystem.html">退出登录</a></li>
+                </ul>
+            </dd>
+        </s:if>
+        <s:else>
+            <dd style="width:10px;margin-left: 0px;">&nbsp;</dd>
+            <dd><a id="loginButton">登录</a></dd>
+            <dd><a href="register.html">注册</a></dd>
+        </s:else>
     </dl>
 
     <dl class="headerEmpty"></dl>
 
     <dl class="links">
 
-        <dd><a href="#"><img src="images/collection.jpg"/>加入收藏</a> </dd>
+        <dd><a href="javascript:void(0)" onclick="AddFavorite(window.location,document.title)"><img src="images/collection.jpg"/>加入收藏</a> </dd>
         <dd>
             <a href="aboutUs.html"><img src="images/contact.jpg" />联系我们</a>
             <ul>
@@ -62,7 +75,7 @@
     <div class="verticalSplit"></div>
 
     <div class="companyHeadInfo">
-        <span class="companyHeadName">哈尔滨众城电脑公司</span>
+        <span class="companyHeadName"><s:property value="company.name"/></span>
         <span class="companyHeadQQ">
             <a href="#">在线咨询<img src="/images/tixing.jpg"/></a>
             <a href="#">QQ留言<img src="/images/qq.gif"></a>
@@ -131,3 +144,5 @@
     </div>
 
 </div>
+
+

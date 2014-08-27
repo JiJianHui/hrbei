@@ -42,6 +42,10 @@ public class AdminAction extends BasicAction {
 
     private String resultMessage;
 
+    private List<User> administors;
+
+    private String newAdminEmail;
+
     @Action(value = "initAdminManageCompany",
             results = {@Result(name = SUCCESS,type = Constants.RESULT_NAME_TILES, location = ".initAdminManageCompany"),
                        @Result(name = ERROR,type = Constants.RESULT_NAME_TILES, location = ".noPermission")})
@@ -66,10 +70,47 @@ public class AdminAction extends BasicAction {
         if( this.getSessionUserId() == null ) return ERROR;
 
         user = userDao.findById(this.getSessionUserId());
+        administors = userDao.findByUserRoleType(Constants.User_RoleType_Admin, pagination);
 
         if( !this.isAdmin(user) ) return ERROR;
 
         return SUCCESS;
+    }
+
+    @Action(value = "ajaxAddManageUser")
+    public void ajaxChangeCompanyStatus() throws IOException {
+
+        user = userDao.findById(this.getSessionUserId());
+
+        User newAdmin = userDao.findByEmail(newAdminEmail);
+        if( newAdmin == null ) resultMessage = "该用户不存在";
+        else{
+            newAdmin.setUserRoleType(Constants.User_RoleType_Admin);
+            userDao.persist(newAdmin);
+            resultMessage = "success";
+        }
+
+        PrintWriter out = ServletActionContext.getResponse().getWriter();
+        out.print(resultMessage);
+        out.close();
+    }
+
+    @Action(value = "ajaxDeleteAdminUser")
+    public void ajaxDeleteAdminUser() throws IOException {
+
+        user = userDao.findById(this.getSessionUserId());
+
+        User oldAdmin = userDao.findByEmail(newAdminEmail);
+        if( oldAdmin == null ) resultMessage = "该用户不存在";
+        else{
+            oldAdmin.setUserRoleType(Constants.User_RoleType_Normal);
+            userDao.persist(oldAdmin);
+            resultMessage = "success";
+        }
+
+        PrintWriter out = ServletActionContext.getResponse().getWriter();
+        out.print(resultMessage);
+        out.close();
     }
 
     public User getUser() {
@@ -126,5 +167,21 @@ public class AdminAction extends BasicAction {
 
     public void setResultMessage(String resultMessage) {
         this.resultMessage = resultMessage;
+    }
+
+    public List<User> getAdministors() {
+        return administors;
+    }
+
+    public void setAdministors(List<User> administors) {
+        this.administors = administors;
+    }
+
+    public String getNewAdminEmail() {
+        return newAdminEmail;
+    }
+
+    public void setNewAdminEmail(String newAdminEmail) {
+        this.newAdminEmail = newAdminEmail;
     }
 }

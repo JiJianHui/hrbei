@@ -38,4 +38,8 @@ public class UserDaoImpl extends ModelDaoImpl<User> implements UserDao {
     public User findByEmailAndName(String email, String name) {
         return findFist("From User u where  u.email=?  and u.name=? ", email, name);
     }
+
+    public List<User> findByUserRoleType(Integer roleTypeId, Pagination pagination){
+        return find("From User u where  u.userRoleType = ? ",pagination, roleTypeId );
+    }
 }

@@ -1,0 +1,47 @@
+.manageUserDiv{
+    margin-left: 15px;
+    font-family: Tahoma, Geneva,"\5FAE\8F6F\96C5\9ED1","\5b8b\4f53",sans-serif;
+}
+
+.manageUserDiv .title{
+    font-size: 15px;
+    padding-left: 18px;
+    letter-spacing: 1px;
+    background: url(/images/lead_img.png) 2px 3px no-repeat;
+    margin-bottom: 20px;
+}
+
+.administorList{
+
+}
+
+.administorList table{
+    border: 1px dotted #dcdcdc;
+    border-collapse: collapse;
+}
+
+.administorList table th{
+    border: 1px dotted #666666;
+    background-color: #dedede;
+    width: 100px;
+}
+
+.administorList table td{
+    padding: 8px;
+    width: 100px;
+    border: 1px dotted #666666;
+    background-color: #ffffff;
+}
+
+.addNewAdmin{
+    margin-top: 40px;
+}
+
+.addNewAdmin input{
+    width: 200px;
+    height: 30px;
+    border-radius: 4px;
+    padding-left: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+}

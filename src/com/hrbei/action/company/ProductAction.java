@@ -4,6 +4,9 @@ import com.hrbei.action.BasicAction;
 import com.hrbei.common.Constants;
 import com.hrbei.common.utils.Utils;
 import com.hrbei.rep.Pagination;
+import com.hrbei.rep.category.dao.CategoryDao;
+import com.hrbei.rep.category.entity.Category;
+import com.hrbei.rep.company.dao.CompanyDao;
 import com.hrbei.rep.company.entity.Company;
 import com.hrbei.rep.product.dao.ProductDao;
 import com.hrbei.rep.product.entity.Product;
@@ -40,6 +43,7 @@ public class ProductAction extends BasicAction
     private UserDao userDao;
 
     private Company company;
+    private CompanyDao companyDao;
 
     private Product product;
     private ProductDao productDao;
@@ -49,12 +53,59 @@ public class ProductAction extends BasicAction
 
     private String resultMessage;
 
+    private CategoryDao categoryDao;
+    private List<Category> categories;
+    private List<Integer> categoryIds;
+
+    @Action(value = "initAddProduct", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".initAddProduct")})
+    public String initAddProduct()
+    {
+        user = userDao.findById(this.getSessionUserId());
+        company = companyDao.findById(this.getCompany().getId());
+        categories = categoryDao.findAllCategory();
+        return SUCCESS;
+    }
+
+    @Action(value = "saveNewProduct", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_REDIRECT_ACTION,
+            params = {"actionName", "companyProducts","company.id","${company.id}"})})
+    public String saveNewProduct()
+    {
+        company = companyDao.findById(this.getCompany().getId());
+
+        product.setCompany(company);
+
+        // copy jpg
+        if (StringUtils.isNotBlank(product.getLogo()) ) {
+            String companyDir = ServletActionContext.getServletContext().getRealPath(Constants.Upload_Company_Path);
+            companyDir = companyDir + File.separator + company.getId() + File.separator + "product";
+
+            File temp = new File(companyDir);
+            if (!temp.exists()) temp.mkdirs();
+
+            Utils.notReplaceFileFromTmpModified(temp.getAbsolutePath(), product.getLogo());
+            product.setLogo(Constants.Upload_Company_Path + File.separator + company.getId() + File.separator + "product" + File.separator + product.getLogo());
+        }
+
+        //设置类别
+        for(Integer categoryId:categoryIds){
+            Category category = categoryDao.findById(categoryId);
+            if( category != null ){
+                product.getCategorys().add(category);
+            }
+        }
+
+        productDao.persistAbstract(product);
+
+        return SUCCESS;
+    }
+
     @Action(value = "initUpdateProduct", results = {@Result(name = SUCCESS,type = Constants.RESULT_NAME_TILES, location = ".initUpdateProduct")})
     public String initUpdateProduct()
     {
         user = userDao.findById(this.getSessionUserId());
         product = productDao.findById(this.getProduct().getId());
         company = product.getCompany();
+        categories = categoryDao.findAllCategory();
         return SUCCESS;
     }
 
@@ -84,6 +135,16 @@ public class ProductAction extends BasicAction
             Utils.notReplaceFileFromTmpModified(temp.getAbsolutePath(), product.getLogo());
             oldProduct.setLogo(Constants.Upload_Company_Path + File.separator + company.getId() + File.separator + "product" + File.separator + product.getLogo());
         }
+
+        //设置类别
+        product.getCategorys().clear();
+        for(Integer categoryId:categoryIds){
+            Category category = categoryDao.findById(categoryId);
+            if( category != null ){
+                product.getCategorys().add(category);
+            }
+        }
+
         productDao.persistAbstract(oldProduct);
 
         try{
@@ -190,5 +251,37 @@ public class ProductAction extends BasicAction
 
     public void setResultMessage(String resultMessage) {
         this.resultMessage = resultMessage;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
+
+    public List<Integer> getCategoryIds() {
+        return categoryIds;
+    }
+
+    public void setCategoryIds(List<Integer> categoryIds) {
+        this.categoryIds = categoryIds;
+    }
+
+    public CompanyDao getCompanyDao() {
+        return companyDao;
+    }
+
+    public void setCompanyDao(CompanyDao companyDao) {
+        this.companyDao = companyDao;
+    }
+
+    public CategoryDao getCategoryDao() {
+        return categoryDao;
+    }
+
+    public void setCategoryDao(CategoryDao categoryDao) {
+        this.categoryDao = categoryDao;
     }
 }

@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: Ji JianHui
@@ -10,7 +11,7 @@
 <div>
 
     <div class="companyDisplay">
-        <div class="companyDisplayName">哈尔滨众城电脑公司</div>
+        <div class="companyDisplayName"><s:property value="company.name"/> </div>
         <div class="companyDisplayService">
             <a href="#"><img src="/images/company/shoucang.jpg"/></a>
             <a href="#"><img src="/images/company/zhengpin.jpg"/></a>

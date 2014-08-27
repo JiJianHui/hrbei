@@ -27,7 +27,7 @@
         </p>
 
         <div class="infoWrap">
-            <h4><a href="companyBlog.html?course.id=<s:property value="id"/>"title="<s:property value="name"/>">
+            <h4><a href="companyBlog.html?company.id=<s:property value="id"/>"title="<s:property value="name"/>">
                 <s:property value="name"/></a><span class="date">2014-07-18</span>
             </h4>
 
@@ -58,7 +58,8 @@
                 <a class="manage_links" href="/initCreateCompanyNews.html?company.id=<s:property value="id"/>">
                     发布新闻</a>
 
-                <a class="manage_links" href="/deleteCompany.html?company.id=<s:property value="id"/>">
+                <%--<a class="manage_links" href="/deleteCompany.html?company.id=<s:property value="id"/>">--%>
+                <a class="manage_links" href="#" onclick="confirmDeleteComany('<s:property value="id"/>', '<s:property value="name"/>')">
                     删除商店</a>
             </p>
         </div>
@@ -66,3 +67,31 @@
     </div>
     </s:iterator>
 </div>
+
+<s:form id="deleteCompanyForm" action="ajaxDeleteCompany" method="post">
+    <s:hidden name="company.id" id="deleteCompanyId" />
+</s:form>
+
+<script type="text/javascript">
+
+    function confirmDeleteComany (id,statusName) {
+        if(confirm("确定删除该公司: " + statusName))
+        {
+            document.getElementById("deleteCompanyId").value = id;
+
+            var url="ajaxDeleteCompany.html";
+            var userData = $("#deleteCompanyForm").serialize();
+
+            $.post(url,userData,function(data)
+            {
+                if(data=="success"){
+                    alert("删除成功");
+                    window.location.reload();
+                }else{
+                    alert("删除失败！");
+                }
+            },"text");
+        }
+    }
+
+</script>

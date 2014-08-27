@@ -63,6 +63,11 @@
         <put-attribute name="content" value="/jsp/indexContent.jsp"/>
     </definition>
 
+    <definition name=".initAdminManageUser" extends=".userLayout">
+        <put-attribute name="title" value="个人信息"/>
+        <put-attribute name="rightContent" value="/jsp/security/manageUser.jsp"/>
+    </definition>
+
     <definition name=".login" extends=".layout">
         <put-attribute name="content" value="/jsp/security/login.jsp"/>
     </definition>
