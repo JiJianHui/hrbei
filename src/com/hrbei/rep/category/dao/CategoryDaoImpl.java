@@ -16,7 +16,7 @@ import java.util.List;
 public class CategoryDaoImpl extends ModelDaoImpl<Category> implements CategoryDao {
 
     public List<Category> findAllCategory(){
-        String hql = "from Category";
+        String hql = "from Category order by id";
         return this.findByHql(hql);
     }
 }

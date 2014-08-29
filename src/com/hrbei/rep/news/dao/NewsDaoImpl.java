@@ -17,14 +17,20 @@ import java.util.List;
 @Repository("newsDao")
 public class NewsDaoImpl extends ModelDaoImpl<News> implements NewsDao
 {
+    public static final String DeleteFalse = " n.isDeleted = false";
 
     public List<News> findByUserId(Integer uId, Pagination pagination){
-        String hql = "From News n where n.pubUser.id=? and n.pubUserType=" + Constants.News_User + " and n.isDeleted = false";
+        String hql = "From News n where n.pubUser.id=? and n.pubUserType=" + Constants.News_User + DeleteFalse;
         return this.find(hql, pagination,uId);
     }
 
     public List<News> findByCompanyId(Integer cId, Pagination pagination){
         String hql = "From News n where n.company.id=? and n.pubUserType=" + Constants.News_Company + " and n.isDeleted = false";
         return this.find(hql, pagination,cId);
+    }
+
+    public List<News> findAll(Pagination pagination){
+        String hql = "From News n" + " where n.isDeleted = false";
+        return  this.find(hql, pagination);
     }
 }

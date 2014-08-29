@@ -12,6 +12,7 @@ public class Constants
     public static final String RESULT_NAME_REDIRECT_ACTION = "redirectAction";
 
     public static final Integer Page_Size = 5;
+    public static final Integer Page_Size_Index = 15;
 
     public static final int BUFFER_SIZE = 4 * 1024 * 1024;
 

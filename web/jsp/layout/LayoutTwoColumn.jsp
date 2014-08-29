@@ -24,6 +24,7 @@
 
 <link href="/css/verticalAD.css" rel="stylesheet" type="text/css" />
 
+<link href="/css/index.css" rel="stylesheet" type="text/css" />
 
 <body style="margin-top: 0px" id="mainBoady">
 

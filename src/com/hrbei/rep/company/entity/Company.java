@@ -38,6 +38,9 @@ public class Company extends AbstractPersistence
     @Column(columnDefinition = "longtext")
     private String description; //企业简介
 
+    @Column(columnDefinition = "longtext")
+    private String productDescription;
+
     private String contactName;    //联系人，是该公司的联系人
 
     private Boolean isDeleted = false;
@@ -206,5 +209,13 @@ public class Company extends AbstractPersistence
 
     public void setNewses(List<News> newses) {
         this.newses = newses;
+    }
+
+    public String getProductDescription() {
+        return productDescription;
+    }
+
+    public void setProductDescription(String productDescription) {
+        this.productDescription = productDescription;
     }
 }

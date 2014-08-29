@@ -16,7 +16,8 @@
     <div class="contentInfo">
         作者：<s:property value="news.author"/>&nbsp;&nbsp;&nbsp;&nbsp;
         来源：<s:property value="news.pubOrg"/>&nbsp;&nbsp;&nbsp;&nbsp;
-        时间：<s:date name="news.pubTime" format="MM/dd/yyyy"/></div>
+        时间：<s:date name="news.pubTime" format="MM/dd/yyyy"/>
+    </div>
     <div class="contentPage">
        <s:property value="news.content" escape="false"/>
     </div>

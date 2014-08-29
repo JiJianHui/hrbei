@@ -179,8 +179,8 @@
 
 
     <!--********************************首页左边的类别导航菜单的选择********************************-->
-    <definition name=".indexBiJiBen" extends=".baseLayout">
-        <put-attribute name="title" value="笔记本"/>
+    <definition name=".indexProuctList" extends=".baseLayout">
+        <put-attribute name="title" value="产品列表"/>
         <put-attribute name="content" value="/jsp/category/categoryList.jsp"/>
     </definition>
 

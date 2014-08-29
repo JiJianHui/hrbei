@@ -16,16 +16,22 @@ import java.util.List;
 @Repository("productDao")
 public class ProductDaoImpl extends ModelDaoImpl<Product> implements ProductDao
 {
+    public static final String DeletedFalse = " p.company.isDeleted=false and p.isDeleted = false";
     public List<Product> findByCompany(Integer cID, Pagination pagination)
     {
-        String hql = "From Product p where p.company.id=? and p.company.isDeleted=false and p.isDeleted = false";
+        String hql = "From Product p where p.company.id=? and " + DeletedFalse;
 
         return  this.find(hql,pagination,cID);
     }
 
     public List<Product> findByUserId(Integer uID, Pagination pagination){
 
-        String hql = "From Product p where p.company.responsiblePerson.id=? and p.company.isDeleted=false and p.isDeleted = false";
+        String hql = "From Product p where p.company.responsiblePerson.id=? and " + DeletedFalse;
         return  this.find(hql,pagination,uID);
+    }
+
+    public List<Product> findByCategoryId(Integer cID, Pagination pagination){
+        String hql = "select distinct p From Product p left join p.categorys category where category.id=? and " + DeletedFalse;
+        return  this.find(hql,pagination,cID);
     }
 }

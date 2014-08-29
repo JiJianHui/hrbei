@@ -1,4 +1,6 @@
-
+#list{
+    margin-top: 15px;
+}
 
 #list .lines{
     width: 100%;
@@ -7,6 +9,7 @@
     font-size: 13px;
     /*border: 1px solid #4169e1;*/
     text-align: center;
+    margin-top: 20px;
 }
 
 #list .item{
@@ -38,26 +41,29 @@
     font-family: microsoft yahei,sans-serif;
 }
 
-/*------------------------------µØ≥ˆ∆Û“µ¥∞ø⁄------------------------------------*/
+/*------------------------------ÂºπÂá∫ÂÖ≥‰∫éÂÖ¨Âè∏Áõ∏ÂÖ≥------------------------------------*/
 .white_content {
     display: none;  position: absolute;
-    top: 10%;  left: 25%;  width: 660px;  height: 500px;
+    top: 10%;  left: 10%;
+    width: 800px;
+    /*height: 500px;*/
     /*border: 1px solid;*/
     background-color: white;  z-index:1002;  overflow: auto;
 
     border-bottom: 20px solid #2b66b6;
+    font-family: Tahoma, Geneva,"\5FAE\8F6F\96C5\9ED1","\5b8b\4f53",sans-serif;
 }
 
 .briefInfo{
     width: 100%;
-    font-family: 'Microsoft Yahei', 'Œ¢»Ì—≈∫⁄', 'ÀŒÃÂ', sans-serif;
+    font-family: Tahoma, Geneva,"\5FAE\8F6F\96C5\9ED1","\5b8b\4f53",sans-serif;
 }
 
 .briefHead, .briefIntro, .briefPrice, .briefPriceTable, .briefFooter{
     padding-left: 25px;
     padding-right: 30px;
-    width: 660px;
-    max-width: 660px;
+    width: 800px;
+    max-width: 800px;
     font-size: 12px;
 }
 
@@ -66,14 +72,14 @@
     color: white;
     font-size: 24px;
     height: 50px; line-height: 50px;
-    font-family: 'Times New Roman','Microsoft Yahei', 'Œ¢»Ì—≈∫⁄', 'ÀŒÃÂ', sans-serif;
+    font-family: 'Times New Roman','Microsoft Yahei', 'Œ¢ÔøΩÔøΩÔøΩ≈∫ÔøΩ', 'ÔøΩÔøΩÔøΩÔøΩ', sans-serif;
     margin-bottom: 5px;
     padding-right: 0px;
 }
 
 .briefHeadLeft{
     float: left;
-    width:300px;
+    width:450px;
 }
 .briefHeadRight{
     float: left;
@@ -83,6 +89,7 @@
 }
 .briefHeadRight a{
     font-weight:bold;
+    color: white;
 }
 
 .briefHeadRight img{
@@ -92,7 +99,7 @@
 }
 
 .briefHeadRight a:hover{
-    color: white;
+    color: #ff0000;
     text-decoration: none;
 }
 
@@ -126,14 +133,14 @@
 
 .briefPriceLeft{
     text-align: left;
-    width: 300px;
+    width: 500px;
     float: left;
 }
 
 .briefPriceRight{
     text-align: right;
-    width: 300px;
-    float: left;
+    width: 200px;
+    float: right;
 }
 
 .briefPriceRight img{
@@ -144,11 +151,12 @@
 }
 
 .priceTable{
-    width: 100%;
+    width: 700px;
     border: 0px;
     font-size: 13px;
     color: #9c9c9c;
     border-bottom: 2px solid #2b66b6;
+    table-layout: fixed;
 }
 
 .priceTable .head{
@@ -159,13 +167,38 @@
 .priceTable th{
     color: #2b66b6;
     height: 30px;
+    /*text-align: center;*/
 }
 .priceTable td{
-    height: 20px;
+    height: 25px;
+    line-height: 25px;
     margin-top: 5px;
     margin-bottom: 5px;
     font-size: 12px;
     letter-spacing: 1px;
+    /*text-align: center;*/
+
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    /*border-right: 1px solid green;*/
+    /*border-bottom:#C8B9AE solid 1px;*/
+}
+
+.priceTable .tdNormal{
+    width: 120px;
+}
+
+.priceTable .tdLong{
+    width: 300px;
+}
+
+.priceTable .tdCenter{
+    text-align: center;
+}
+
+.priceTable .tdShort{
+    width: 50px;
 }
 
 .briefFooter{
@@ -203,4 +236,4 @@
     /*margin-bottom: 0px;*/
 /*}*/
 
-/*------------------End of µØ≥ˆ∆Û“µ–≈œ¢¥∞ø⁄---------------------------*/
+/*------------------End of ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ“µÔøΩÔøΩœ¢ÔøΩÔøΩÔøΩÔøΩ---------------------------*/
