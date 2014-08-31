@@ -35,11 +35,11 @@
         <div id="fade_focus">
             <div class="loading">Loading...</div>
             <ul>
-                <li><a href="#"><img src="images/RandomAdPic/1.jpg" width="300" height="185" /></a></li>
-                <li><a href="#"><img src="images/RandomAdPic/2.jpg" width="300" height="185" /></a></li>
-                <li><a href="#"><img src="images/RandomAdPic/3.jpg" width="300" height="185" /></a></li>
-                <li><a href="#"><img src="images/RandomAdPic/4.jpg" width="300" height="185" /></a></li>
-                <li><a href="#"><img src="images/RandomAdPic/5.jpg" width="300" height="185" /></a></li>
+                <li><a href="#"><img src="<s:property value="websiteImages1"/>" width="300" height="185" /></a></li>
+                <li><a href="#"><img src="<s:property value="websiteImages2"/>" width="300" height="185" /></a></li>
+                <li><a href="#"><img src="<s:property value="websiteImages3"/>" width="300" height="185" /></a></li>
+                <li><a href="#"><img src="<s:property value="websiteImages4"/>" width="300" height="185" /></a></li>
+                <li><a href="#"><img src="<s:property value="websiteImages5"/>" width="300" height="185" /></a></li>
             </ul>
         </div>
     </div>

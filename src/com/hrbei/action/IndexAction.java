@@ -15,6 +15,7 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -51,10 +52,25 @@ public class IndexAction extends BasicAction
 
     private String searchStr;
 
+    private String websiteImages1;
+    private String websiteImages2;
+    private String websiteImages3;
+    private String websiteImages4;
+    private String websiteImages5;
+
+    private void getWebsiteImg(){
+        websiteImages1 = Constants.Image_Websit_Dir + File.separator + "1.jpg";
+        websiteImages2 = Constants.Image_Websit_Dir + File.separator + "2.jpg";
+        websiteImages3 = Constants.Image_Websit_Dir + File.separator + "3.jpg";
+        websiteImages4 = Constants.Image_Websit_Dir + File.separator + "4.jpg";
+        websiteImages5 = Constants.Image_Websit_Dir + File.separator + "5.jpg";
+    }
+
     @Action(value = "index", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".index")})
     public String index(){
         newses = newsDao.findAll(pagination);
         categories = categoryDao.findAllCategoryByDescription(Constants.Category_Product);
+        this.getWebsiteImg();
         return SUCCESS;
     }
 
@@ -233,5 +249,45 @@ public class IndexAction extends BasicAction
 
     public void setSearchStr(String searchStr) {
         this.searchStr = searchStr;
+    }
+
+    public String getWebsiteImages1() {
+        return websiteImages1;
+    }
+
+    public void setWebsiteImages1(String websiteImages1) {
+        this.websiteImages1 = websiteImages1;
+    }
+
+    public String getWebsiteImages2() {
+        return websiteImages2;
+    }
+
+    public void setWebsiteImages2(String websiteImages2) {
+        this.websiteImages2 = websiteImages2;
+    }
+
+    public String getWebsiteImages3() {
+        return websiteImages3;
+    }
+
+    public void setWebsiteImages3(String websiteImages3) {
+        this.websiteImages3 = websiteImages3;
+    }
+
+    public String getWebsiteImages4() {
+        return websiteImages4;
+    }
+
+    public void setWebsiteImages4(String websiteImages4) {
+        this.websiteImages4 = websiteImages4;
+    }
+
+    public String getWebsiteImages5() {
+        return websiteImages5;
+    }
+
+    public void setWebsiteImages5(String websiteImages5) {
+        this.websiteImages5 = websiteImages5;
     }
 }
