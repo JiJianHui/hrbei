@@ -17,15 +17,36 @@
 </script>
 
 <script type="text/javascript">
+
     function checkNewsForm(){
+        if( $("#author").attr('value').length == 0 || $("#author").attr('value').length > 100 ){
+            $("#submit_msg_updateNews").html("请输入正确的作者。");
+            return false;
+        }
+        if( $("#title").attr('value').length == 0 || $("#title").attr('value').length > 200 ){
+            $("#submit_msg_updateNews").html("请输入正确的标题。");
+            return false;
+        }
+
+//        if($("#content").attr('value').length == 0 ){
+//            $("#submit_msg_updateNews").html("请输入新闻正文。");
+//            return false;
+//        }
+
+        $("#submit_msg_updateNews").html("");
+        $("#submit_msg_updateNews").html("");
+        $("#submit_msg_updateNews").html("");
+
         return true;
     }
 
     $("#changeNewsBtn").click(function(){
+
         if(!checkNewsForm()) return;
 
         var url="updateUserNews.html";
         var userData = $("#updateNewsForm").serialize();
+
         $.post(url,userData,function(data)
         {
             $("#submit_msg_updateNews").html("");

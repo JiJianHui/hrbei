@@ -66,7 +66,8 @@
 .linksGroup ul li a:hover{
     text-decoration: none;
     /*background:#FFF5DA;*/
-    background: #faebd7;
+    /*background: #faebd7;*/
+    background-color: #90ee90;
 }
 
 .h3_title{
@@ -196,6 +197,27 @@
     margin-right: 5px;
 }
 
+.manage_links {
+    color: #3e8fda;
+    margin-right: 15px;
+}
+
 .manage_links:visited{
     color: #3e8fda;
+}
+
+.manage_links:hover{
+    text-decoration: none;
+    border-bottom: 1px dotted orange;
+}
+
+.cagList{
+    font-family: Tahoma, Geneva,"\5FAE\8F6F\96C5\9ED1","\5b8b\4f53",sans-serif;
+}
+.cagLists label{
+    font-weight: normal;
+}
+
+.cagLists input[type="checkbox"]{
+    margin-left: 20px;
 }

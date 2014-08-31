@@ -54,6 +54,7 @@ public class CompanyAction extends BasicAction{
 
     private Pagination pagination = new Pagination();
 
+    private String menu;
     private String resultMessage;
 
     @Action(value = "initCreateCompany", results = {@Result(name = SUCCESS,type = Constants.RESULT_NAME_TILES, location = ".initCreateCompany")})
@@ -241,9 +242,31 @@ public class CompanyAction extends BasicAction{
         return SUCCESS;
     }
 
+    @Action( value = "companyBlogContents", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".companyBlogProducts") })
+    public String companyBlogContents(){
+
+        company = companyDao.findById(this.getCompany().getId());
+
+        if( menu.equalsIgnoreCase("product") ){
+            pagination.setPageSize(6);
+            products = productDao.findByCompany(company.getId(), pagination);
+        }
+        if( menu.equalsIgnoreCase("news") ){
+            pagination.setPageSize(15);
+            newses = newsDao.findByCompanyId(company.getId(),pagination);
+        }
+        if( menu.equalsIgnoreCase("about") ){
+        }
+
+        if( menu.equalsIgnoreCase("hire") ){
+            pagination.setPageSize(15);
+            newses = newsDao.findByCompanyAndCategoryId(company.getId(),Constants.Category_News_Hire, pagination);
+        }
+
+        return SUCCESS;
+    }
 
     /*******************************************产品相关***************************************************/
-
 
     @Action(value = "companyProducts", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".companyProducts")})
     public String companyProducts()
@@ -340,5 +363,13 @@ public class CompanyAction extends BasicAction{
 
     public void setNewsDao(NewsDao newsDao) {
         this.newsDao = newsDao;
+    }
+
+    public String getMenu() {
+        return menu;
+    }
+
+    public void setMenu(String menu) {
+        this.menu = menu;
     }
 }

@@ -19,7 +19,7 @@
             <div class="lines">
         </s:if>
 
-        <div class="item" id="item1">
+        <div class="item">
             <img class="itemImg" src="<s:property value="logo"/>" alt="title" id="<s:property value="id"/>">
             <br/><span><s:property value="name"/> </span>
         </div>

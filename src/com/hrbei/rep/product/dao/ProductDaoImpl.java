@@ -16,7 +16,9 @@ import java.util.List;
 @Repository("productDao")
 public class ProductDaoImpl extends ModelDaoImpl<Product> implements ProductDao
 {
+    //TODO 需要考虑公司停止运行之后的产品搜索
     public static final String DeletedFalse = " p.company.isDeleted=false and p.isDeleted = false";
+
     public List<Product> findByCompany(Integer cID, Pagination pagination)
     {
         String hql = "From Product p where p.company.id=? and " + DeletedFalse;
@@ -33,5 +35,16 @@ public class ProductDaoImpl extends ModelDaoImpl<Product> implements ProductDao
     public List<Product> findByCategoryId(Integer cID, Pagination pagination){
         String hql = "select distinct p From Product p left join p.categorys category where category.id=? and " + DeletedFalse;
         return  this.find(hql,pagination,cID);
+    }
+
+    public List<Product> findAllProducts(Pagination pagination){
+        String hql = "From Product p where " + DeletedFalse;
+        return  this.find(hql,pagination);
+    }
+
+    public List<Product> findByNameLike(String searchStr, Pagination pagination){
+        String hql = "select distinct p  From Product p left join  p.categorys category" +
+                " where ( p.name like ? or category.name like ? or p.brand like ? ) and " + DeletedFalse;
+        return this.find(hql,pagination, "%" + searchStr + "%", "%" + searchStr + "%", "%" + searchStr + "%");
     }
 }

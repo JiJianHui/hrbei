@@ -14,4 +14,5 @@ import java.util.List;
 public interface CategoryDao extends ModelDao<Category>
 {
     public List<Category> findAllCategory();
+    public List<Category> findAllCategoryByDescription(String description);
 }

@@ -3,6 +3,8 @@ package com.hrbei.action;
 import com.hrbei.rep.Pagination;
 import com.hrbei.rep.category.dao.CategoryDao;
 import com.hrbei.rep.category.entity.Category;
+import com.hrbei.rep.company.dao.CompanyDao;
+import com.hrbei.rep.company.entity.Company;
 import com.hrbei.rep.news.dao.NewsDao;
 import com.hrbei.rep.news.entity.News;
 import com.hrbei.rep.product.dao.ProductDao;
@@ -34,7 +36,7 @@ public class IndexAction extends BasicAction
     private List<Category> categories;
     private CategoryDao categoryDao;
 
-    private Integer typeId = 0;
+    private Integer typeId;
 
     private List<News> newses;
     private NewsDao newsDao;
@@ -42,20 +44,25 @@ public class IndexAction extends BasicAction
     private List<Product> products;
     private ProductDao productDao;
 
+    private List<Company> companies;
+    private CompanyDao companyDao;
+
     private Pagination pagination = new Pagination(Constants.Page_Size_Index);
+
+    private String searchStr;
 
     @Action(value = "index", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".index")})
     public String index(){
-        categories = categoryDao.findAllCategory();
         newses = newsDao.findAll(pagination);
+        categories = categoryDao.findAllCategoryByDescription(Constants.Category_Product);
         return SUCCESS;
     }
 
     @Action(value = "indexProuctList", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".indexProuctList")})
     public String indexProuctList(){
-        categories = categoryDao.findAllCategory();
         pagination.setPageSize(20);
         products = productDao.findByCategoryId( this.getTypeId(), pagination );
+        categories = categoryDao.findAllCategoryByDescription(Constants.Category_Product);
         return SUCCESS;
     }
 
@@ -68,43 +75,51 @@ public class IndexAction extends BasicAction
 
     /***********************搜索界面相关************************/
 
-    @Action(value = "searchCompany", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".searchCompany")})
-    public String searchCompany(){
+    @Action(value = "initSearchCompany", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".initSearchCompany")})
+    public String initSearchCompany(){
+        pagination.setPageSize(3);
+        categories = categoryDao.findAllCategoryByDescription(Constants.Category_Product);
+        companies  = companyDao.findAllCompanyInStatus(Constants.Company_Status_Open,pagination);
         return SUCCESS;
     }
 
-    @Action(value = "searchProduct", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".searchProduct")})
+
+    @Action(value = "searchCompany", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".initSearchCompany")})
+    public String searchCompany()
+    {
+        pagination.setPageSize(3);
+        categories = categoryDao.findAllCategoryByDescription(Constants.Category_Product);
+        companies  = companyDao.findCompanyByNameLike(this.getSearchStr(), pagination);
+        return SUCCESS;
+    }
+
+    @Action(value = "initSearchProduct", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".initSearchProduct")})
+    public String initSearchProduct(){
+        pagination.setPageSize(16);
+        products = productDao.findAllProducts(pagination);
+        categories = categoryDao.findAllCategoryByDescription(Constants.Category_Product);
+        return SUCCESS;
+    }
+
+    @Action(value = "searchProduct", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".initSearchProduct")})
     public String searchProduct(){
+        pagination.setPageSize(16);
+        products = productDao.findByNameLike(searchStr,pagination);
+        categories = categoryDao.findAllCategoryByDescription(Constants.Category_Product);
         return SUCCESS;
     }
 
 
     /************************导航栏里面工作、招聘等栏目************************/
-
-    @Action(value = "findJob", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".findJob")})
-    public String jobList(){
+    @Action(value = "indexNews", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".indexNews")})
+    public String indexNews(){
+        pagination.setPageSize(Constants.Page_Size_Index);
+        categories = categoryDao.findAllCategoryByDescription(Constants.Category_Product);
+        newses = newsDao.findByCategoryId(typeId, pagination);
         return SUCCESS;
     }
 
-    @Action(value = "rentList", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".rentList")})
-    public String rentList(){
-        return SUCCESS;
-    }
 
-    @Action(value = "technicalList", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".technicalList")})
-    public String technicalList(){
-        return SUCCESS;
-    }
-
-    @Action(value = "articleList", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".articleList")})
-    public String articleList(){
-        return SUCCESS;
-    }
-
-    @Action(value = "jokeList", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".jokeList")})
-    public String jokeList(){
-        return SUCCESS;
-    }
 
     @Action(value = "jobContent", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".jobContent")})
     public String jobContent()
@@ -112,14 +127,15 @@ public class IndexAction extends BasicAction
         return SUCCESS;
     }
 
-    @Action(value = "companyBlog", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".companyBlog")})
-    public String companyBlog()
-    {
-        return SUCCESS;
-    }
 
     @Action(value = "aboutUs", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".aboutUs")})
     public String aboutUs(){
+        return SUCCESS;
+    }
+
+
+    @Action(value = "messageBord", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".messageBord")})
+    public String messageBord(){
         return SUCCESS;
     }
 
@@ -193,5 +209,29 @@ public class IndexAction extends BasicAction
 
     public void setProductDao(ProductDao productDao) {
         this.productDao = productDao;
+    }
+
+    public List<Company> getCompanies() {
+        return companies;
+    }
+
+    public void setCompanies(List<Company> companies) {
+        this.companies = companies;
+    }
+
+    public CompanyDao getCompanyDao() {
+        return companyDao;
+    }
+
+    public void setCompanyDao(CompanyDao companyDao) {
+        this.companyDao = companyDao;
+    }
+
+    public String getSearchStr() {
+        return searchStr;
+    }
+
+    public void setSearchStr(String searchStr) {
+        this.searchStr = searchStr;
     }
 }

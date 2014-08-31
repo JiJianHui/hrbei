@@ -48,7 +48,7 @@
                         <a class="manage_links" href="#" onclick="confirmChangeCompany('<s:property value="id"/>','1','通过审核')">
                             通过审核</a>
                     </s:if>
-                    <s:else><a href="#">已审核</a> </s:else>
+                    <s:else><a href="#" class="manage_links">已审核</a> </s:else>
 
                     <a class="manage_links" href="#" onclick="confirmDeleteComany('<s:property value="id"/>', '<s:property value="name"/>')">
                         删除商店</a>
@@ -57,7 +57,17 @@
 
         </div>
     </s:iterator>
+    <s:if test="companies.size() == 0">
+        <div style="margin-top: 20px;margin-left: 10px;color: #dc143c;">
+            <h4>暂时没有需要审核的商店！</h4>
+        </div>
+
+    </s:if>
 </div>
+
+<tiles:insertTemplate template="/jsp/pagination.jsp">
+    <tiles:putAttribute name="pagination" value="${pagination}"/>
+</tiles:insertTemplate>
 
 <s:form id="changeCompanyForm" action="ajaxChangeCompanyStatus" method="post">
     <s:hidden name="company.id" id="companyId" />

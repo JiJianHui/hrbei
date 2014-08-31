@@ -9,16 +9,18 @@
 <%@ taglib uri="/WEB-INF/tld/tiles-jsp.tld" prefix="tiles" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
 
-<div class="left_content" style="border-right:dotted 0px blue;border-left: dotted 0px blue; min-height: 300px;">
+<div class="left_content" style="border-right:dotted 0px blue;border-left: dotted 0px blue; min-height: 400px;">
 
     <%--<div class="item"><a href="jobContent.html" title="">平板 | 平板测首款64位安卓平板 科技巨头总部比拼</a></div>--%>
+    <div style="min-height: 500px;">
     <s:iterator value="newses">
         <div class="item">
             <a href="newsBlog.html?news.id=<s:property value="id"/>" title="">
-                <s:property value="pubOrg"/>&nbsp;|&nbsp;<s:property value="title"/>&nbsp;<s:date name="pubTime" format="MM/dd/yyyy"/>
+                <s:property value="pubOrg"/>&nbsp;|&nbsp;<s:property value="title"/>&nbsp;<s:date name="pubTime" format="yyyy-MM-dd"/>
             </a>
         </div>
     </s:iterator>
+    </div>
 
     <tiles:insertTemplate template="/jsp/pagination.jsp">
         <tiles:putAttribute name="pagination" value="${pagination}"/>
@@ -46,9 +48,9 @@
     <div id="login">
         <img src="images/login.jpg"  usemap="#Map"/>
         <map name="Map" class="Map">
-            <area shape="rect" coords="96,27,175,47" href="#" title="登录" />
-            <area shape="rect" coords="198,27,276,47" href="#" title="注册" />
-            <area shape="rect" coords="215,50,282,68" href="#" title="忘记密码？" />
+            <area shape="rect" coords="96,27,175,47" href="login.html" title="登录" />
+            <area shape="rect" coords="198,27,276,47" href="register.html" title="注册" />
+            <area shape="rect" coords="215,50,282,68" href="forgestPassword.html" title="忘记密码？" />
         </map>
     </div>
 </div>

@@ -46,7 +46,7 @@
             <a href="#"><img src="images/customerService.jpg"/>客服</a>
             <ul>
                 <li><a href="#">在线客服</a></li>
-                <li><a href="#">QQ留言</a></li>
+                <li><a href="tencent://message/?uin=825196587">QQ留言</a></li>
                 <li><a href="#">投诉/建议</a></li>
             </ul>
         </dd>
@@ -78,7 +78,7 @@
         <span class="companyHeadName"><s:property value="company.name"/></span>
         <span class="companyHeadQQ">
             <a href="#">在线咨询<img src="/images/tixing.jpg"/></a>
-            <a href="#">QQ留言<img src="/images/qq.gif"></a>
+            <a href="tencent://message/?uin=<s:property value="company.qq"/>">QQ交谈<img src="/images/qq.gif"></a>
         </span>
     </div>
 
@@ -116,20 +116,21 @@
 
     <div class="loginContent">
 
-        <form class="form-horizontal" role="form" id="user_login_form" method="post">
+        <s:form class="form-horizontal" role="form" id="user_login_form" method="post">
 
+            <div class="errorinfo" id="login_tip" style="margin-left: 50px;margin-top: 20px;"></div>
             <div class="loginLine">
                 <span class="text">邮箱(用户名):</span>
-                <input name="str_username" type="text" id="str_username" value="" class="input" tabindex="1" />
+                <input name="user.email" type="text" id="inputEmail" value="" class="input" tabindex="1" />
             </div>
 
             <div class="loginLine">
                 <span class="text">登陆密码:</span>
-                <input name="str_username" type="password" id="password" value="" class="input" tabindex="1" />
+                <input name="user.password" type="password" id="inputPassword" value="" class="input" tabindex="1" />
             </div>
 
             <div class="loginLine">
-                <input type="checkbox" name="rememberme" checked="checked" id="rememberme" class="loginCheck" />
+                <input type="checkbox" checked="checked" id="rememberme" class="loginCheck" />
                 <span class="font12">记住我的用户名</span>
                 <button type="button" id="log_btn" class="loginButton">登陆</button>
             </div>
@@ -139,7 +140,7 @@
                 <span class="loginLinks"><a href="register.html" >还没有账号？</a></span>
             </div>
 
-        </form>
+        </s:form>
 
     </div>
 

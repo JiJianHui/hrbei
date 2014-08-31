@@ -19,20 +19,15 @@ public class Constants
     public static final String Upload_File_Tmp_Path = "/upload/file/tmp";
     public static final String Upload_User_Path = "/upload/user";
     public static final String Upload_Company_Path = "/upload/company";
+    public static final String Image_Dir = "/images";
+    public static final String Image_Websit_Dir = "/images/RandomAdPic";
 
     /*******************产品类别*********************/
-    public static final Integer CategoryBiJiBen     = 0;
-    public static final Integer CategoryDianNao     = 1;
-    public static final Integer CategoryBanGong     = 2;
-    public static final Integer CategoryZuZhuangJi  = 3;
-    public static final Integer CategoryWangLuo     = 4;
-    public static final Integer CategoryHaoCai      = 5;
-    public static final Integer CategoryShuMa       = 6;
-    public static final Integer CategoryJianKong    = 7;
-    public static final Integer CategorySoftWare    = 8;
-    public static final Integer CategoryJiShuFuWu   = 9;
-    public static final Integer CategoryMobile      = 10;
-    public static final Integer CategoryWaiShe      = 11;
+    public static final String Category_Product = "product";
+    public static final String Category_News  = "news";
+
+    public static final Integer Category_News_BegId = 13;
+    public static final Integer Category_News_Hire = 14;
 
     /**************公司商家相关********************/
 

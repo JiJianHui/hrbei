@@ -3,6 +3,8 @@ package com.hrbei.action.company;
 import com.hrbei.action.BasicAction;
 import com.hrbei.common.Constants;
 import com.hrbei.rep.Pagination;
+import com.hrbei.rep.category.dao.CategoryDao;
+import com.hrbei.rep.category.entity.Category;
 import com.hrbei.rep.company.dao.CompanyDao;
 import com.hrbei.rep.company.entity.Company;
 import com.hrbei.rep.news.dao.NewsDao;
@@ -19,6 +21,7 @@ import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -45,11 +48,16 @@ public class NewsAction extends BasicAction {
 
     private Pagination pagination = new Pagination();
 
+    private CategoryDao categoryDao;
+    private List<Category> categories;
+    private List<Integer> categoryIds;
+
     private String resultMessage;
 
     @Action( value = "initCreateUserNews", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".initCreateUserNews")})
     public String initCreateNews(){
         user = userDao.findById( this.getSessionUserId() );
+        categories = categoryDao.findAllCategoryByDescription(Constants.Category_News);
         return SUCCESS;
     }
 
@@ -57,6 +65,7 @@ public class NewsAction extends BasicAction {
     public String initCreateCompanyNews(){
         user = userDao.findById( this.getSessionUserId() );
         company = companyDao.findById(this.getCompany().getId());
+        categories = categoryDao.findAllCategoryByDescription(Constants.Category_News);
         return SUCCESS;
     }
 
@@ -66,6 +75,14 @@ public class NewsAction extends BasicAction {
 
         news.setPubUser(user);
         news.setPubUserType(Constants.News_User);
+
+        //设置类别
+        for(Integer categoryId:categoryIds){
+            Category category = categoryDao.findById(categoryId);
+            if( category != null ){
+                news.getCategorys().add(category);
+            }
+        }
 
         newsDao.persistAbstract(news);
 
@@ -78,10 +95,16 @@ public class NewsAction extends BasicAction {
         user = userDao.findById( this.getSessionUserId() );
         company = companyDao.findById(this.getCompany().getId());
 
-        //news.setPubUser(user);
-        //news.setPubUserType(Constants.News_User);
         news.setCompany(company);
         news.setPubUserType(Constants.News_Company);
+
+        //设置类别
+        for(Integer categoryId:categoryIds){
+            Category category = categoryDao.findById(categoryId);
+            if( category != null ){
+                news.getCategorys().add(category);
+            }
+        }
 
         newsDao.persistAbstract(news);
 
@@ -106,15 +129,25 @@ public class NewsAction extends BasicAction {
     @Action( value = "initUpdateUserNews", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".initUpdateUserNews") })
     public String initUpdateUserNews(){
         user = userDao.findById( this.getSessionUserId() );
+        categories = categoryDao.findAllCategoryByDescription(Constants.Category_News);
+
         news = newsDao.findById(this.getNews().getId());
+        categoryIds = new ArrayList<Integer>();
+        for(Category cag:news.getCategorys() ){ categoryIds.add( cag.getId() ); }
+
         return SUCCESS;
     }
 
     @Action( value = "initUpdateCompanyNews", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".initUpdateCompanyNews") })
     public String initUpdateCompanyNews(){
         user = userDao.findById( this.getSessionUserId() );
-        news = newsDao.findById(this.getNews().getId());
         company = companyDao.findById(this.getCompany().getId());
+        categories = categoryDao.findAllCategoryByDescription(Constants.Category_News);
+
+        news = newsDao.findById(this.getNews().getId());
+        categoryIds = new ArrayList<Integer>();
+        for(Category cag:news.getCategorys() ){ categoryIds.add( cag.getId() ); }
+
         return SUCCESS;
     }
 
@@ -126,6 +159,15 @@ public class NewsAction extends BasicAction {
         oldNews.setPubTime(news.getPubTime());
         oldNews.setPubOrg(news.getPubOrg());
         oldNews.setContent(news.getContent());
+
+        //设置类别
+        oldNews.getCategorys().clear();
+        for(Integer categoryId:categoryIds){
+            Category category = categoryDao.findById(categoryId);
+            if( category != null ){
+                oldNews.getCategorys().add(category);
+            }
+        }
 
         newsDao.persist(oldNews);
 
@@ -145,6 +187,15 @@ public class NewsAction extends BasicAction {
         oldNews.setPubTime(news.getPubTime());
         oldNews.setPubOrg(news.getPubOrg());
         oldNews.setContent(news.getContent());
+
+        //设置类别
+        oldNews.getCategorys().clear();
+        for(Integer categoryId:categoryIds){
+            Category category = categoryDao.findById(categoryId);
+            if( category != null ){
+                oldNews.getCategorys().add(category);
+            }
+        }
 
         newsDao.persist(oldNews);
 
@@ -180,6 +231,7 @@ public class NewsAction extends BasicAction {
     @Action( value = "newsBlog", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".newsBlog") })
     public String newsBlog(){
         news = newsDao.findById(this.getNews().getId());
+        categories = categoryDao.findAllCategoryByDescription(Constants.Category_Product);
         return SUCCESS;
     }
 
@@ -270,5 +322,29 @@ public class NewsAction extends BasicAction {
 
     public void setResultMessage(String resultMessage) {
         this.resultMessage = resultMessage;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
+
+    public CategoryDao getCategoryDao() {
+        return categoryDao;
+    }
+
+    public void setCategoryDao(CategoryDao categoryDao) {
+        this.categoryDao = categoryDao;
+    }
+
+    public List<Integer> getCategoryIds() {
+        return categoryIds;
+    }
+
+    public void setCategoryIds(List<Integer> categoryIds) {
+        this.categoryIds = categoryIds;
     }
 }

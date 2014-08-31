@@ -14,7 +14,11 @@ import java.util.List;
  */
 public interface NewsDao  extends ModelDao<News>
 {
+    public List<News> findAll(Pagination pagination);
+
     public List<News> findByUserId(Integer uId, Pagination pagination);
     public List<News> findByCompanyId(Integer cId, Pagination pagination);
-    public List<News> findAll(Pagination pagination);
+    public List<News> findByCategoryId(Integer cId,Pagination pagination);
+
+    public List<News> findByCompanyAndCategoryId(Integer comId, Integer cagId,Pagination pagination);
 }

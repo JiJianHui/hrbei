@@ -1,5 +1,7 @@
 * {margin:0px; padding:0px;}
 
+html{overflow-y:scroll;}
+
 body {width:1024px;
     margin: 0px auto;
     background-color: white;
@@ -9,7 +11,9 @@ img {border:0px;}
 ul {display:none;}
 /*a {color:#000; text-decoration:none;}*/
 /*a:hover {color:#f00; text-decoration:none;}*/
-a:visited {color:#333333; text-decoration:none;}
+a:visited {
+    color:#333333;
+    text-decoration:none;}
 
 /*针对chrome浏览器对自动填充的字段的偏黄色背景覆盖*/
 input:-webkit-autofill {
@@ -76,7 +80,7 @@ input:-webkit-autofill {
 }
 
 .loginRegister .loginSuccessName a{
-    color: green;
+    color: #159AA2;
     font-weight: bold;
 }
 
@@ -241,7 +245,9 @@ input:-webkit-autofill {
 .enterprise_col a, .enterprise_col_selected a{color: #a9a9a9;display: block;text-decoration: none}
 
 .enterprise_col a:hover{
-    background-color: white;text-decoration: none;color: #808080;
+    text-decoration: none;
+    color: white;
+    background-color: #159AA2;
 }
 
 .enterprise_col_selected a{background-color: white;color: blue;

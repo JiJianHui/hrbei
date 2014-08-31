@@ -80,19 +80,3 @@
 .companyItem .details a:hover{
     text-decoration: underline;
 }
-
-
-
-.manage_links {
-    color: #3e8fda;
-    margin-right: 15px;
-}
-
-.manage_links:visited{
-    color: #3e8fda;
-}
-
-.manage_links:hover{
-    text-decoration: none;
-    border-bottom: 1px dotted orange;
-}

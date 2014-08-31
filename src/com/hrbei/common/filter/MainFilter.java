@@ -41,6 +41,10 @@ public class MainFilter implements Filter {
 
         NEED_LOGIN.add("/myCompany.html");
         NEED_LOGIN.add("/myProducts.html");
+
+        NEED_LOGIN.add("/initAdminManageUser.html");
+        NEED_LOGIN.add("/manageWebsite.html");
+        NEED_LOGIN.add("/manageCompany.html");
     }
 
     public void destroy() {

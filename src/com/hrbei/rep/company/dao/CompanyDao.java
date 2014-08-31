@@ -15,5 +15,9 @@ import java.util.List;
 public interface CompanyDao extends ModelDao<Company>
 {
     public List<Company> findMyCompany(Integer userID);
+
+    public List<Company> findAllCompany(Pagination pagination);
     public List<Company> findAllCompanyInStatus(Integer status, Pagination pagination);
+
+    public List<Company> findCompanyByNameLike(String name, Pagination pagination);
 }

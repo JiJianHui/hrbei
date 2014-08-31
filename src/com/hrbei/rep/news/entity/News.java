@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -82,6 +83,7 @@ public class News extends AbstractPersistence
     }
 
     public List<Category> getCategorys() {
+        if(categorys == null) categorys = new ArrayList<Category>();
         return categorys;
     }
 
@@ -119,5 +121,13 @@ public class News extends AbstractPersistence
 
     public void setCompany(Company company) {
         this.company = company;
+    }
+
+    public String getFirstCategoryName(){
+        if(this.getCategorys() != null && this.getCategorys().size() > 0){
+            return this.getCategorys().get(0).getName();
+        }else{
+            return "新闻";
+        }
     }
 }

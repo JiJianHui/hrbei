@@ -19,4 +19,9 @@ public class CategoryDaoImpl extends ModelDaoImpl<Category> implements CategoryD
         String hql = "from Category order by id";
         return this.findByHql(hql);
     }
+
+    public List<Category> findAllCategoryByDescription(String description){
+        String hql = "from Category cag where cag.description = ? order by id";
+        return this.find(hql, description);
+    }
 }

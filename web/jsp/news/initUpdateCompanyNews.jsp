@@ -32,9 +32,18 @@
 
         <div class="newsLine">
             <label class="control-label text"> 时间:</label>
-            <s:textfield name="news.pubTime" id="pubTime" cssClass="input inputShort"/>
+            <s:textfield name="news.pubTime" id="pubTime" cssClass="input inputShort Wdate" readonly="true" onClick="WdatePicker()">
+                <s:param name="value" ><s:date name="news.pubTime" format="yyyy-MM-dd"/></s:param>
+            </s:textfield>
             <label class="control-label text"> 来源:</label>
             <s:textfield name="news.pubOrg" id="pubOrg" cssClass="input"/>
+        </div>
+
+        <div class="newsLine">
+            <label class="control-label text"> 类别:</label>
+            <span class="caglists">
+                <s:checkboxlist name="categoryIds" list="categories" listKey="id" listValue="name" cssClass="checkCategories"/>
+            </span>
         </div>
 
         <div class="newsLine longtext">
@@ -47,7 +56,7 @@
 
     <div style="clear: both;"></div>
     <div class="submitDiv">
-        <button type="button" id="changeNewsBtn" class="btn btn-primary btn-success">&nbsp;&nbsp;提交&nbsp;&nbsp;</button>
+        <button type="button" id="changeCompanyNewsBtn" class="btn btn-primary btn-success">&nbsp;&nbsp;提交&nbsp;&nbsp;</button>
         <span id="submit_msg_updateNews" style="color:red; font-weight: bold;font-size: 13px"></span>
     </div>
 

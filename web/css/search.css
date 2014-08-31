@@ -5,23 +5,25 @@
     margin-top: 15px;
 }
 
+
 .queryCategory{
     height: 40px;
 }
 
-.query #searchField, .query #searchSubmit{
+.query #searchStr, .query #searchSubmit{
     font-size:14px;
     border:1px solid #6895c9;
     height:30px;
 }
 
-.query #searchField {
+.query #searchStr {
     width:280px;
     /*line-height:40px;*/
     background:#fff;
     text-align:left;
     margin-right: 0px;
     vertical-align: text-bottom;
+    padding-left: 5px;
 }
 
 .query #searchSubmit {
@@ -33,8 +35,11 @@
     vertical-align: text-bottom;
 }
 
-/******************Õ¹Ê¾²éÑ¯½á¹û½çÃæ**********************/
-.companys{min-height: 600px; height: auto;}
+/******************search products**********************/
+.companys{
+    min-height:400px;
+    height: auto;
+}
 
 .comanyLine{
     border-top:2px #dcdcdc solid;
@@ -44,7 +49,7 @@
 .companyLineLeft, .companyLineRight{
     margin-top: 15px;
     float: left;
-    font-family: 'Microsoft Yahei', 'Î¢ÈíÑÅºÚ', 'ËÎÌå', sans-serif;;
+    font-family: 'Microsoft Yahei', 'Î¢ï¿½ï¿½ï¿½Åºï¿½', 'ï¿½ï¿½ï¿½ï¿½', sans-serif;;
 }
 
 .basicLogo, .basicInfo{float: left;}
@@ -55,8 +60,23 @@
     width: 200px;
     color:#9c9c9c;
     font-size: 13px;
-    word-wrap: break-word;word-break: break-all;
     margin-left: 13px;
+}
+
+.basicInfo a:visited{
+    color: blue;
+}
+
+.basicInfo .textLong{
+    overflow: hidden;
+    height: 40px;
+    line-height: 20px;
+    text-overflow: ellipsis;
+    word-break: break-all;
+}
+
+.basicInfo .infoTitle{
+    font-weight: bold;
 }
 
 .hotProduct{
@@ -81,6 +101,11 @@
 
 
 /*********************Search product**********************/
+.products{
+    min-height:350px;
+    height: auto;
+}
+
 .productLines{
     height: auto;
     min-height: 220px;
@@ -100,16 +125,26 @@
 
 .productItem{
     float: left;
-    margin-right:15px;
+    /*margin-right:15px;*/
     text-align: left;
 }
 
 .productItem img{
-    width: 180px; height: 140px;
+    width: 180px;
+    height: 140px;
     /*border:1px dotted red;*/
     vertical-align: middle;
     text-align: left;
-    border: 1px solid #f5f5f5;
+    /*border: 1px solid #f5f5f5;/*/
+    /*border: 1px solid #008b8b;*/
+    /*margin-right: 15px;*/
+}
+
+.emptyBar{
+    float: left;
+    width: 45px;
+    height: 100px;
+    min-width: 30px;!important
 }
 
 .productBrand, .productOwner, .productPrice{

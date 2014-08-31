@@ -63,11 +63,6 @@
         <put-attribute name="content" value="/jsp/indexContent.jsp"/>
     </definition>
 
-    <definition name=".initAdminManageUser" extends=".userLayout">
-        <put-attribute name="title" value="个人信息"/>
-        <put-attribute name="rightContent" value="/jsp/security/manageUser.jsp"/>
-    </definition>
-
     <definition name=".login" extends=".layout">
         <put-attribute name="content" value="/jsp/security/login.jsp"/>
     </definition>
@@ -140,6 +135,7 @@
         <put-attribute name="rightContent" value="/jsp/product/updateProductInfo.jsp"/>
     </definition>
 
+    <!--********************************新闻相关********************************-->
     <definition name=".initCreateCompanyNews" extends=".userLayout">
         <put-attribute name="title" value="发布公司新闻"/>
         <put-attribute name="rightContent" value="/jsp/news/initCreateCompanyNews.jsp"/>
@@ -165,18 +161,35 @@
         <put-attribute name="rightContent" value="/jsp/news/initUpdateUserNews.jsp"/>
     </definition>
 
-    <definition name=".initAdminManageCompany" extends=".userLayout">
-        <put-attribute name="title" value="公司深化"/>
-        <put-attribute name="rightContent" value="/jsp/security/adminManageCompany.jsp"/>
-    </definition>
-
     <definition name=".newsBlog" extends=".twoCloumnLayout">
         <put-attribute name="title" value="新闻"/>
         <put-attribute name="leftContent" value="/jsp/news/newsBlog.jsp"/>
         <put-attribute name="rightContent" value="/jsp/layout/verticalAD.jsp"/>
     </definition>
 
+    <!--********************************管理员相关********************************-->
+    <definition name=".initAdminManageCompany" extends=".userLayout">
+        <put-attribute name="title" value="公司管理"/>
+        <put-attribute name="rightContent" value="/jsp/security/adminManageCompany.jsp"/>
+    </definition>
 
+    <definition name=".initAdminManageUser" extends=".userLayout">
+        <put-attribute name="title" value="管理人员"/>
+        <put-attribute name="rightContent" value="/jsp/security/manageUser.jsp"/>
+    </definition>
+
+    <definition name=".manageProducts" extends=".userLayout">
+        <put-attribute name="title" value="管理产品"/>
+        <put-attribute name="rightContent" value="/jsp/security/manageProducts.jsp"/>
+    </definition>
+
+    <definition name=".manageWebsite" extends=".userLayout">
+        <put-attribute name="title" value="维护网站"/>
+        <put-attribute name="rightContent" value="/jsp/security/manageWebsite.jsp"/>
+    </definition>
+
+    <definition name=".websiteImgCrop" template="/jsp/security/manageWebsiteImageCrop.jsp">
+    </definition>
 
     <!--********************************首页左边的类别导航菜单的选择********************************-->
     <definition name=".indexProuctList" extends=".baseLayout">
@@ -185,15 +198,22 @@
     </definition>
 
     <!--********************************搜索展示界面********************************-->
-    <definition name=".searchCompany" extends=".baseLayout">
+    <definition name=".initSearchCompany" extends=".baseLayout">
         <put-attribute name="title" value="公司查询"/>
-        <put-attribute name="content" value="/jsp/search/searchCompany.jsp"/>
+        <put-attribute name="content" value="/jsp/search/initSearchCompany.jsp"/>
     </definition>
 
-    <definition name=".searchProduct" extends=".baseLayout">
+    <definition name=".initSearchProduct" extends=".baseLayout">
         <put-attribute name="title" value="产品查询"/>
-        <put-attribute name="content" value="/jsp/search/searchProduct.jsp"/>
+        <put-attribute name="content" value="/jsp/search/initSearchProduct.jsp"/>
     </definition>
+
+    <definition name=".indexNews" extends=".twoCloumnLayout">
+        <put-attribute name="title" value="新闻信息"/>
+        <put-attribute name="leftContent" value="/jsp/entertainment/indexNews.jsp"/>
+        <put-attribute name="rightContent" value="/jsp/layout/verticalAD.jsp"/>
+    </definition>
+
 
     <!--********************************娱乐等杂七杂八界面**********************************************-->
     <definition name=".findJob" extends=".twoCloumnLayout">
@@ -238,6 +258,9 @@
         <put-attribute name="companyInfo" value="/jsp/company/companyBlog.jsp"/>
     </definition>
 
+    <definition name=".companyBlogProducts" extends=".companyLayout">
+        <put-attribute name="companyInfo" value="/jsp/company/companyBlogProducts.jsp"/>
+    </definition>
 
 
     <!--********************************网站介绍等相关静态页面**********************************************-->

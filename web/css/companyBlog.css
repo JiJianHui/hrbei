@@ -110,13 +110,19 @@
     font-family: 'Microsoft Yahei', sans-serif;
     color: white;
     padding-top: 20px;
-    padding-left: 90px;
+    padding-left: 50px;
+    float: left;
+}
+
+.companyDisplay .displayLogo img{
+    width: 90px;
+    height: 90px;
     float: left;
 }
 
 .companyDisplayService{
     padding-top: 20px;
-    margin-left: 350px;
+    margin-left: 300px;
     float: left;
 }
 
@@ -196,4 +202,52 @@
 .companyHire{
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+
+/*详细内容*/
+.companyProducts{
+    margin: 12px;
+    font-family: Tahoma, Geneva,"\5FAE\8F6F\96C5\9ED1","\5b8b\4f53",sans-serif;
+}
+
+.companyProducts .item{
+    width: 500px;
+    height: 150px;
+    border: 1px dotted #ffdead;
+    float: left;
+}
+
+.companyProducts .itemImage{
+    float: left;
+}
+
+.companyProducts .itemImage img{
+    width: 120px;
+    height: 120px;
+    display: table-cell;
+    vertical-align:middle;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+.companyProducts .itemInfo{
+    float: left;
+    width: 350px;
+    margin-left: 15px;
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+.infoTitle{
+    font-weight: bold;
+
+}
+
+.textLong{
+    overflow: hidden;
+    height: 60px;
+    line-height: 20px;
+    text-overflow: ellipsis;
+    word-break: break-all;
 }

@@ -46,7 +46,7 @@
             <a href="#"><img src="images/customerService.jpg"/>客服</a>
             <ul>
                 <li><a href="#">在线客服</a></li>
-                <li><a href="#">QQ留言</a></li>
+                <li><a href="tencent://message/?uin=825196587">QQ留言</a></li>
                 <li><a href="#">投诉/建议</a></li>
             </ul>
         </dd>

@@ -62,7 +62,7 @@ public class ProductAction extends BasicAction
     {
         user = userDao.findById(this.getSessionUserId());
         company = companyDao.findById(this.getCompany().getId());
-        categories = categoryDao.findAllCategory();
+        categories = categoryDao.findAllCategoryByDescription(Constants.Category_Product);
         return SUCCESS;
     }
 
@@ -105,7 +105,7 @@ public class ProductAction extends BasicAction
         user = userDao.findById(this.getSessionUserId());
         product = productDao.findById(this.getProduct().getId());
         company = product.getCompany();
-        categories = categoryDao.findAllCategory();
+        categories = categoryDao.findAllCategoryByDescription(Constants.Category_Product);
         return SUCCESS;
     }
 
@@ -137,11 +137,11 @@ public class ProductAction extends BasicAction
         }
 
         //设置类别
-        product.getCategorys().clear();
+        oldProduct.getCategorys().clear();
         for(Integer categoryId:categoryIds){
             Category category = categoryDao.findById(categoryId);
             if( category != null ){
-                product.getCategorys().add(category);
+                oldProduct.getCategorys().add(category);
             }
         }
 

@@ -45,6 +45,11 @@ public class Utils {
         return StringUtils.join(hqlPart, " from ");
     }
 
+    public static void replaceFileFromTempModified(String toDir, String fileName) {
+        String srcPath = ServletActionContext.getServletContext().getRealPath(Constants.Upload_File_Tmp_Path + "/" + fileName);
+        replaceFile(srcPath, toDir + File.separator + fileName);
+    }
+
     public static void notReplaceFileFromTmpModified(String toDir, String fileName) {
         String srcPath = ServletActionContext.getServletContext().getRealPath(Constants.Upload_File_Tmp_Path + "/" + fileName);
         String toPath = toDir + File.separatorChar + fileName;
@@ -58,6 +63,22 @@ public class Utils {
         if (!dst.getParentFile().exists()) {
             dst.getParentFile().mkdirs();
         }
+        copyByChannel(src, dst);
+    }
+
+    public static void replaceFile(String srcPath, String dstPath) {
+        File src = new File(srcPath);
+        File dst = new File(dstPath);
+
+        if (!dst.getParentFile().exists()) {
+            dst.getParentFile().mkdirs();
+        } else {
+            File files[] = dst.getParentFile().listFiles();
+            for (File file : files) {
+                //file.delete();
+            }
+        }
+
         copyByChannel(src, dst);
     }
 

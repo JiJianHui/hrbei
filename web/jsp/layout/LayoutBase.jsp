@@ -48,7 +48,7 @@
                 </div>
                 <div style="clear:both;"></div> <!--用于清除浮动来撑高父DIV-->
             </div>
-
+            <div style="clear:both;"></div>
         </div>
 
         <div id="footerDiv">
