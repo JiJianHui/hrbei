@@ -83,10 +83,11 @@
     </div>
 
     <div class="companyHeadSearch">
-        <form id="searchForm" action="#" method="post">
-            <input class="inputText" id="searchField" name="searchField" type="text" title="请输入您要查找的关键字" /><input class="inputButton" id="searchInSubmit" name="searchInSubmit" type="button" value="本店搜索" title="本店搜索" />
-            <input class="inputButton" id="searchAllSubmit" name="searchAllSubmit" type="button" value="全站搜索" title="全站搜索" />
+        <form id="searchForm" action="searchAll.html" method="post">
+            <input class="inputText" id="searchField" name="searchField" type="text" title="请输入您要查找的关键字" /><input class="inputButton" id="searchInSubmit" name="searchInSubmit" type="submit" value="本店搜索" title="本店搜索" />
+            <input class="inputButton" id="searchAllSubmit" name="searchAllSubmit" type="submit" value="全站搜索" title="全站搜索" />
         </form>
+
     </div>
 
 </div>

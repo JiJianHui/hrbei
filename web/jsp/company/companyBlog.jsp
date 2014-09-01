@@ -17,20 +17,14 @@
 
     <div class="companyNews">
         <div class="title">公司新闻</div>
-        <div class="news">
-            <div class="companyNew"><a href="#">【2013-07-18】热烈庆祝哈尔滨众城电脑公司加盟哈尔滨电子报价网</a></div>
-            <div class="companyNew"><a href="#">【2014-05-19】哈工大附中今年高考再创佳绩，共80人考上清华</a></div>
-            <div class="companyNew"><a href="#">【2012-11-19】中国国家主席胡锦涛同志参观哈尔滨电子报价网</a></div>
-            <div class="companyNew"><a href="#">【2012-11-19】第十三次全国代表大会今日在北京召开，我司共派出两位代表参会</a></div>
-            <div class="companyNew"><a href="#">【2013-07-18】热烈庆祝哈尔滨众城电脑公司加盟哈尔滨电子报价网</a></div>
-            <div class="companyNew"><a href="#">【2014-05-19】哈工大附中今年高考再创佳绩，共80人考上清华</a></div>
-            <div class="companyNew"><a href="#">【2012-11-19】中国国家主席胡锦涛同志参观哈尔滨电子报价网</a></div>
-            <div class="companyNew"><a href="#">【2012-11-19】第十三次全国代表大会今日在北京召开，我司共派出两位代表参会</a></div>
-            <div class="companyNew"><a href="#">【2013-07-18】热烈庆祝哈尔滨众城电脑公司加盟哈尔滨电子报价网</a></div>
-            <div class="companyNew"><a href="#">【2014-05-19】哈工大附中今年高考再创佳绩，共80人考上清华</a></div>
-            <div class="companyNew"><a href="#">【2012-11-19】中国国家主席胡锦涛同志参观哈尔滨电子报价网</a></div>
-            <div class="companyNew"><a href="#">【2012-11-19】第十三次全国代表大会今日在北京召开，我司共派出两位代表参会</a></div>
+        <div class="news" style="min-height: 200px;">
 
+            <s:iterator value="newses">
+                <div class="companyNew" style="margin-left: 6px;"><a href="newsBlog.html?news.id=<s:property value="id"/>">
+                    【<s:property value="getFirstCategoryName()"/>】
+                    <s:property value="title"/>&nbsp;[<s:property value="pubOrg"/>&nbsp;<s:date name="pubTime" format="yyyy-MM-dd"/>]
+                </a></div>
+            </s:iterator>
         </div>
     </div>
 
@@ -38,72 +32,26 @@
 
         <div class="title">产品报价</div>
         <div class="briefPriceTable">
-            <table class="priceTable">
+            <table class="priceTable" style="margin-bottom: 30px;">
                 <tr class="head">
                     <th>产品</th><th>品牌</th>
                     <th>型号</th><th>指标</th>
                     <th>会员价</th><th>市场价</th><th>说明</th>
                 </tr>
 
-                <tr>
-                    <td>thinkpad u330p</td><td>联想电脑</td>
-                    <td>u330p-2312</td><td>酷睿i5二代</td>
-                    <td>3650</td><td>3850</td>
-                </tr>
 
-                <tr>
-                    <td>thinkpad u330p</td><td>联想电脑</td>
-                    <td>u330p-2312</td><td>酷睿i5二代</td>
-                    <td>3650</td><td>3850</td>
-                </tr>
-
-                <tr>
-                    <td>thinkpad u330p</td><td>联想电脑</td>
-                    <td>u330p-2312</td><td>酷睿i5二代</td>
-                    <td>3650</td><td>3850</td>
-                </tr>
-
-                <tr>
-                    <td>thinkpad u330p</td><td>联想电脑</td>
-                    <td>u330p-2312</td><td>酷睿i5二代</td>
-                    <td>3650</td><td>3850</td>
-                </tr>
-
-                <tr>
-                    <td>thinkpad u330p</td><td>联想电脑</td>
-                    <td>u330p-2312</td><td>酷睿i5二代</td>
-                    <td>3650</td><td>3850</td>
-                </tr>
-
-                <tr>
-                    <td>thinkpad u330p</td><td>联想电脑</td>
-                    <td>u330p-2312</td><td>酷睿i5二代</td>
-                    <td>3650</td><td>3850</td>
-                </tr>
-
-                <tr>
-                    <td>thinkpad u330p</td><td>联想电脑</td>
-                    <td>u330p-2312</td><td>酷睿i5二代</td>
-                    <td>3650</td><td>3850</td>
-                </tr>
-
-                <tr>
-                    <td>thinkpad u330p</td><td>联想电脑</td>
-                    <td>u330p-2312</td><td>酷睿i5二代</td>
-                    <td>3650</td><td>3850</td>
-                </tr>
-
-                <tr>
-                    <td>thinkpad u330p</td><td>联想电脑</td>
-                    <td>u330p-2312</td><td>酷睿i5二代</td>
-                    <td>3650</td><td>3850</td>
-                </tr>
-
-                <tr>
-                    <td>thinkpad u330p</td><td>联想电脑</td>
-                    <td>u330p-2312</td><td>酷睿i5二代</td>
-                    <td>3650</td><td>3850</td>
-                </tr>
+                <s:iterator value="products">
+                    <tr>
+                        <td class="tdNormal">
+                            <a href="productBlog.html?product.id=<s:property value="id"/>"><s:property value="name"/></a>
+                        </td>
+                        <td class="tdNormal tdCenter"><s:property value="brand"/> </td>
+                        <td class="tdNormal"><s:property value="xingHao"/> </td>
+                        <td class="tdLong"><s:property value="zhiBiao"/> </td>
+                        <td class="tdShort"><s:property value="vipPrice"/> </td>
+                        <td class="tdShort"><s:property value="price"/> </td>
+                    </tr>
+                </s:iterator>
 
             </table>
         </div>
@@ -111,13 +59,13 @@
 
     <div class="companyHire">
         <div class="title">公司招聘</div>
-        <div class="companyNews">
-            <div class="companyNew"><a href="#">【招聘】急招网络编辑美工30名，工作经验者优先</a></div>
-            <div class="companyNew"><a href="#">【招聘】招聘暑假兼职大学生若干，工资面议</a></div>
-            <div class="companyNew"><a href="#">【招聘】急招挖掘机、推土机司机，奔赴西藏为西部大开发做贡献</a></div>
-            <div class="companyNew"><a href="#">【招聘】急招网络编辑美工30名，工作经验者优先</a></div>
-            <div class="companyNew"><a href="#">【招聘】招聘暑假兼职大学生若干，工资面议</a></div>
-            <div class="companyNew"><a href="#">【招聘】急招挖掘机、推土机司机，奔赴西藏为西部大开发做贡献</a></div>
+        <div class="companyNews" style="min-height: 200px;">
+            <s:iterator value="newses">
+                <div class="companyNew" style="margin-left: 6px;"><a href="newsBlog.html?news.id=<s:property value="id"/>">
+                    【<s:property value="getFirstCategoryName()"/>】
+                    <s:property value="title"/>&nbsp;[<s:property value="pubOrg"/>&nbsp;<s:date name="pubTime" format="yyyy-MM-dd"/>]
+                </a></div>
+            </s:iterator>
         </div>
     </div>
 

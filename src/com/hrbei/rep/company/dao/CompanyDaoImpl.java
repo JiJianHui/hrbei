@@ -40,4 +40,9 @@ public class CompanyDaoImpl extends ModelDaoImpl<Company> implements CompanyDao 
                         "where ( com.name like ? or category.name like ? or product.name like ? ) and " + DeletedFalse;
         return this.find(hql,pagination, "%" + searchStr + "%", "%" + searchStr + "%", "%" + searchStr + "%");
     }
+
+    public List<Company> findByCategoryId(Integer cID, Pagination pagination){
+        String hql = "select distinct com From Company com left join com.categorys category where category.id=? and " + DeletedFalse;
+        return  this.find(hql,pagination,cID);
+    }
 }

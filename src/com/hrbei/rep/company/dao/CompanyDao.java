@@ -20,4 +20,6 @@ public interface CompanyDao extends ModelDao<Company>
     public List<Company> findAllCompanyInStatus(Integer status, Pagination pagination);
 
     public List<Company> findCompanyByNameLike(String name, Pagination pagination);
+
+    public List<Company> findByCategoryId(Integer cID, Pagination pagination);
 }

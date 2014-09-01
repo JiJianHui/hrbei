@@ -25,6 +25,7 @@ import org.springframework.stereotype.Controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -106,6 +107,8 @@ public class ProductAction extends BasicAction
         product = productDao.findById(this.getProduct().getId());
         company = product.getCompany();
         categories = categoryDao.findAllCategoryByDescription(Constants.Category_Product);
+        categoryIds = new ArrayList<Integer>();
+        for(Category cag:product.getCategorys() ){ categoryIds.add( cag.getId() ); }
         return SUCCESS;
     }
 
@@ -125,7 +128,7 @@ public class ProductAction extends BasicAction
         company = oldProduct.getCompany();
 
         // copy jpg
-        if (StringUtils.isNotBlank(product.getLogo()) && !StringUtils.startsWithIgnoreCase(product.getLogo(), "upload/")) {
+        if (StringUtils.isNotBlank(product.getLogo()) && !StringUtils.startsWithIgnoreCase(product.getLogo(), "/upload/")) {
             String companyDir = ServletActionContext.getServletContext().getRealPath(Constants.Upload_Company_Path);
             companyDir = companyDir + File.separator + company.getId() + File.separator + "product";
 
@@ -177,6 +180,14 @@ public class ProductAction extends BasicAction
         PrintWriter out = ServletActionContext.getResponse().getWriter();
         out.print(resultMessage);
         out.close();
+    }
+
+    @Action(value = "productBlog", results = {@Result(name = SUCCESS,type = Constants.RESULT_NAME_TILES, location = ".productBlog")})
+    public String productBlog()
+    {
+        product = productDao.findById(this.getProduct().getId());
+        company = product.getCompany();
+        return SUCCESS;
     }
 
     private Boolean hasAccessToProduct(User user, Product product){

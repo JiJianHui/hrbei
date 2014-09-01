@@ -4,6 +4,8 @@ import com.hrbei.action.BasicAction;
 import com.hrbei.common.Constants;
 import com.hrbei.common.utils.Utils;
 import com.hrbei.rep.Pagination;
+import com.hrbei.rep.category.dao.CategoryDao;
+import com.hrbei.rep.category.entity.Category;
 import com.hrbei.rep.company.dao.CompanyDao;
 import com.hrbei.rep.company.entity.Company;
 import com.hrbei.rep.news.dao.NewsDao;
@@ -25,6 +27,7 @@ import org.springframework.stereotype.Controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -57,11 +60,16 @@ public class CompanyAction extends BasicAction{
     private String menu;
     private String resultMessage;
 
+    private CategoryDao categoryDao;
+    private List<Category> categories;
+    private List<Integer> categoryIds;
+
     @Action(value = "initCreateCompany", results = {@Result(name = SUCCESS,type = Constants.RESULT_NAME_TILES, location = ".initCreateCompany")})
     public String initCreateCompany()
     {
         user = userDao.findById(this.getSessionUserId());
         if( company == null ) company = new Company();
+        categories = categoryDao.findAllCategoryByDescription(Constants.Category_Product);
         return SUCCESS;
     }
 
@@ -108,6 +116,15 @@ public class CompanyAction extends BasicAction{
             Utils.notReplaceFileFromTmpModified(temp.getAbsolutePath(), company.getAdImage());
             company.setAdImage(Constants.Upload_Company_Path + File.separator + company.getId() + File.separator + company.getAdImage());
         }
+
+        //设置类别
+        for(Integer categoryId:categoryIds){
+            Category category = categoryDao.findById(categoryId);
+            if( category != null ){
+                company.getCategorys().add(category);
+            }
+        }
+
         companyDao.persist(company);
 
         return SUCCESS;
@@ -118,7 +135,10 @@ public class CompanyAction extends BasicAction{
     public String initUpdateCompany()
     {
         user = userDao.findById(this.getSessionUserId());
-        company = companyDao.findById( this.getCompany().getId() );
+        company = companyDao.findById(this.getCompany().getId());
+        categories = categoryDao.findAllCategoryByDescription(Constants.Category_Product);
+        categoryIds = new ArrayList<Integer>();
+        for(Category cag:company.getCategorys() ){ categoryIds.add( cag.getId() ); }
         return SUCCESS;
     }
 
@@ -137,7 +157,7 @@ public class CompanyAction extends BasicAction{
         oldCompany.setWebSite( company.getWebSite() );
 
         // copy jpg
-        if (StringUtils.isNotBlank(company.getLogo()) && !StringUtils.startsWithIgnoreCase(company.getLogo(), "upload/")  ) {
+        if (StringUtils.isNotBlank(company.getLogo()) && !StringUtils.startsWithIgnoreCase(company.getLogo(), "/upload/")  ) {
             String companyDir = ServletActionContext.getServletContext().getRealPath(Constants.Upload_Company_Path);
             companyDir = companyDir + File.separator + company.getId();
 
@@ -150,7 +170,7 @@ public class CompanyAction extends BasicAction{
             oldCompany.setLogo(Constants.Upload_Company_Path + File.separator + company.getId() + File.separator + company.getLogo());
         }
 
-        if (StringUtils.isNotBlank(company.getHomeImage())  && !StringUtils.startsWithIgnoreCase(company.getHomeImage(), "upload/") ) {
+        if (StringUtils.isNotBlank(company.getHomeImage())  && !StringUtils.startsWithIgnoreCase(company.getHomeImage(), "/upload/") ) {
             String companyDir = ServletActionContext.getServletContext().getRealPath(Constants.Upload_Company_Path);
             companyDir = companyDir + File.separator + company.getId();
 
@@ -161,7 +181,7 @@ public class CompanyAction extends BasicAction{
             oldCompany.setHomeImage(Constants.Upload_Company_Path + File.separator + company.getId() + File.separator + company.getHomeImage());
         }
 
-        if (StringUtils.isNotBlank(company.getAdImage())  && !StringUtils.startsWithIgnoreCase(company.getAdImage(), "upload/")) {
+        if (StringUtils.isNotBlank(company.getAdImage())  && !StringUtils.startsWithIgnoreCase(company.getAdImage(), "/upload/")) {
             String companyDir = ServletActionContext.getServletContext().getRealPath(Constants.Upload_Company_Path);
             companyDir = companyDir + File.separator + company.getId();
 
@@ -170,6 +190,15 @@ public class CompanyAction extends BasicAction{
 
             Utils.notReplaceFileFromTmpModified(temp.getAbsolutePath(), company.getAdImage());
             oldCompany.setAdImage(Constants.Upload_Company_Path + File.separator + company.getId() + File.separator + company.getAdImage());
+        }
+
+        //设置类别
+        oldCompany.getCategorys().clear();
+        for(Integer categoryId:categoryIds){
+            Category category = categoryDao.findById(categoryId);
+            if( category != null ){
+                oldCompany.getCategorys().add(category);
+            }
         }
 
         companyDao.persistAbstract(oldCompany);
@@ -371,5 +400,29 @@ public class CompanyAction extends BasicAction{
 
     public void setMenu(String menu) {
         this.menu = menu;
+    }
+
+    public CategoryDao getCategoryDao() {
+        return categoryDao;
+    }
+
+    public void setCategoryDao(CategoryDao categoryDao) {
+        this.categoryDao = categoryDao;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
+
+    public List<Integer> getCategoryIds() {
+        return categoryIds;
+    }
+
+    public void setCategoryIds(List<Integer> categoryIds) {
+        this.categoryIds = categoryIds;
     }
 }

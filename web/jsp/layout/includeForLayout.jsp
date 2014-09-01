@@ -84,7 +84,7 @@
             }
             var extension = currHref.substring( currHref.lastIndexOf("/") );
             if (currHref.indexOf("index.html") > -1 || extension=="/" || extension =="#" ) {
-                window.location.href = "myfirstPage.html";
+                window.location.href = "userCenter.html";
                 return;
             }
 

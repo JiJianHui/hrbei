@@ -67,6 +67,13 @@
             <s:textarea name="company.description" rows="4"  id="description" cssClass="inputLong"/>
         </div>
 
+        <div class="companyLines" style="width: 500px;font-weight: normal;">
+            <label class="control-label text"> 类别:</label><br/>
+            <span class="caglists">
+                <s:checkboxlist name="categoryIds" list="categories" listKey="id" listValue="name"/>
+            </span>
+        </div>
+
     </div>
 
 

@@ -12,6 +12,8 @@ import org.apache.struts2.ServletActionContext;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 
 public class BasicAction extends ActionSupport
@@ -27,6 +29,12 @@ public class BasicAction extends ActionSupport
     private Pagination pagination = new Pagination();
 
     protected Logger logger = LogManager.getLogger(this.getClass().getName());
+
+    private String websiteLinks1;
+    private String websiteLinks2;
+    private String websiteLinks3;
+    private String websiteLinks4;
+    private String websiteLinks5;
 
     public String getRealPathForBaseDir() {
 
@@ -54,6 +62,38 @@ public class BasicAction extends ActionSupport
         if (ActionContext.getContext().getSession().get(Constants.SESSION_USER_ID) != null)
             return (Integer) ActionContext.getContext().getSession().get(Constants.SESSION_USER_ID);
         return null;
+    }
+
+    public void loadPoster() {
+
+        String line;
+        String fPath = ServletActionContext.getServletContext().getRealPath("/poster.txt");
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(fPath));
+            line = br.readLine();
+            if (line.trim().length() == 0) line = "index.html";
+            this.websiteLinks1 = line;
+
+            line = br.readLine();
+            if (line.trim().length() == 0) line = "index.html";
+            this.websiteLinks2 = line;
+
+            line = br.readLine();
+            if (line.trim().length() == 0) line = "index.html";
+            this.websiteLinks3 = line;
+
+            line = br.readLine();
+            if (line.trim().length() == 0) line = "index.html";
+            this.websiteLinks4 = line;
+
+            line = br.readLine();
+            if (line.trim().length() == 0) line = "index.html";
+            this.websiteLinks5 = line;
+
+            br.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     protected String getSessionNickName() {
@@ -124,4 +164,43 @@ public class BasicAction extends ActionSupport
         return false;
     }
 
+    public String getWebsiteLinks1() {
+        return websiteLinks1;
+    }
+
+    public void setWebsiteLinks1(String websiteLinks1) {
+        this.websiteLinks1 = websiteLinks1;
+    }
+
+    public String getWebsiteLinks2() {
+        return websiteLinks2;
+    }
+
+    public void setWebsiteLinks2(String websiteLinks2) {
+        this.websiteLinks2 = websiteLinks2;
+    }
+
+    public String getWebsiteLinks3() {
+        return websiteLinks3;
+    }
+
+    public void setWebsiteLinks3(String websiteLinks3) {
+        this.websiteLinks3 = websiteLinks3;
+    }
+
+    public String getWebsiteLinks4() {
+        return websiteLinks4;
+    }
+
+    public void setWebsiteLinks4(String websiteLinks4) {
+        this.websiteLinks4 = websiteLinks4;
+    }
+
+    public String getWebsiteLinks5() {
+        return websiteLinks5;
+    }
+
+    public void setWebsiteLinks5(String websiteLinks5) {
+        this.websiteLinks5 = websiteLinks5;
+    }
 }

@@ -11,6 +11,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -164,6 +165,7 @@ public class Company extends AbstractPersistence
     }
 
     public List<Category> getCategorys() {
+        if(categorys == null) categorys = new ArrayList<Category>();
         return categorys;
     }
 

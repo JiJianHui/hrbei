@@ -20,6 +20,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -178,6 +179,8 @@ public class AdminAction extends BasicAction {
         websiteImages4 = Constants.Image_Websit_Dir + File.separator + "4.jpg";
         websiteImages5 = Constants.Image_Websit_Dir + File.separator + "5.jpg";
 
+        this.loadPoster();
+
         if( !this.isAdmin(user) ) return ERROR;
 
 
@@ -257,6 +260,15 @@ public class AdminAction extends BasicAction {
             if( oldImage.exists() ) oldImage.delete();
             temp.renameTo(new File(dstPath) );
         }
+
+        String fPath = ServletActionContext.getServletContext().getRealPath("/poster.txt");
+        FileWriter fw = new FileWriter(new File(fPath));
+        fw.write(this.getWebsiteLinks1() + "\r\n");
+        fw.write(this.getWebsiteLinks2() + "\r\n");
+        fw.write(this.getWebsiteLinks3() + "\r\n");
+        fw.write(this.getWebsiteLinks4() + "\r\n");
+        fw.write(this.getWebsiteLinks5() + "\r\n");
+        fw.close();
 
         resultMessage = "success";
         PrintWriter out = ServletActionContext.getResponse().getWriter();

@@ -60,6 +60,12 @@
                 <s:textfield type="text" name="company.webSite" id="webSite" cssClass="input inputShort"/>
             </div>
 
+            <div class="companyLines" style="width: 500px;font-weight: normal;">
+                <label class="control-label text"> 类别:</label>
+                <span class="caglists">
+                    <s:checkboxlist name="categoryIds" list="categories" listKey="id" listValue="name"/>
+                </span>
+            </div>
                 <%--<div class="companyLines">--%>
                 <%--<button type="button" class="btn btn-primary btn-success" style="margin-left: 20px;" id="chgPwdBtn">提交商店基本信息</button>--%>
                 <%--<span style="color:red; font-weight: bold;" id="submit_msg1"></span>--%>

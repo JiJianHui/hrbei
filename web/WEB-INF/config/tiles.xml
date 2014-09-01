@@ -214,6 +214,10 @@
         <put-attribute name="rightContent" value="/jsp/layout/verticalAD.jsp"/>
     </definition>
 
+    <definition name=".searchAllResult" extends=".baseLayout">
+        <put-attribute name="title" value="产品查询"/>
+        <put-attribute name="content" value="/jsp/search/searchAllResult.jsp"/>
+    </definition>
 
     <!--********************************娱乐等杂七杂八界面**********************************************-->
     <definition name=".findJob" extends=".twoCloumnLayout">
@@ -256,6 +260,10 @@
     <!--********************************公司主页等**********************************************-->
     <definition name=".companyBlog" extends=".companyLayout">
         <put-attribute name="companyInfo" value="/jsp/company/companyBlog.jsp"/>
+    </definition>
+
+    <definition name=".productBlog" extends=".companyLayout">
+        <put-attribute name="companyInfo" value="/jsp/product/productBlog.jsp"/>
     </definition>
 
     <definition name=".companyBlogProducts" extends=".companyLayout">

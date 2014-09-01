@@ -51,6 +51,7 @@ public class IndexAction extends BasicAction
     private Pagination pagination = new Pagination(Constants.Page_Size_Index);
 
     private String searchStr;
+    private String searchAllStr;
 
     private String websiteImages1;
     private String websiteImages2;
@@ -71,12 +72,14 @@ public class IndexAction extends BasicAction
         newses = newsDao.findAll(pagination);
         categories = categoryDao.findAllCategoryByDescription(Constants.Category_Product);
         this.getWebsiteImg();
+        this.loadPoster();
         return SUCCESS;
     }
 
     @Action(value = "indexProuctList", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".indexProuctList")})
     public String indexProuctList(){
         pagination.setPageSize(20);
+        companies = companyDao.findByCategoryId(this.getTypeId(),pagination);
         products = productDao.findByCategoryId( this.getTypeId(), pagination );
         categories = categoryDao.findAllCategoryByDescription(Constants.Category_Product);
         return SUCCESS;
@@ -134,6 +137,15 @@ public class IndexAction extends BasicAction
         newses = newsDao.findByCategoryId(typeId, pagination);
         return SUCCESS;
     }
+
+    @Action(value = "searchAll", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".searchAllResult")})
+    public String searchAll(){
+        companies = companyDao.findCompanyByNameLike(searchAllStr,pagination);
+        products = productDao.findByNameLike(searchAllStr,pagination);
+        categories = categoryDao.findAllCategoryByDescription(Constants.Category_Product);
+        return SUCCESS;
+    }
+
 
 
 
@@ -289,5 +301,13 @@ public class IndexAction extends BasicAction
 
     public void setWebsiteImages5(String websiteImages5) {
         this.websiteImages5 = websiteImages5;
+    }
+
+    public String getSearchAllStr() {
+        return searchAllStr;
+    }
+
+    public void setSearchAllStr(String searchAllStr) {
+        this.searchAllStr = searchAllStr;
     }
 }

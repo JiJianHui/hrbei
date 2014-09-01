@@ -18,6 +18,7 @@
             <s:hidden id="picHidden1" name="websiteImages1"/>
             <img src="<s:property value="websiteImages1"/>" id="productLogo1"/>
             <a class="btn btn-success change_Website_Img" href="websiteImgCrop.html?imageIndex=1">更改图片</a>
+            <br/>链接:<s:textfield name="websiteLinks1" cssClass="inputLong"/>
         </div>
 
         <div class="imageLines">
@@ -25,6 +26,7 @@
             <s:hidden id="picHidden2" name="websiteImages2"/>
             <img src="<s:property value="websiteImages2"/>" id="productLogo2"/>
             <a class="btn btn-success change_Website_Img" href="websiteImgCrop.html?imageIndex=2">更改图片</a>
+            <br/>链接:<s:textfield name="websiteLinks2" cssClass="inputLong"/>
         </div>
 
         <div class="imageLines">
@@ -32,6 +34,7 @@
             <s:hidden id="picHidden3" name="websiteImages3"/>
             <img src="<s:property value="websiteImages3"/>" id="productLogo3"/>
             <a class="btn btn-success change_Website_Img" href="websiteImgCrop.html?imageIndex=3">更改图片</a>
+            <br/>链接:<s:textfield name="websiteLinks3" cssClass="inputLong"/>
         </div>
 
         <div class="imageLines">
@@ -39,6 +42,7 @@
             <s:hidden id="picHidden4" name="websiteImages4"/>
             <img src="<s:property value="websiteImages4"/>" id="productLogo4"/>
             <a class="btn btn-success change_Website_Img" href="websiteImgCrop.html?imageIndex=4">更改图片</a>
+            <br/>链接:<s:textfield name="websiteLinks4" cssClass="inputLong"/>
         </div>
 
         <div class="imageLines">
@@ -46,6 +50,7 @@
             <s:hidden id="picHidden5" name="websiteImages5"/>
             <img src="<s:property value="websiteImages5"/>" id="productLogo5"/>
             <a class="btn btn-success change_Website_Img" href="websiteImgCrop.html?imageIndex=5">更改图片</a>
+            <br/>链接:<s:textfield name="websiteLinks5" cssClass="inputLong"/>
         </div>
 
         </s:form>
@@ -53,7 +58,7 @@
 
     <div style="clear: both;">
         <button type="button" id="updateImageBtn" class="btn btn-primary btn-success">&nbsp;&nbsp;提交更改的图片&nbsp;&nbsp;</button>
-        <span id="submit_msg" style="color:red; font-weight: bold;font-size: 13px"></span>
+        <span id="submit_msg_img" style="color:red; font-weight: bold;font-size: 13px"></span>
     </div>
 
 </div>
@@ -75,6 +80,7 @@
         width: 150px;
         height: 93px;
         border: 2px solid white;
+        margin-bottom: 5px;
     }
 
     .imageLines{
@@ -83,6 +89,14 @@
         float: left;
         padding-bottom: 5px;
         border-bottom: 1px dotted #7cfc00;
+    }
+    .inputLong{
+        border-radius: 3px;
+        border: 1px solid #cccccc;
+        width: 330px;
+        padding-left: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
     }
 </style>
 
@@ -105,9 +119,9 @@
         var userData = $("#websiteImagesForm").serialize();
         $.post(url,userData,function(data)
         {
-            $("#submit_msg").html("");
-            if(data.equals("success")){$("#submit_msg").html("图片更改成功！");
-            }else{$("#submit_msg").html("未知错误");}
+            $("#submit_msg_img").html("");
+            if(data=="success"){$("#submit_msg_img").html("图片更改成功！");
+            }else{$("#submit_msg_img").html("未知错误");}
         },"text");
 
     });

@@ -26,7 +26,8 @@
 
             <s:if test="#st.index%4 == 0"><div class="productLines"></s:if>
                 <div class="productItem">
-                    <img src="<s:property value="#product.logo"/>"/>
+                    <a href="productBlog.html?product.id=<s:property value="#product.id"/>">
+                    <img src="<s:property value="#product.logo"/>"/></a>
                     <div class="productBrand">
                         <s:property value="#product.name"/> | <s:property value="#product.xingHao"/>
                     </div>

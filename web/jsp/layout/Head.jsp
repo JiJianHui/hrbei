@@ -72,8 +72,9 @@
 
     <!--搜索部分-->
     <div class="search" align="center">
-        <form id="searchForm" action="#" method="post">
-            <input id="searchField" name="searchField" type="text" title="请输入您要查找的关键字" /><input id="searchSubmit" name="searchSubmit" type="button" value="搜索" title="搜索" />
+        <form id="searchForm" action="searchAll.html" method="post">
+            <input id="searchField" name="searchAllStr" type="text" title="请输入您要查找的关键字" />
+            <input id="searchSubmit" name="searchSubmit" type="submit" value="搜索" title="搜索"/>
         </form>
     </div>
 
