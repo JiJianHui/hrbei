@@ -14,7 +14,7 @@
     <dl class="loginRegister">
         <s:if test="#session.email != null">
             <dd class="loginSuccessName">
-                <a href="myFirstPage.html">欢迎您，<s:property value="#session.nickName"/><img src="images/contact.jpg" /></a>
+                <a href="userCenter.html">欢迎您，<s:property value="#session.nickName"/><img src="images/contact.jpg" /></a>
                 <ul>
                     <li><a href="userCenter.html">个人中心</a></li>
                     <li><a href="userInfo.html">账号设置</a></li>
@@ -46,7 +46,7 @@
             <a href="#"><img src="images/customerService.jpg"/>客服</a>
             <ul>
                 <li><a href="#">在线客服</a></li>
-                <li><a href="tencent://message/?uin=825196587">QQ留言</a></li>
+                <li><a href="tencent://message/?uin=1072805997">QQ留言</a></li>
                 <li><a href="#">投诉/建议</a></li>
             </ul>
         </dd>
