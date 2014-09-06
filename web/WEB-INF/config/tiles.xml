@@ -111,6 +111,9 @@
         <put-attribute name="rightContent" value="/jsp/company/initCreateCompany.jsp"/>
     </definition>
 
+    <definition name=".cropCompanyAD" template="/jsp/company/cropCompanyAD.jsp">
+    </definition>
+
     <definition name=".initUpdateCompany" extends=".userLayout">
         <put-attribute name="title" value="更新公司"/>
         <put-attribute name="rightContent" value="/jsp/company/updateCompanyInfo.jsp"/>

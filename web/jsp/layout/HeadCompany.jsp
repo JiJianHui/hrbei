@@ -109,7 +109,7 @@
         <div class="loginHeadLeft">欢迎登陆哈尔滨电子企业报价网</div>
         <div class="loginHeadRight">
             <a href="javascript:void(0)" onclick="document.getElementById('loginPanel').style.display='none';
-                             document.getElementById('fade').style.display='none';document.body.style.overflow='scroll' ">
+                             document.getElementById('fade').style.display='none'; ">
                 <%--<img src="/images/close.png"/>--%>[Close]
             </a>
         </div>

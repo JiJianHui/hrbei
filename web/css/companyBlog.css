@@ -160,7 +160,7 @@
 }
 .companyAd{
     width: 1024px;
-    height: 430px;
+    height: 500px;
 }
 
 .companyNews,.companyProductPriceTable,.companyHire{
@@ -169,6 +169,8 @@
     margin-left: 10px;
     margin-right: 10px;
     background-color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 .title{
     color: #6895c9;
@@ -177,6 +179,7 @@
     margin-bottom: 5px;
     margin-left:10px;
 }
+
 
 .companyNew{margin-top: 5px;}
 

@@ -25,7 +25,7 @@ import java.util.List;
 public class Company extends AbstractPersistence
 {
     private String name;    //企业名称
-    private String logo = Constants.Company_Default_Portrait;        //企业小型Logo
+    private String logo = Constants.Company_Default_Image;        //企业小型Logo
     private String homeImage = Constants.Company_Default_Image;   //企业个人主页图片展示
     private String adImage = Constants.Company_Default_Image;
     private String address;

@@ -47,12 +47,12 @@ public class Utils {
 
     public static void replaceFileFromTempModified(String toDir, String fileName) {
         String srcPath = ServletActionContext.getServletContext().getRealPath(Constants.Upload_File_Tmp_Path + "/" + fileName);
-        replaceFile(srcPath, toDir + File.separator + fileName);
+        replaceFile(srcPath, toDir + "/" + fileName);
     }
 
     public static void notReplaceFileFromTmpModified(String toDir, String fileName) {
         String srcPath = ServletActionContext.getServletContext().getRealPath(Constants.Upload_File_Tmp_Path + "/" + fileName);
-        String toPath = toDir + File.separatorChar + fileName;
+        String toPath = toDir + "/" + fileName;
         notReplaceFileAndCopy(srcPath, toPath);
     }
 

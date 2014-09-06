@@ -78,13 +78,13 @@ public class ProductAction extends BasicAction
         // copy jpg
         if (StringUtils.isNotBlank(product.getLogo()) ) {
             String companyDir = ServletActionContext.getServletContext().getRealPath(Constants.Upload_Company_Path);
-            companyDir = companyDir + File.separator + company.getId() + File.separator + "product";
+            companyDir = companyDir + "/" + company.getId() + "/" + "product";
 
             File temp = new File(companyDir);
             if (!temp.exists()) temp.mkdirs();
 
             Utils.notReplaceFileFromTmpModified(temp.getAbsolutePath(), product.getLogo());
-            product.setLogo(Constants.Upload_Company_Path + File.separator + company.getId() + File.separator + "product" + File.separator + product.getLogo());
+            product.setLogo(Constants.Upload_Company_Path + "/" + company.getId() + "/" + "product" + "/" + product.getLogo());
         }
 
         //设置类别
@@ -130,13 +130,13 @@ public class ProductAction extends BasicAction
         // copy jpg
         if (StringUtils.isNotBlank(product.getLogo()) && !StringUtils.startsWithIgnoreCase(product.getLogo(), "/upload/")) {
             String companyDir = ServletActionContext.getServletContext().getRealPath(Constants.Upload_Company_Path);
-            companyDir = companyDir + File.separator + company.getId() + File.separator + "product";
+            companyDir = companyDir + "/" + company.getId() + "/" + "product";
 
             File temp = new File(companyDir);
             if (!temp.exists()) temp.mkdirs();
 
             Utils.notReplaceFileFromTmpModified(temp.getAbsolutePath(), product.getLogo());
-            oldProduct.setLogo(Constants.Upload_Company_Path + File.separator + company.getId() + File.separator + "product" + File.separator + product.getLogo());
+            oldProduct.setLogo(Constants.Upload_Company_Path + "/" + company.getId() + "/" + "product" + "/" + product.getLogo());
         }
 
         //设置类别

@@ -31,7 +31,7 @@
 <link href="/css/user/userLayout.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="/js/ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="/js/My97DatePicker/WdatePicker.js"></script>
-<body>
+<body style="height: auto;">
 
 <div id="main" style="margin-top: 0px" id="mainBoady">
 
@@ -64,6 +64,7 @@
 
 </div>
 <div id="fade" class="black_overlay"></div>
+<div style="clear: both;"></div>
 </body>
 
 </html>

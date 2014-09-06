@@ -173,11 +173,11 @@ public class AdminAction extends BasicAction {
 
         user = userDao.findById(this.getSessionUserId());
 
-        websiteImages1 = Constants.Image_Websit_Dir + File.separator + "1.jpg";
-        websiteImages2 = Constants.Image_Websit_Dir + File.separator + "2.jpg";
-        websiteImages3 = Constants.Image_Websit_Dir + File.separator + "3.jpg";
-        websiteImages4 = Constants.Image_Websit_Dir + File.separator + "4.jpg";
-        websiteImages5 = Constants.Image_Websit_Dir + File.separator + "5.jpg";
+        websiteImages1 = Constants.Image_Websit_Dir + "/" + "1.jpg";
+        websiteImages2 = Constants.Image_Websit_Dir + "/" + "2.jpg";
+        websiteImages3 = Constants.Image_Websit_Dir + "/" + "3.jpg";
+        websiteImages4 = Constants.Image_Websit_Dir + "/" + "4.jpg";
+        websiteImages5 = Constants.Image_Websit_Dir + "/" + "5.jpg";
 
         this.loadPoster();
 
@@ -205,9 +205,9 @@ public class AdminAction extends BasicAction {
         if (StringUtils.isNotBlank(websiteImages1) && !websiteImages1.startsWith("/images")) {
 
             Utils.notReplaceFileFromTmpModified(websiteImageDir.getAbsolutePath(), websiteImages1);
-            File temp = new File(websiteImageDir + File.separator + websiteImages1);
+            File temp = new File(websiteImageDir + "/" + websiteImages1);
 
-            String dstPath = websiteImagepath + File.separator + "1.jpg";
+            String dstPath = websiteImagepath + "/" + "1.jpg";
             File oldImage = new File(dstPath);
 
             if( oldImage.exists() ) oldImage.delete();
@@ -216,9 +216,9 @@ public class AdminAction extends BasicAction {
         if (StringUtils.isNotBlank(websiteImages2) && !websiteImages2.startsWith("/images") ) {
 
             Utils.notReplaceFileFromTmpModified(websiteImageDir.getAbsolutePath(), websiteImages2);
-            File temp = new File(websiteImageDir + File.separator + websiteImages2);
+            File temp = new File(websiteImageDir + "/" + websiteImages2);
 
-            String dstPath = websiteImagepath + File.separator + "2.jpg";
+            String dstPath = websiteImagepath + "/" + "2.jpg";
             File oldImage = new File(dstPath);
 
             if( oldImage.exists() ) oldImage.delete();
@@ -228,9 +228,9 @@ public class AdminAction extends BasicAction {
         if (StringUtils.isNotBlank(websiteImages3) && !websiteImages3.startsWith("/images") ) {
 
             Utils.notReplaceFileFromTmpModified(websiteImageDir.getAbsolutePath(), websiteImages3);
-            File temp = new File(websiteImageDir + File.separator + websiteImages3);
+            File temp = new File(websiteImageDir + "/" + websiteImages3);
 
-            String dstPath = websiteImagepath + File.separator + "3.jpg";
+            String dstPath = websiteImagepath + "/" + "3.jpg";
             File oldImage = new File(dstPath);
 
             if( oldImage.exists() ) oldImage.delete();
@@ -240,9 +240,9 @@ public class AdminAction extends BasicAction {
         if (StringUtils.isNotBlank(websiteImages4) && !websiteImages4.startsWith("/images") ) {
 
             Utils.notReplaceFileFromTmpModified(websiteImageDir.getAbsolutePath(), websiteImages4);
-            File temp = new File(websiteImageDir + File.separator + websiteImages4);
+            File temp = new File(websiteImageDir + "/" + websiteImages4);
 
-            String dstPath = websiteImagepath + File.separator + "4.jpg";
+            String dstPath = websiteImagepath + "/" + "4.jpg";
             File oldImage = new File(dstPath);
 
             if( oldImage.exists() ) oldImage.delete();
@@ -252,9 +252,9 @@ public class AdminAction extends BasicAction {
         if (StringUtils.isNotBlank(websiteImages5) && !websiteImages5.startsWith("/images")) {
 
             Utils.notReplaceFileFromTmpModified(websiteImageDir.getAbsolutePath(), websiteImages5);
-            File temp = new File(websiteImageDir + File.separator + websiteImages5);
+            File temp = new File(websiteImageDir + "/" + websiteImages5);
 
-            String dstPath = websiteImagepath + File.separator + "5.jpg";
+            String dstPath = websiteImagepath + "/" + "5.jpg";
             File oldImage = new File(dstPath);
 
             if( oldImage.exists() ) oldImage.delete();

@@ -60,11 +60,11 @@ public class IndexAction extends BasicAction
     private String websiteImages5;
 
     private void getWebsiteImg(){
-        websiteImages1 = Constants.Image_Websit_Dir + File.separator + "1.jpg";
-        websiteImages2 = Constants.Image_Websit_Dir + File.separator + "2.jpg";
-        websiteImages3 = Constants.Image_Websit_Dir + File.separator + "3.jpg";
-        websiteImages4 = Constants.Image_Websit_Dir + File.separator + "4.jpg";
-        websiteImages5 = Constants.Image_Websit_Dir + File.separator + "5.jpg";
+        websiteImages1 = Constants.Image_Websit_Dir + "/" + "1.jpg";
+        websiteImages2 = Constants.Image_Websit_Dir + "/" + "2.jpg";
+        websiteImages3 = Constants.Image_Websit_Dir + "/" + "3.jpg";
+        websiteImages4 = Constants.Image_Websit_Dir + "/" + "4.jpg";
+        websiteImages5 = Constants.Image_Websit_Dir + "/" + "5.jpg";
     }
 
     @Action(value = "index", results = {@Result(name = SUCCESS, type = Constants.RESULT_NAME_TILES, location = ".index")})

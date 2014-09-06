@@ -10,10 +10,69 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 
 <link href="/css/category.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/css/jcarousel.connected-carousels.css">
+
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.jcarousel.min.js"></script>
+
+<script type="text/javascript" src="/js/jcarousel.connected-carousels.js"></script>
+
+<style>
+
+    pre {
+        border:1px solid #000;
+        overflow-x:auto;
+        background: #222;
+        color: #fff;
+        text-shadow: none;
+    }
+
+    .wrapper {
+        max-width: 1024px;
+        /*padding: 0 20px 40px 20px;*/
+        padding: 0px;;
+        margin: auto;
+    }
+</style>
+
 
 <div style="background-color: #08419c; border-bottom: 5px solid #08419c">
     <div class="companyBig"><img src="<s:property value="company.homeImage"/>"/></div>
-    <div class="companyAd"><img src="<s:property value="company.adImage"/>"/></div>
+    <%--<div class="companyAd"><img src="<s:property value="company.adImage"/>"/></div>--%>
+
+    <div class="companyAd">
+
+        <div class="wrapper">
+            <div class="connected-carousels">
+
+                <div class="stage">
+                    <div class="carousel carousel-stage">
+                        <ul style="display: block">
+                            <s:iterator value="adImages" id="adImage">
+                                <li><img src="<s:property value="#adImage"/>" width="1020" height="400" alt=""></li>
+                            </s:iterator>
+                        </ul>
+                    </div>
+                    <a href="#" class="prev prev-stage"><span>&lsaquo;</span></a>
+                    <a href="#" class="next next-stage"><span>&rsaquo;</span></a>
+                </div>
+
+                <div class="navigation">
+                    <a href="#" class="prev prev-navigation">&lsaquo;</a>
+                    <a href="#" class="next next-navigation">&rsaquo;</a>
+                    <div class="carousel carousel-navigation">
+                        <ul style="display: block;">
+                            <s:iterator value="adImages" id="adImageSmall">
+                                <li><img src="<s:property value="#adImageSmall"/>" width="50" height="50" alt=""></li>
+                            </s:iterator>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
 
     <div class="companyNews">
         <div class="title">公司新闻</div>

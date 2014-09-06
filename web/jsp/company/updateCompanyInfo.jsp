@@ -12,12 +12,21 @@
 
 <link rel="stylesheet" type="text/css" href="/css/company/createCompany.css"/>
 
+<div class="stepBar">
+    <a href="userCenter.html"> 个人中心</a>
+    <span class="sepeator">></span>
+    <a href="myCompany.html"> 我的公司</a>
+    <span class="sepeator">></span>
+    <a href="companyBlog.html?company.id=<s:property value="company.id"/>"><s:property value="company.name"/> </a>
+    <span class="sepeator">></span>更改公司信息
+</div>
+
 <s:form id="companyBasicInfo" method="post" cssClass="form-horizontal" action="updateCompanyInfo">
 
     <s:hidden name="company.id" id="company_id"/>
 
     <div class="companyInfo">
-
+        <label class="h3_title" style="margin-bottom: 20px;margin-top: 10px;">第一步：公司基本信息</label>
         <div class="basicInfo">
 
             <div class="companyLines">
@@ -31,15 +40,8 @@
             </div>
 
             <div class="companyLines">
-                <label class="control-label text">公司简介:</label>
-                <s:textarea name="company.description" rows="3"  id="description" cssClass="inputLong"/>
-            </div>
-
-                <%--</div>--%>
-
-                <%--<div class="companyNum">--%>
-
-            <div class="companyLines">
+                <label class="control-label text">公司网址：</label>
+                <s:textfield type="text" name="company.webSite" id="webSite" cssClass="input inputShort"/>
                 <label class="control-label text">联&nbsp;系&nbsp;人:</label>
                 <s:textfield type="text" name="company.contactName" id="contactName" cssClass="input inputShort"/>
                 <label class="control-label text">公司QQ:</label>
@@ -51,26 +53,23 @@
                 <s:textfield type="text" name="company.phone" id="phone" cssClass="input inputShort"/>
                 <label class="control-label text">移动电话：</label>
                 <s:textfield type="text" name="company.mobilePhone" id="mobilePhone" cssClass="input inputShort"/>
-            </div>
 
-            <div class="companyLines">
                 <label class="control-label text">公司Email:</label>
                 <s:textfield type="text" name="company.email" id="email" cssClass="input inputShort"/>
-                <label class="control-label text">公司网址：</label>
-                <s:textfield type="text" name="company.webSite" id="webSite" cssClass="input inputShort"/>
             </div>
 
-            <div class="companyLines" style="width: 500px;font-weight: normal;">
+            <div class="companyLines" style="font-weight: normal;">
                 <label class="control-label text"> 类别:</label>
                 <span class="caglists">
                     <s:checkboxlist name="categoryIds" list="categories" listKey="id" listValue="name"/>
                 </span>
             </div>
-                <%--<div class="companyLines">--%>
-                <%--<button type="button" class="btn btn-primary btn-success" style="margin-left: 20px;" id="chgPwdBtn">提交商店基本信息</button>--%>
-                <%--<span style="color:red; font-weight: bold;" id="submit_msg1"></span>--%>
-                <%--<span style="color:green; font-weight: bold;" id="submit_msg2"></span>--%>
-                <%--</div>--%>
+
+            <div class="companyLines">
+                <label class="control-label text">公司简介:</label>
+                    <%--<s:textarea name="company.description" rows="3"  id="description" cssClass="inputLong"/>--%>
+                <s:textarea rows="20" cols="20" name="company.description" cssClass="longEditor" id="description"></s:textarea>
+            </div>
 
         </div>
 
@@ -78,11 +77,14 @@
     </div>
 
     <div class="companyPics">
+
+        <label class="h3_title" style="margin-bottom: 20px;margin-top: 10px;">第二步：公司图片</label>
+
         <div class="companyLogo">
-            <div class="picTips">1:在线商铺的商标Logo图像。(160*100)</div>
+            <div class="picTips">1:在线商铺的商标Logo图像<span class="errorinfo">(160*100)</span></div>
             <img src="<s:property value="company.logo"/>" id="logoImg"/>
                 <%--<a class="btn btn-success" id="change_portrait" href="#">更改</a>--%>
-            <br/>
+            </br>
             <input type="file" name="fileupload" id="change_logo" class="fileInput"/>
             <p id="warning1" class="input_msg"></P>
             <s:hidden name="company.logo" id="logoURL"/>
@@ -91,9 +93,10 @@
 
 
         <div class="companyHomePic">
-            <div class="picTips">2:在线商铺主页上的图片介绍(1024*340)</div>
+            <div class="picTips">2:在线商铺主页上的图片介绍<span class="errorinfo">(宽必须是1024*最高340)</span></div>
             <img src="<s:property value="company.homeImage"/>" id="homeImage"/>
                 <%--<a class="btn btn-success" id="change_profile" href="userPortraitCrop.html">更改</a>--%>
+            <br/>
             <input type="file" name="fileupload" id="change_profile" class="fileInput"/>
             <p id="warning2" class="input_msg"></P>
             <s:hidden name="company.homeImage" id="homeImgURL"/>
@@ -101,14 +104,50 @@
         </div>
 
         <div class="companyBigAd">
-            <div class="picTips">3:在线商铺主页上的图片广告(1024*430)</div>
-            <img src="<s:property value="company.adImage"/>" id="adImage"/>
-                <%--<a class="btn btn-success" id="change_ad" href="userPortraitCrop.html">更改</a>--%>
-            <input type="file" name="fileupload" id="change_AD" class="fileInput"/>
-            <p id="warning3" class="input_msg"></P>
-            <s:hidden name="company.adImage" id="adImgURL"/>
-            <div id="fileQueueAD"></div>
+                <%--<div class="picTips">3:在线商铺主页上的图片广告(1024*430)</div>--%>
+                <%--<img src="<s:property value="company.adImage"/>" id="adImage"/>--%>
+                <%--&lt;%&ndash;<a class="btn btn-success" id="change_ad" href="userPortraitCrop.html">更改</a>&ndash;%&gt;--%>
+                <%--<input type="file" name="fileupload" id="change_AD" class="fileInput"/>--%>
+                <%--<p id="warning3" class="input_msg"></P>--%>
+                <%--<s:hidden name="company.adImage" id="adImgURL"/>--%>
+                <%--<div id="fileQueueAD"></div>--%>
+            <div class="picTips">3:在线商铺主页上的图片广告<span class="errorinfo">(宽度必须是1024，高度最高500)</span></div>
+            <div id="tabtag_4con">
+                <table id="imageTable">
+                    <tr>
+                        <td class="imageCol">预览</td><td class="desCol">类型</td><td class="pathCol">路径</td><td class="editCol">操作</td>
+                    </tr>
+
+                    <%--主页照片--%>
+
+                    <%--<tr>--%>
+                        <%--<td class="imageCol"><img src="<s:property value="company.logo"/>" id="logoImg"/></td>--%>
+                        <%--<td class="desCol">商店Logo(160*100)</td>--%>
+                        <%--<td class="pathCol"><input name="company.logo" id="logoURL"/></td>--%>
+                        <%--<td class="editCol"><input type="file" name="fileupload" id="change_logo" class="fileInput"/></td>--%>
+                        <%--<div id="fileQueue"></div>--%>
+                    <%--</tr>--%>
+
+                    <%--广告照片--%>
+                    <s:iterator value="adImages" id="adImage">
+                        <tr>
+                            <td class="imageCol"><img src="<s:property value="#adImage"/>"/></td>
+                            <td class="desCol">广告照片</td>
+                            <td class="pathCol"><input name="adImages" value="<s:property value='#adImage'/>"/></td>
+                            <td class="editCol"><img src='/images/delete.jpg' class='newImage' ></td>
+                        </tr>
+                    </s:iterator>
+
+                </table>
+                <div>
+                    <%--<a class="btn btn-success" id="changeAdImgFancy" href="cropCompanyAD.html">上传新的广告照片</a>--%>
+                    <input type="file" name="fileupload" id="change_AD" class="fileInput"/>
+                    <s:hidden id="adImage" /><s:hidden id="adImgURL" />
+                    <div id="fileQueueAD"></div>
+                </div>
+            </div>
         </div>
+
     </div>
 
     <div class="companyLines" style="width: 100%; text-align: center">
@@ -119,3 +158,40 @@
     </div>
 
 </s:form>
+
+<style>
+    #fancybox-wrap{
+        top:1009 !important;
+    }
+</style>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        //更换头像
+        $("#changeAdImgFancy").fancybox({
+            type:'iframe',
+            width:730,
+            height:490,
+            padding:10,
+            top:10,
+            topRation:0,
+            scrolling:"no",
+            modal:true,
+            onClosed:addNewImage
+        });
+
+    });
+
+
+    CKEDITOR.replace('company.description',
+            {
+                customConfig : '/jsp/layout/myCkeditor.js'
+            }
+
+    );
+
+</script>
+
+
+

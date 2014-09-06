@@ -10,8 +10,8 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <% request.setCharacterEncoding("UTF-8"); %>
 
-<link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />
-<link href="/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="css/layout.css" rel="stylesheet" type="text/css" />
 
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <%--<script type="text/javascript" src="js/dialog.js"></script>--%>
@@ -26,7 +26,7 @@
 <script type="text/javascript" src="js/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
 
 <link href="js/uploadify/uploadify.css" type="text/css" rel="stylesheet"/>
-<script type="text/javascript" src="js/uploadify/jquery.uploadify.v2.1.4.js"></script>
+<script type="text/javascript" src="js/uploadify/jquery.uploadify.v2.1.0.js"></script>
 <script type="text/javascript" src="js/uploadify/swfobject.js"></script>
 
 

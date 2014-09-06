@@ -1,6 +1,8 @@
 * {margin:0px; padding:0px;}
 
-html{overflow-y:scroll;}
+html{
+    overflow-y: scroll;
+}
 
 body {width:1024px;
     margin: 0px auto;
