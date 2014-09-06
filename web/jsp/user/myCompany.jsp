@@ -38,11 +38,11 @@
                 <span><strong>•</strong><span class="bar">状态:&nbsp;&nbsp;</span>审核中</span>
             </p>
 
-            <p class="details cf">
-                <span class="fl"><s:property value="description"/></span>
-            </p>
+            <div class="details" style="clear: both">
+                <s:property value="description" escape="false"/>
+            </div>
 
-            <p class="time">
+            <div class="time">
                 <a class="manage_links" href="initUpdateCompany.html?company.id=<s:property value="id"/>">
                     基本信息</a>
                 <a class="manage_links" href="/companyProducts.html?company.id=<s:property value="id"/>">
@@ -61,7 +61,7 @@
                 <%--<a class="manage_links" href="/deleteCompany.html?company.id=<s:property value="id"/>">--%>
                 <a class="manage_links" href="#" onclick="confirmDeleteComany('<s:property value="id"/>', '<s:property value="name"/>')">
                     删除商店</a>
-            </p>
+            </div>
         </div>
 
     </div>

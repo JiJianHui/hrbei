@@ -40,9 +40,9 @@
                     <span><strong>•</strong><span class="bar">状态:&nbsp;&nbsp;</span>热销中</span>
                 </p>
 
-                <p class="details cf">
-                    <span class="fl"><s:property value="description"/></span>
-                </p>
+                <div class="details cf">
+                    <s:property value="description" escape="false"/>
+                </div>
 
                 <p class="time">
                     <a class="manage_links" href="initUpdateProduct.html?product.id=<s:property value="id"/>">

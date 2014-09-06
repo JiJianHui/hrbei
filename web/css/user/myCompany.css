@@ -80,3 +80,7 @@
 .companyItem .details a:hover{
     text-decoration: underline;
 }
+
+.time{
+    margin-top: 15px;
+}

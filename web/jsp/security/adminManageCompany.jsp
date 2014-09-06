@@ -38,9 +38,9 @@
                     <span><strong>•</strong><span class="bar">状态:&nbsp;&nbsp;</span>审核中</span>
                 </p>
 
-                <p class="details cf">
-                    <span class="fl"><s:property value="description"/></span>
-                </p>
+                <div class="details">
+                    <s:property value="description" escape="false"/>
+                </div>
 
                 <p class="time">
 
