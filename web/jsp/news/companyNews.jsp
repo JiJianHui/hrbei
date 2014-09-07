@@ -35,7 +35,7 @@
             </div>
 
             <div class="details" style="clear: both">
-                <s:property value="content" escape="false"/>
+                <s:property value="getPureText(content)"/>
             </div>
 
             <p class="time">

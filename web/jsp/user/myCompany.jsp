@@ -39,7 +39,8 @@
             </p>
 
             <div class="details" style="clear: both">
-                <s:property value="description" escape="false"/>
+                <%--<s:property value="description" escape="false"/>--%>
+                <s:property value="getPureText(description)"/>
             </div>
 
             <div class="time">

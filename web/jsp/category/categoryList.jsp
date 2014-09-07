@@ -101,7 +101,7 @@
                 <div class="beiefIntroItem"><span>企业名称：</span>
                     <a href="companyBlog.html?company.id=<s:property value="#company.id"/>" class="companyName">
                     <s:property value="#company.name"/></a></div>
-                <div class="beiefIntroItem"><span>企业简介：</span><s:property value="#company.description"/> </div>
+                <div class="beiefIntroItem"><span>企业简介：</span><s:property value="getPureText(description)"/></div>
                 <div class="beiefIntroItem"><span>商家特色：</span>联想从事开发、制造并销售可靠的、安全易用的技术产品及优质专业的服务，帮助全球客户和合作伙伴取得成功。</div>
             </div>
 

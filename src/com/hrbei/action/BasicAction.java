@@ -9,6 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
+import org.jsoup.Jsoup;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -142,6 +143,10 @@ public class BasicAction extends ActionSupport
         ActionContext.getContext().getSession().put(Constants.SESSION_USER_ROLE_TYPE, user.getUserRoleType());
     }
 
+
+    public String getPureText(String htmlStr){
+        return Jsoup.parse(htmlStr).text();
+    }
 
     public Pagination getPagination() {
 

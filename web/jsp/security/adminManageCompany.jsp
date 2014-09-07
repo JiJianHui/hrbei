@@ -39,7 +39,7 @@
                 </p>
 
                 <div class="details">
-                    <s:property value="description" escape="false"/>
+                    <s:property value="getPureText(description)"/>
                 </div>
 
                 <p class="time">

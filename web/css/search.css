@@ -56,6 +56,11 @@
 
 .basicLogo{width: 160px; height: 100px;}
 
+.basicLogo img{
+    width: 160px;
+    height: 100px;
+}
+
 .basicInfo{
     width: 200px;
     color:#9c9c9c;

@@ -41,7 +41,7 @@
                 </p>
 
                 <div class="details cf">
-                    <s:property value="description" escape="false"/>
+                    <s:property value="getPureText(description)"/>
                 </div>
 
                 <p class="time">
